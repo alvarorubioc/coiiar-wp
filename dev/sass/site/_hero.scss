@@ -1,0 +1,38 @@
+#hero {
+    background-color: $color__gray;
+
+    .hero-link {
+        font-weight: bold;
+        padding-right: $space-sm;
+    }
+
+    .entry-title {
+        padding: $space-xl 0;
+    }
+    .img-hero {
+        position: relative;
+
+        img {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            @include breakpoint(mobile) {
+                position: relative;
+                margin-bottom: -6px;
+            }
+        }
+    }
+}
+
+.single #hero{
+    background-color: $color__ligth;
+}
+
+.divider {
+    height: $space-xxs;
+    background-color: $color__primary;
+    max-width: 168px;
+    margin-bottom: $space-md;
+    margin-top: $space-sm;
+
+}

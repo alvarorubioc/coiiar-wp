@@ -1,0 +1,33 @@
+.pagination {
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+    margin: 4em 0;
+    justify-content: center;
+}
+
+.page-item {
+	margin-right: $space__unit;
+    background-color: $color__primary;
+    border-radius: $border__radius;
+    
+
+    &.active span{
+        background-color: $color__primary;
+        color: white;
+        border-radius: $border__radius;
+    }
+}
+
+.page-link {
+    position: relative;
+    display: block;
+    padding: .5rem .75rem;
+    line-height: 1.25;
+    
+    &:hover {
+        background-color: $color__link;
+        border-radius: $border__radius;
+        color: white;
+    }
+}

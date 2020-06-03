@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icons/magnifying-glass</title>
+    <defs>
+        <path d="M4,11 C4,14.86 7.14,18 11,18 C12.18,18 13.34,17.72 14.32,17.18 C14.3984992,17.2744664 14.4855336,17.3615008 14.58,17.44 L16.58,19.44 C17.0831953,20.0062106 17.858695,20.2469829 18.5940852,20.0653204 C19.3294754,19.8836579 19.9036579,19.3094754 20.0853204,18.5740852 C20.2669829,17.838695 20.0262106,17.0631953 19.46,16.56 L17.46,14.56 C17.3625754,14.4625405 17.2553391,14.3754109 17.14,14.3 C17.68,13.32 18.02,12.18 18.02,10.98 C18.02,7.12 14.86,4 11,4 C7.14,4 4,7.14 4,11 Z M16,11 C16,12.32 15.52,13.54 14.68,14.44 C14.66,14.46 14.64,14.48 14.62,14.5 C14.5255336,14.5784992 14.4384992,14.6655336 14.36,14.76 C13.48,15.56 12.28,16.02 10.98,16.02 C8.2,16.02 5.98,13.8 5.98,11.02 C5.98,8.24 8.22,6 11,6 C13.78,6 16,8.22 16,11 Z" id="path-1"></path>
+    </defs>
+    <g id="icons/magnifying-glass" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <use id="Mask" fill="#212B36" fill-rule="nonzero" xlink:href="#path-1"></use>
+        <g id="color/primary" mask="url(#mask-2)" fill="#663399">
+            <rect id="color/red" x="0" y="0" width="24" height="24" rx="4"></rect>
+        </g>
+    </g>
+</svg>
