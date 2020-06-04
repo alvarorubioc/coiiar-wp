@@ -1,0 +1,86 @@
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea {
+	color: $color__text-main;
+	border: solid 1px $color__gray-dark;
+	border-radius: $border__radius;
+	padding: $space-xxs;
+	width: 100%;
+	background-color: $color__white;
+
+	&:focus {
+		color: $color__primary-dark;
+		border: solid 1px $color__primary;
+	}
+
+	&.error {
+		border: 1px solid $color__error;
+	}
+}
+
+span.error {
+	color: $color__error;
+}
+
+input[type="submit"] {
+	font-size: 100%;
+}
+
+// Search form
+.search-form {
+	position: relative;
+	input[type="search"] {
+		background-color: $color__gray;
+		border: solid 1px $color__gray;
+	}
+
+	input[type="submit"] {
+		position: absolute;
+		right: 8px;
+		top: calc(50% - .75em);
+		display: block;
+		text-indent: -9999px;
+		width: 24px;
+		height: 24px;
+		background: url(dev/icons/sprite-icons/magnifying-glass.svg);
+		background-size: 24px 24px;
+	}
+	
+}
+
+
+// styles for contanct form 7
+
+span.wpcf7-not-valid-tip {
+    color: white;
+    font-size: 1em;
+    font-weight: normal;
+    display: block;
+}
+
+span.wpcf7-list-item {
+    display: inline-block;
+	margin: 0;
+	
+}
+
+.wpcf7-list-item-label {
+	padding-left: .25em;
+}
+div.wpcf7-validation-errors, div.wpcf7-acceptance-missing {
+	border: 2px solid $color__warning;
+	border-radius: $space__unit;
+}

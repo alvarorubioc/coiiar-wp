@@ -1,0 +1,31 @@
+// Custom text colors
+.has-primary-color {
+	color: $color__primary;
+}
+
+.has-secondary-color {
+	color: $color__secondary;
+}
+
+.has-accent-color {
+	color: $color__primary-dark;
+}
+
+.has-white-color {
+	color: $color__white;
+}
+
+
+// Custom background colors
+.has-secondary-background-color {
+	background-color: $color__secondary;
+}
+
+.has-primary-background-color {
+	background-color: $color__primary;
+}
+
+.has-accent-background-color {
+	background-color: $color__primary-dark;
+}
+

@@ -1,0 +1,72 @@
+/*!
+Theme Name: COIIAR
+Theme URI: http://underscores.me/
+Author: Alvaro Rubio Camino
+Author URI: http://www.alvarorubioc.com
+Description: WP theme for COIIAR
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: coiiar
+Tags: custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+
+
+/*--------------------------------------------------------------
+# Normalize
+--------------------------------------------------------------*/
+@import "normalize";
+
+/*--------------------------------------------------------------
+# Core
+--------------------------------------------------------------*/
+@import "core/variables";
+@import "core/spacing";
+@import "core/colors";
+@import "core/mixins-master";
+@import "core/flexbox";
+@import "core/typography";
+
+
+/*--------------------------------------------------------------
+# Components
+--------------------------------------------------------------*/
+@import "components/buttons";
+@import "components/captions";
+@import "components/elements";
+@import "components/fields";
+@import "components/galleries";
+@import "components/lists";
+@import "components/media";
+@import "components/tables";
+@import "components/cards";
+
+
+/*--------------------------------------------------------------
+# Modules
+--------------------------------------------------------------*/
+@import "modules/accessibility";
+@import "modules/alignments";
+@import "modules/clearings";
+@import "modules/blocks";
+
+
+/*--------------------------------------------------------------
+# Navigation
+--------------------------------------------------------------*/
+@import "navigation/links";
+@import "navigation/menus";
+@import "navigation/pagination";
+
+
+/*--------------------------------------------------------------
+# Site
+--------------------------------------------------------------*/
+@import "site/comments";
+@import "site/homepage";
+@import "site/footer";
+@import "site/hero";
+@import "site/posts-and-pages";
+@import "site/widgets";
+
+
+
