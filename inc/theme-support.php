@@ -46,6 +46,12 @@ if ( ! function_exists( 'coiiar_setup' ) ) :
 			)
 		);
 
+		register_nav_menus(
+			array(
+				'top-menu' => esc_html__( 'Top menu', 'coiiar' ),
+			)
+		);
+
 		/*
 		 * Switch default core markup for search form, comment form, and comments
 		 * to output valid HTML5.

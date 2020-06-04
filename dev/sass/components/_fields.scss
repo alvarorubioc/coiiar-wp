@@ -45,6 +45,11 @@ input[type="submit"] {
 	input[type="search"] {
 		background-color: $color__gray;
 		border: solid 1px $color__gray;
+
+		&:focus {
+			color: $color__primary-dark;
+			border: solid 1px $color__primary;
+		}
 	}
 
 	input[type="submit"] {

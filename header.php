@@ -29,16 +29,18 @@
 	<header id="masthead" class="site-header">
 		<div class="container">
 			<div class="row middle-xs">
-				<div class="site-branding col-xs-3">
+				<div class="site-branding col-xs-6 col-md-3">
 					<?php the_custom_logo(); ?>
 				</div><!-- .site-branding -->
 				<div class="site-search col-xs-5">
 					<?php get_search_form(); ?>
 				</div><!-- .site-search -->
-				<div class="site-branding col-xs-4 end-xs">
-					<span>Login </span>
-					<span> Colegiación </span>
-					<span> Visados</span>
+				<div class="site-branding col-xs-6 col-md-4 end-xs">
+					<ul>
+						<li>Login </li>
+						<li>Colegiación</li>
+						<li>Visados</li>
+					</ul>	
 				</div><!-- .site-branding -->
 			</div>
 		</div>
@@ -50,6 +52,8 @@
 				array(
 					'theme_location' => 'menu-1',
 					'menu_id'        => 'primary-menu',
+					'container'		 => 'div',
+					'container_class' => 'container',
 				)
 			);
 			?>
