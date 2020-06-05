@@ -1,7 +1,7 @@
 <section class="pt-4 pb-5" id="section-actualidad">	
     <div class="container">
         
-        <div class="row center-xs">
+        <div class="row mb-2 center-xs">
             <div class="col-xs-12 col-md-7">
                 <div class="divider aligncenter"></div>
                 <h2>Actualidad y noticias del Colegio Industrial de Ingenieros</h2>

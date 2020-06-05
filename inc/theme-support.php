@@ -123,7 +123,7 @@ if ( ! function_exists( 'coiiar_setup' ) ) :
 endif;
 add_action( 'after_setup_theme', 'coiiar_setup' );
 
-// Damos soporte a los Post Formats: Aside, Link, Image, Video y Quote
+// Damos soporte a los Post Formats: Aside, Link, Image, Video, Quote, etc
 add_theme_support( 'post-formats', array( 'gallery', 'video' ) );
 
 // Add excerpt to pages

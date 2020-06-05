@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying card agenda
+ * Template part for displaying card servicios
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -13,7 +13,7 @@
 	
 		<div class="card--horizontal"> 
 			<div class="card-icon">
-                <div>icon</div>
+                <div><?php the_field('card_icon');?></div>
 			</div>	
 			<div class="card-content">
 				<a id="id-<?php the_id(); ?>" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">

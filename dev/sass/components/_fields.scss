@@ -45,14 +45,6 @@ input[type="submit"] {
 	input[type="search"] {
 		background-color: $color__gray;
 		border: solid 1px $color__gray;
-<<<<<<< HEAD
-=======
-
-		&:focus {
-			color: $color__primary-dark;
-			border: solid 1px $color__primary;
-		}
->>>>>>> b7a037c74cfe691635770b98a1fd65989b46665f
 	}
 
 	input[type="submit"] {
@@ -63,12 +55,8 @@ input[type="submit"] {
 		text-indent: -9999px;
 		width: 24px;
 		height: 24px;
-<<<<<<< HEAD
-		background: url(./dev/icons/sprite-icons/magnifying-glass.svg);
-=======
-		background: url(dev/icons/sprite-icons/magnifying-glass.svg);
->>>>>>> b7a037c74cfe691635770b98a1fd65989b46665f
-		background-size: 24px 24px;
+		background: url(./assets/img/magnifying-glass.svg);
+		background-size: auto 100%;
 	}
 	
 }

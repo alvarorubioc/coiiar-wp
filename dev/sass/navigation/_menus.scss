@@ -1,13 +1,13 @@
-<<<<<<< HEAD
 .site-header{
 	padding-top: $space-xxs;
 }
 
 .site-search {
-	@include breakpoint(laptop) {
+	@include breakpoint(mobile) {
 		display: none;
 	}
 }
+
 
 #top-menu {
 	margin: 0;
@@ -27,14 +27,14 @@
 			svg {
 				margin-right: $space-xxs;
 				fill: $color__primary;
-				@include breakpoint(laptop) {
+				@include breakpoint(mobile) {
 					width: $space-sm;
 					height: $space-sm;
 				}
 			}
 
 			span {
-				@include breakpoint(laptop) {
+				@include breakpoint(mobile) {
 					font-size: 0;
 					text-indent: -99999px
 				}
@@ -50,20 +50,11 @@
 	border-top: 1px solid $color__gray;
 	margin-top: $space-xxs;
 
-=======
-
-.main-navigation {
-	position: relative;
-	display: block;
-	float: left;
-	width: 100%;
->>>>>>> b7a037c74cfe691635770b98a1fd65989b46665f
 	ul {
 		display: none;
 		list-style: none;
 		margin: 0;
 		padding-left: 0;
-<<<<<<< HEAD
 
 		ul {
 			box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
@@ -72,6 +63,16 @@
 			top: 100%;
 			left: -999em;
 			z-index: 99999;
+			display: block;
+
+			.current_page_item > a,
+			.current-menu-item > a,
+			.current-page-ancestor > a,
+			.current-menu-ancestor > a {
+				border-bottom: 0;
+				border-left: 4px solid $color__primary;
+				background-color: $color__primary-20;
+			}
 
 			ul {
 				left: -999em;
@@ -88,7 +89,8 @@
 			}
 
 			a {
-				width: 200px;
+				width: 300px;
+				background-color: $color__white;
 			}
 
 			:hover > a,
@@ -97,6 +99,8 @@
 
 			a:hover,
 			a.focus {
+				background-color: $color__ligth;
+				border-left: 4px solid $color__primary;
 			}
 		}
 
@@ -117,95 +121,27 @@
 	a {
 		display: block;
 		text-decoration: none;
+		color: $color__text-main;
+		font-weight: bold;
+		padding: $space__unit;
+		&:hover {
+			color: $color__link-hover;
+		}
 	}
 
 	.current_page_item > a,
 	.current-menu-item > a,
-	.current_page_ancestor > a,
+	.current-page-ancestor > a,
 	.current-menu-ancestor > a {
+		border-bottom: 4px solid $color__primary;
 	}
 }
 
 /* Small menu. */
-=======
-		
-		li {
-      		width: 120px;
-      		float: left;
-      		text-align: center;
-			position: relative;
-      		background-color: #333;
-      		transition: all 0.2s ease-in-out;
-			  
-			&:hover, .focus { // .focus genrerated by js 
-        		background-color: #333;
-      		}
-      		&:hover > ul, .focus > ul {
-				left: auto;
-			}
-      a{
-        display: block;
-        padding: 1.3em 1em;
-	      line-height: 1.2em;
-      }
-    }
-  }
-  ul ul {
-    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-  	float: left;
-  	position: absolute;
-  	left: -999em; // make sub-menu invisible
-  	z-index: 99999;
-    li:hover > ul, li.focus > ul {
-    left: 100%; // make sub-submenu visible and align right
-    }
-    ul {
-      left: -999em;
-      top: 0;
-      li {
-      width: 120px;
-      }
-    }
-  }
-}
-
-/* Menu Burger
-----------------*/
-.icon-bar {
-  background-color: #fff;
-  width: 20px;
-  height: 2px;
-  display: block;
-  -webkit-transition: transform .5s linear;
-  transition: transform .5s linear;
-}
-.top-bar, .middle-bar {
-  margin-bottom: 5px;
-}
-
-/* transform Iconburger */
-.icon-bar.transformIconTop {
-  -webkit-transform: translate(3px) rotate(45deg) ;
-  transform: translate(3px) rotate(45deg);
-  -webkit-transform-origin: center left;
-  transform-origin: center left;
-}
-.icon-bar.transformIconMiddle {
-  opacity: 0;
-}
-.icon-bar.transformIconBottom {
-  -webkit-transform: translate(3px) rotate(-45deg) ;
-  transform: translate(3px) rotate(-45deg) ;
-  -webkit-transform-origin: center left;
-  transform-origin: center left;
-}
-
->>>>>>> b7a037c74cfe691635770b98a1fd65989b46665f
 .menu-toggle,
 .main-navigation.toggled ul {
 	display: block;
 }
-<<<<<<< HEAD
 
 @media screen and (min-width: 37.5em) {
 
@@ -218,41 +154,6 @@
 	}
 }
 
-=======
-// 48em = 768px / Converter : http://pxtoem.com/ 
-@media screen and (min-width: 48em) {
-	.menu-toggle {
-		display: none;
-	}
-}
-
-@media screen and (max-width: 47.99em) {
-	.main-navigation ul li {
-		float: none;
-    width: 100%;
-	}
-  .brand {
-    display: none;
-  }
-}
-
-
-
-/* Media query */
-@media screen and (min-width: 48em) {
-  .menu-toggle {display: none;}
-  .main-navigation ul {display: block;}
-}
-@media screen and (max-width: 47.99em) {
-  .main-navigation ul li {float: none;}
-  .brand {display: none;}
-}
-
-
-
-
-
->>>>>>> b7a037c74cfe691635770b98a1fd65989b46665f
 .comment-navigation,
 .posts-navigation,
 .post-navigation {
