@@ -12,10 +12,16 @@
 	margin-top: $space-xl;
 }
 
-.entry-meta span {
-	margin: 0 $space-xs;
+.entry-meta {
+
+	.posted-on {
+		&:after {
+			content: '';
+		}
+	}
 	
 }
+
 
 .page-links {
 	clear: both;

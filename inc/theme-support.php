@@ -38,7 +38,7 @@ if ( ! function_exists( 'coiiar_setup' ) ) :
         
         // Default thumbnail size
 		add_image_size( 'img-card', 360, 180, true );
-		
+
 
 		// This theme uses wp_nav_menu() in two location.
 		register_nav_menus(
@@ -66,7 +66,7 @@ if ( ! function_exists( 'coiiar_setup' ) ) :
 					
 					// append icon
 					if( $icon ) {
-						$item->title= '<svg class="icon" width="24" height="24" viewBox="0 0 24 24"><use xlink:href=" '.get_template_directory_uri().'/assets/icons/sprite-icons.svg#'.$icon.'"></svg>'.$item->title;
+						$item->title= '<svg class="icon" width="24" height="24" viewBox="0 0 24 24"><use xlink:href="'.get_template_directory_uri().'/assets/icons/sprite-icons.svg#'.$icon.'"></svg>'.$item->title;
 					}
 				}
 				// return

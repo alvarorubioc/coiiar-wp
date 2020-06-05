@@ -32,16 +32,16 @@
 							</a>
 						</li>
 						<li>
-							<a href="#" title="Facebook COIIAR" rel=”nofollow”>
+							<a href="#" title="Twitter COIIAR" rel=”nofollow”>
 								<svg class="icon" width="24" height="24" viewBox="0 0 24 24">
-									<use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/sprite-icons.svg#arrow-right" />
+									<use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/sprite-icons.svg#twitter" />
 								</svg>
 							</a>
 						</li>
 						<li>
 							<a href="#" title="Facebook COIIAR" rel=”nofollow”>
 								<svg class="icon" width="24" height="24" viewBox="0 0 24 24">
-									<use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/sprite-icons.svg#magnifying-glass" />
+									<use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/sprite-icons.svg#linkedin" />
 								</svg>
 							</a>
 						</li>

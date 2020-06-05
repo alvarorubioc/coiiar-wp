@@ -29,10 +29,10 @@
 	<header id="masthead" class="site-header">
 		<div class="container">
 			<div class="row middle-xs">
-				<div class="site-branding col-xs-6 col-md-2">
+				<div class="site-branding col-xs-6 col-md-3">
 					<?php the_custom_logo(); ?>
 				</div><!-- .site-branding -->
-				<div class="site-search col-xs-6 col-md-5 col-md-offset-1">
+				<div class="site-search col-xs-6 col-md-5">
 					<?php get_search_form(); ?>
 				</div><!-- .site-search -->
 				<div class="site-links col-xs-6 col-md-4 end-xs">

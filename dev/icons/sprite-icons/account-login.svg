@@ -7,11 +7,11 @@
 	.st1{fill:#663399;}
 </style>
 <g>
-	<polygon id="path-1" class="st0" points="14.5,6 14.5,11 2,11 2,13.5 14.5,13.5 14.5,18.5 22,12.2 	"/>
+	<path id="path-1" class="st0" d="M9.8,4v2.2h9v11.2h-9v2.2H21V4H9.8z M12,8.5v2.2H3V13h9v2.2l4.5-3.4L12,8.5z"/>
 </g>
-<g id="icons_x2F_arrow-right">
+<g id="icons_x2F_account-login">
 	<g id="Mask">
-		<polygon id="path-1_1_" class="st1" points="14.5,6 14.5,11 2,11 2,13.5 14.5,13.5 14.5,18.5 22,12.2 		"/>
+		<path id="path-1_1_" class="st1" d="M9.8,4v2.2h9v11.2h-9v2.2H21V4H9.8z M12,8.5v2.2H3V13h9v2.2l4.5-3.4L12,8.5z"/>
 	</g>
 </g>
 </svg>

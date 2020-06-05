@@ -16,6 +16,10 @@
     p {
         margin-bottom: 0;
     }
+
+    svg {
+        fill: $color__primary;    
+    }
 }
 
 .card {
@@ -27,7 +31,6 @@
         flex: 1;
         
         .text-caption {
-            color: $color__gray-dark;
             padding-bottom: $space-xxs;
         }
 
@@ -58,6 +61,10 @@
         padding: $space__unit $space-xs;
         font-size: 80%;
     }
+
+    svg {
+        margin-right: $space-xxs;
+    }
 }
 
 .card--horizontal {
@@ -73,6 +80,7 @@
     }
     
     .card-img {
+        flex-basis: 25%;
         a {display: flex;}
     }
     
@@ -82,11 +90,9 @@
 
     .card-content {
         flex-basis: 75%;
-       
 
         .text-caption {
-            color: $color__gray-dark;
-            padding-bottom: $space-xxs;
+            margin-bottom: $space-xxs;
         }
     }
 }
@@ -107,7 +113,8 @@
     .card-content {
         display: flex;
         background-color: $color__primary;
-        padding: $space-xxs $space-xs;
+        padding: $space-xxs $space__unit;
+        border-radius: 0 0 $border__radius $border__radius ;
         h3 {margin-bottom: 0;}
         a {
             color: $color__white;
@@ -116,9 +123,17 @@
             }
         }
 
-        .text-caption {
-            color: $color__gray-dark;
-            padding-bottom: $space-xxs;
+        span.icon-format {
+            background-color: $color__primary-dark;
+            border-radius: $border__radius;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            svg {
+                fill: $color__white;
+            }
         }
     }
 }

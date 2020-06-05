@@ -163,7 +163,7 @@ gulp.task( 'watch', function() {
 	gulp.watch( watchFiles.js, gulp.parallel('javascript') );
 	gulp.watch( watchFiles.sass, gulp.parallel('sass') );
 	gulp.watch( watchFiles.img, gulp.parallel('imagemin') );
-	gulp.watch( watchFiles.icons, gulp.parallel('icons') );
+	
    
   } );
    

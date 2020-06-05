@@ -14,11 +14,15 @@
 		<div class="card-img">
 			<?php coiiar_post_thumbnail(); ?> 
 		</div>
-		<div class="card-content">
+		<div class="card-content middle-xs between-xs">
 			<a id="id-<?php the_id(); ?>" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 				<h3 class="text-h5"><?php the_title(); ?></h3>
 			</a>
-			<span>icon</span>
+			<span class="icon-format">
+				<svg class="icon" width="24" height="24" viewBox="0 0 24 24">
+					<use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/sprite-icons.svg#arrow-right" />
+				</svg>
+			</span>
 		</div> 
 	</div>
 </article>

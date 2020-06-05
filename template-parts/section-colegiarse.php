@@ -14,7 +14,7 @@
             <?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar('cta-img')) : 
 					endif; ?>
             </div>
-            <div class="col-xs-12 col-md-5 col-md-offset-2">
+            <div class="col-xs-12 col-md-5 col-md-offset-2 mb-3">
                 <?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar('cta-text')) : 
                     endif; ?>
                 <a class="btn btn--primary btn--md"><?php esc_html_e( 'Descubre como unirte a nosotros', 'coiiar' ); ?></a>    

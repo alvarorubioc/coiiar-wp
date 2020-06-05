@@ -2,6 +2,12 @@
 	padding-top: $space-xxs;
 }
 
+.site-search {
+	@include breakpoint(laptop) {
+		display: none;
+	}
+}
+
 #top-menu {
 	margin: 0;
 	padding: 0;
@@ -41,7 +47,7 @@
 	display: block;
 	width: 100%;
 	border-top: 1px solid $color__gray;
-	padding: $space-xxs 0 0;
+	margin-top: $space-xxs;
 
 	ul {
 		display: none;

@@ -10,7 +10,7 @@
             $args = array(
                 'post_type' => 'post',
                 'posts_per_page' => 3,
-                'category_name'  => 'comisiones',
+                'category_name'  => 'comision',
 				'orderby' => 'date',
                 'order'   => 'DESC',
             );
@@ -26,20 +26,21 @@
                         <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
                             <div class="card--horizontal">  
                                 <div class="card-img">
-                                    <?php coiiar_post_thumbnail('img-card'); ?> 
+                                    <?php coiiar_post_thumbnail('full'); ?> 
                                 </div>
                                 <div class="card-content">
-                                    <?php $terms = get_the_terms( $post->ID , 'category' ); 
-                                        if  ($terms) {
-                                            foreach ( $terms as $term ) {
-                                            echo '<div class="text-caption">' . $term->name . '</div>';
+                                    <div class="text-caption">
+                                        <?php $terms = get_the_terms( $post->ID , 'category' ); 
+                                            if  ($terms) {
+                                                foreach ( $terms as $term ) {
+                                                echo '<span> ' . $term->name . '</span>';
+                                                }
                                             }
-                                        }
-                                    ?>
+                                        ?>
+                                    </div>
                                     <a id="id-<?php the_id(); ?>" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
                                         <h3 class="text-h5"><?php the_title(); ?></h3>
                                     </a>
-                                    <p><?php echo get_the_excerpt() ;?></p>
                                 </div> 
                             </div>
                         </article>
