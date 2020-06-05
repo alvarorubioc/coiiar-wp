@@ -163,7 +163,11 @@ gulp.task( 'watch', function() {
 	gulp.watch( watchFiles.js, gulp.parallel('javascript') );
 	gulp.watch( watchFiles.sass, gulp.parallel('sass') );
 	gulp.watch( watchFiles.img, gulp.parallel('imagemin') );
+<<<<<<< HEAD
 	
+=======
+	gulp.watch( watchFiles.icons, gulp.parallel('icons') );
+>>>>>>> b7a037c74cfe691635770b98a1fd65989b46665f
    
   } );
    

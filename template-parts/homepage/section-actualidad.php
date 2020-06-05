@@ -16,7 +16,10 @@
                 'posts_per_page' => 4,
 				'orderby' => 'date',
                 'order'   => 'DESC',
+<<<<<<< HEAD
                 'category__not_in' => 4,
+=======
+>>>>>>> b7a037c74cfe691635770b98a1fd65989b46665f
             );
             // The Query
             $the_query = new WP_Query( $args );

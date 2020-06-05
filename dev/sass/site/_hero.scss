@@ -1,3 +1,10 @@
+<<<<<<< HEAD
+=======
+.site-header {
+    padding-top: $space-xxs;
+}
+
+>>>>>>> b7a037c74cfe691635770b98a1fd65989b46665f
 #hero {
     background-color: $color__gray;
 
@@ -24,7 +31,11 @@
     }
 }
 
+<<<<<<< HEAD
 .single #hero, .page-child #hero{
+=======
+.single #hero{
+>>>>>>> b7a037c74cfe691635770b98a1fd65989b46665f
     background-color: $color__ligth;
 }
 

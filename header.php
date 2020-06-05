@@ -32,6 +32,7 @@
 				<div class="site-branding col-xs-6 col-md-3">
 					<?php the_custom_logo(); ?>
 				</div><!-- .site-branding -->
+<<<<<<< HEAD
 				<div class="site-search col-xs-6 col-md-5">
 					<?php get_search_form(); ?>
 				</div><!-- .site-search -->
@@ -45,6 +46,18 @@
 					);
 				?>
 				</div><!-- .site-links -->
+=======
+				<div class="site-search col-xs-5">
+					<?php get_search_form(); ?>
+				</div><!-- .site-search -->
+				<div class="site-branding col-xs-6 col-md-4 end-xs">
+					<ul>
+						<li>Login </li>
+						<li>Colegiación</li>
+						<li>Visados</li>
+					</ul>	
+				</div><!-- .site-branding -->
+>>>>>>> b7a037c74cfe691635770b98a1fd65989b46665f
 			</div>
 		</div>
 
@@ -55,6 +68,11 @@
 				array(
 					'theme_location' => 'menu-1',
 					'menu_id'        => 'primary-menu',
+<<<<<<< HEAD
+=======
+					'container'		 => 'div',
+					'container_class' => 'container',
+>>>>>>> b7a037c74cfe691635770b98a1fd65989b46665f
 				)
 			);
 			?>

@@ -16,10 +16,13 @@
     p {
         margin-bottom: 0;
     }
+<<<<<<< HEAD
 
     svg {
         fill: $color__primary;    
     }
+=======
+>>>>>>> b7a037c74cfe691635770b98a1fd65989b46665f
 }
 
 .card {
@@ -31,6 +34,10 @@
         flex: 1;
         
         .text-caption {
+<<<<<<< HEAD
+=======
+            color: $color__gray-dark;
+>>>>>>> b7a037c74cfe691635770b98a1fd65989b46665f
             padding-bottom: $space-xxs;
         }
 
@@ -61,10 +68,13 @@
         padding: $space__unit $space-xs;
         font-size: 80%;
     }
+<<<<<<< HEAD
 
     svg {
         margin-right: $space-xxs;
     }
+=======
+>>>>>>> b7a037c74cfe691635770b98a1fd65989b46665f
 }
 
 .card--horizontal {
@@ -80,7 +90,10 @@
     }
     
     .card-img {
+<<<<<<< HEAD
         flex-basis: 25%;
+=======
+>>>>>>> b7a037c74cfe691635770b98a1fd65989b46665f
         a {display: flex;}
     }
     
@@ -90,9 +103,17 @@
 
     .card-content {
         flex-basis: 75%;
+<<<<<<< HEAD
 
         .text-caption {
             margin-bottom: $space-xxs;
+=======
+       
+
+        .text-caption {
+            color: $color__gray-dark;
+            padding-bottom: $space-xxs;
+>>>>>>> b7a037c74cfe691635770b98a1fd65989b46665f
         }
     }
 }
@@ -113,8 +134,12 @@
     .card-content {
         display: flex;
         background-color: $color__primary;
+<<<<<<< HEAD
         padding: $space-xxs $space__unit;
         border-radius: 0 0 $border__radius $border__radius ;
+=======
+        padding: $space-xxs $space-xs;
+>>>>>>> b7a037c74cfe691635770b98a1fd65989b46665f
         h3 {margin-bottom: 0;}
         a {
             color: $color__white;
@@ -123,6 +148,7 @@
             }
         }
 
+<<<<<<< HEAD
         span.icon-format {
             background-color: $color__primary-dark;
             border-radius: $border__radius;
@@ -134,6 +160,11 @@
             svg {
                 fill: $color__white;
             }
+=======
+        .text-caption {
+            color: $color__gray-dark;
+            padding-bottom: $space-xxs;
+>>>>>>> b7a037c74cfe691635770b98a1fd65989b46665f
         }
     }
 }

@@ -18,11 +18,14 @@ require get_template_directory() . '/inc/theme-support.php';
 require get_template_directory() . '/inc/enqueue-scripts.php';
 
 /**
+<<<<<<< HEAD
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';
 
 /**
+=======
+>>>>>>> b7a037c74cfe691635770b98a1fd65989b46665f
  *  Register widget areas
  */
 require get_template_directory().'/inc/widgets.php';

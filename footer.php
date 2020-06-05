@@ -22,7 +22,11 @@
 				<?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar('footer-middle')) : 
 					endif; ?>
 				<div class="col-xs-12 col-md-4 col-md-offset-1">
+<<<<<<< HEAD
 					<p class="text-h5"><?php esc_html_e( 'Síguenos en:', 'coiiar' ); ?></p>
+=======
+					<h5><?php esc_html_e( 'Síguenos en:', 'coiiar' ); ?></h5>
+>>>>>>> b7a037c74cfe691635770b98a1fd65989b46665f
 					<ul class="social">
 						<li>
 							<a href="#" title="Facebook COIIAR" rel=”nofollow”>
@@ -32,16 +36,26 @@
 							</a>
 						</li>
 						<li>
+<<<<<<< HEAD
 							<a href="#" title="Twitter COIIAR" rel=”nofollow”>
 								<svg class="icon" width="24" height="24" viewBox="0 0 24 24">
 									<use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/sprite-icons.svg#twitter" />
+=======
+							<a href="#" title="Facebook COIIAR" rel=”nofollow”>
+								<svg class="icon" width="24" height="24" viewBox="0 0 24 24">
+									<use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/sprite-icons.svg#arrow-right" />
+>>>>>>> b7a037c74cfe691635770b98a1fd65989b46665f
 								</svg>
 							</a>
 						</li>
 						<li>
 							<a href="#" title="Facebook COIIAR" rel=”nofollow”>
 								<svg class="icon" width="24" height="24" viewBox="0 0 24 24">
+<<<<<<< HEAD
 									<use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/sprite-icons.svg#linkedin" />
+=======
+									<use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/sprite-icons.svg#magnifying-glass" />
+>>>>>>> b7a037c74cfe691635770b98a1fd65989b46665f
 								</svg>
 							</a>
 						</li>
