@@ -14,17 +14,10 @@
             <?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar('cta-img')) : 
 					endif; ?>
             </div>
-<<<<<<< HEAD
             <div class="col-xs-12 col-md-5 col-md-offset-2 mb-3">
                 <?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar('cta-text')) : 
                     endif; ?>
                 <a class="btn btn--primary btn--md"><?php esc_html_e( 'Descubre como unirte a nosotros', 'coiiar' ); ?></a>    
-=======
-            <div class="col-xs-12 col-md-5 col-md-offset-2">
-                <?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar('cta-text')) : 
-                    endif; ?>
-                <div class="mb-3"><a class="btn btn--primary btn--md"><?php esc_html_e( 'Descubre como unirte', 'coiiar' ); ?></a></div>    
->>>>>>> b7a037c74cfe691635770b98a1fd65989b46665f
             </div>
         </div>
     </div>
