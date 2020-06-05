@@ -13,15 +13,9 @@ function coiiar_scripts() {
 
 	wp_enqueue_script( 'coiiar-navigation', get_template_directory_uri() . '/assets/js/coiiar.min.js', array(), _S_VERSION, true );
 	
-<<<<<<< HEAD
 	//wp_enqueue_script( 'coiiar-navigation', get_template_directory_uri() . '/dev/js/navigation.js', array(), _S_VERSION, true );
 
 	//wp_enqueue_script( 'coiiar-skip-link-focus-fix', get_template_directory_uri() . '/dev/js/skip-link-focus-fix.js', array(), _S_VERSION, true );
-=======
-	wp_enqueue_script( 'coiiar-navigation', get_template_directory_uri() . '/dev/js/navigation.js', array(), _S_VERSION, true );
-
-	wp_enqueue_script( 'coiiar-skip-link-focus-fix', get_template_directory_uri() . '/dev/js/skip-link-focus-fix.js', array(), _S_VERSION, true );
->>>>>>> b7a037c74cfe691635770b98a1fd65989b46665f
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

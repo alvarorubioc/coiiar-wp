@@ -49,8 +49,4 @@ get_header();
 	</main><!-- #main -->
 
 <?php
-<<<<<<< HEAD
-=======
-get_sidebar();
->>>>>>> b7a037c74cfe691635770b98a1fd65989b46665f
 get_footer();

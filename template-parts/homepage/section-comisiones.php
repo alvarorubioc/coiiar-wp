@@ -10,11 +10,7 @@
             $args = array(
                 'post_type' => 'post',
                 'posts_per_page' => 3,
-<<<<<<< HEAD
                 'category_name'  => 'comision',
-=======
-                'category_name'  => 'comisiones',
->>>>>>> b7a037c74cfe691635770b98a1fd65989b46665f
 				'orderby' => 'date',
                 'order'   => 'DESC',
             );

@@ -39,12 +39,8 @@ if ( ! function_exists( 'coiiar_setup' ) ) :
         // Default thumbnail size
 		add_image_size( 'img-card', 360, 180, true );
 
-<<<<<<< HEAD
 
 		// This theme uses wp_nav_menu() in two location.
-=======
-		// This theme uses wp_nav_menu() in one location.
->>>>>>> b7a037c74cfe691635770b98a1fd65989b46665f
 		register_nav_menus(
 			array(
 				'menu-1' => esc_html__( 'Primary', 'coiiar' ),
@@ -53,7 +49,6 @@ if ( ! function_exists( 'coiiar_setup' ) ) :
 
 		register_nav_menus(
 			array(
-<<<<<<< HEAD
 				'menu-2' => esc_html__( 'Top menu', 'coiiar' ),
 			)
 		);
@@ -78,12 +73,6 @@ if ( ! function_exists( 'coiiar_setup' ) ) :
 				return $items;
 			}
 
-=======
-				'top-menu' => esc_html__( 'Top menu', 'coiiar' ),
-			)
-		);
-
->>>>>>> b7a037c74cfe691635770b98a1fd65989b46665f
 		/*
 		 * Switch default core markup for search form, comment form, and comments
 		 * to output valid HTML5.
