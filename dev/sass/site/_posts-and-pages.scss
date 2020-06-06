@@ -13,10 +13,17 @@
 }
 
 .entry-meta {
+	display: flex;
 
-	.posted-on {
-		&:after {
-			content: '';
+	@include breakpoint(mobile) {
+		@include center-block;
+	}
+
+	> div {
+		padding: $space-xxs $space__unit;
+
+		svg {
+			margin-right: $space-xxs;
 		}
 	}
 	
@@ -47,7 +54,6 @@
 	.filter-by {
 		padding: $space__unit $space-sm $space__unit 0;
 		border-right: 1px solid $color__gray;
-		text-transform: uppercase;
 		font-weight: bold;
 		border-radius: 0;
 		background-color: $color__white;
@@ -59,11 +65,24 @@
 		font-weight: bold;
 		border-radius: 0;
 		background-color: $color__white;
+		transition: all 0.3s ease;
 
 		&:hover, &.active {
 			background-color: $color__ligth;
 			color: $color__primary;
 			cursor: pointer;
+		}
+
+		&.active {
+			span {
+				transform: rotate(180deg);
+				transition: all 0.3s ease;
+			} 
+		}
+
+		span {
+			//margin-left: $space-sm;
+			transform: rotate(0deg);
 		}
 	}
 

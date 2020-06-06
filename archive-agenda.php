@@ -30,7 +30,9 @@ get_header();
 				get_template_part( 'template-parts/loop', 'agenda' );
 
 			endwhile;
+
 			echo '</div></div>';
+			
 			the_posts_navigation();
 
 		else :

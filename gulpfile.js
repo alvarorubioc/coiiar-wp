@@ -142,7 +142,7 @@ gulp.task('build', function () {
 	  './assets/**/*',
 	  './inc/**/*',
 	  './languages/*',
-	  './template-parts/*',
+	  './template-parts/**/*',
 	  '!dev',
 	  '!dist',
 	  '!.gitignore',

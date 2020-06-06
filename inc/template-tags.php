@@ -15,6 +15,7 @@ if ( ! function_exists( 'coiiar_posted_on' ) ) :
 		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
 			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
+			$time_icon = '<svg class="icon" width="24" height="24" viewBox="0 0 24 24"><use xlink:href="'.get_template_directory_uri().'/assets/icons/sprite-icons.svg#calendar" /></svg>';
 		}
 
 		$time_string = sprintf(
@@ -25,7 +26,7 @@ if ( ! function_exists( 'coiiar_posted_on' ) ) :
 			esc_html( get_the_modified_date() )
 		);
 
-		echo '<span class="posted-on">' . $time_string . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo '<div class="posted-on dflex center-xs"> ' .$time_icon. ' ' . $time_string . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 	}
 endif;
@@ -39,8 +40,9 @@ if ( ! function_exists( 'coiiar_posted_by' ) ) :
 			/* translators: %s: post author. */
 			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 		);
+		$autor_icon = '<svg class="icon" width="24" height="24" viewBox="0 0 24 24"><use xlink:href="'.get_template_directory_uri().'/assets/icons/sprite-icons.svg#person" /></svg>';
 
-		echo '<span class="byline"> ' . $byline . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo '<div class="byline dflex center-xs"> ' .$autor_icon. ' ' . $byline . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 	}
 endif;
@@ -54,7 +56,7 @@ if ( ! function_exists( 'coiiar_posted_category' ) ) :
 		$categories_list = preg_replace('/<a /', '<a class="bagde"', get_the_category_list( ' ' ));
 		if ( $categories_list ) {
 			/* translators: 1: list of categories. */
-			printf( '<span class="category-links">' .$categories_list. '</span>' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			printf( '<div class="category-links">' .$categories_list. '</div>' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 	}
 endif;
@@ -69,7 +71,7 @@ if ( ! function_exists( 'coiiar_posted_tag' ) ) :
 		$tags_list = preg_replace('/<a /', '<a class="bagde"', get_the_tag_list(' '));
 		if ( $tags_list ) {
 			/* translators: 1: list of tags. */
-			printf( '<span class="tags-links">' . $tags_list . '</span>' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			printf( '<div class="tags-links">' . $tags_list . '</div>' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 	}
 endif;
@@ -170,3 +172,23 @@ if ( ! function_exists( 'wp_body_open' ) ) :
 		do_action( 'wp_body_open' );
 	}
 endif;
+
+
+/** 
+ * Modify “Category: & Tags:” from the_archive_title 
+ */  
+add_filter( 'get_the_archive_title', function ($title) {  
+  
+    if ( is_category() ) {  
+      
+        $title = single_cat_title( 'Noticias por temática: ', false );  
+  
+        } elseif ( is_tag() ) {  
+  
+            $title = single_tag_title( 'Noticias por perfil: ', false );  
+  
+        } 
+  
+    return $title;  
+  
+}); 

@@ -1,25 +1,43 @@
 <header id="hero">
     <div class="container">
-        <div class="row">
+        <div class="row middle-xs">
             
             <div class="col-xs-12 col-md-7">
-                <div class="entry-title">
-                    <span class="text-h6">Noticias</span>
-                    <?php the_archive_title( '<h1 class="page-title">', '</h1>' ); ?>
-                    <div class="divider"></div>
-                    <?php the_archive_description( '<div class="archive-description">', '</div>' ); ?>
-                </div>
+                
+                <?php if ( is_search() ) : ?>                        
+                    <div class="entry-title">
+                        <span class="text-h6"><?php esc_html_e( 'Buscar', 'coiiar' ); ?></span>
+                        <h1><?php printf( esc_html__( 'Resultados encontrados por: %s', 'coiiar' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+                        <div class="divider"></div>
+                    </div>    
+                <?php endif; ?>
+                
+                <?php if ( is_archive() ) : ?> 
+                    <div class="entry-title">
+                        <span class="text-h6"><?php esc_html_e( 'Noticias', 'coiiar' ); ?></span>
+                        <?php the_archive_title( '<h1 class="page-title">', '</h1>' ); ?>
+                        <div class="divider"></div>
+                        <?php the_archive_description( '<div class="archive-description">', '</div>' ); ?>
+                    </div>        
+                <?php endif; ?>
+
             </div>
 
-            <div class="col-xs-12 col-md-5 img-hero end-sm">                
-                <div class="post-thumbnail">
-                    <?php // get the current taxonomy term
+            <div class="col-xs-12 col-md-5 end-sm">                
+                <?php
+                    if (get_field('archive_image') ) {
                         $tax = get_queried_object();
                         // vars
                         $image = get_field('archive_image', $tax);
-                    ?>
-                    <img src="<?php echo $image; ?>" alt="<?php the_archive_title(); ?>">
-                </div>   
+
+                        echo '<div class="post-thumbnail">';
+                        echo '<img src=" '. $image .'" alt=" '.the_archive_title().' ">';
+                        echo '</div>';
+                    }
+                    else 
+                        echo '<img src=" '.get_template_directory_uri().'/assets/img/img-archive.png" alt="lorem">';
+                ?>
+                  
             </div>
 
         </div><!-- .row -->

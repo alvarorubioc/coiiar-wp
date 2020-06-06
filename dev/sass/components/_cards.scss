@@ -118,6 +118,7 @@
         h3 {margin-bottom: 0;}
         a {
             color: $color__white;
+            max-width: 280px;
             &:hover{
                 color: $color__primary-dark;
             }
@@ -129,10 +130,18 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 48px;
-            height: 48px;
+            width: 40px;
+            height: 40px;
+            &:hover {
+                cursor: pointer;
+                background-color: $color__white;
+                svg {
+                    fill: $color__primary;
+                }
+            }
             svg {
                 fill: $color__white;
+                
             }
         }
     }

@@ -16,7 +16,7 @@
                     ?>
                     <div class="divider aligncenter"></div>
                     <p><?php echo the_excerpt(); ?></p>
-                    <div class="entry-meta">
+                    <div class="entry-meta center-xs">
                         <?php
                             coiiar_posted_category();
                             coiiar_posted_tag();

@@ -2,8 +2,20 @@
     <div class="filters-bar">
         <div class="container dflex">
             <div class="filter-by"><?php esc_html_e( 'Filtrar por:', 'coiiar' ); ?></div>
-            <button class="dropdown categories"><?php esc_html_e( 'Temáticas', 'coiiar' ); ?></button>
-            <button class="dropdown tags"><?php esc_html_e( 'Perfiles', 'coiiar' ); ?></button>
+            <button class="dropdown categories"><?php esc_html_e( 'Temáticas', 'coiiar' ); ?>
+                <span>
+                    <svg class="icon" width="24" height="24" viewBox="0 0 24 24">
+                        <use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/sprite-icons.svg#chevron-bottom" />
+                    </svg>
+                </span>
+            </button>
+            <button class="dropdown tags"><?php esc_html_e( 'Perfiles', 'coiiar' ); ?>
+                <span>
+                    <svg class="icon" width="24" height="24" viewBox="0 0 24 24">
+                        <use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/sprite-icons.svg#chevron-bottom" />
+                    </svg>
+                </span>
+            </button>
         </div>
     </div> <!-- .filters-bar -->
 

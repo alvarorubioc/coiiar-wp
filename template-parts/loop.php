@@ -18,7 +18,7 @@
 			<a id="id-<?php the_id(); ?>" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 				<h3 class="text-h5"><?php the_title(); ?></h3>
 			</a>
-			<span class="icon-format">
+			<span class="icon-format" onclick="location.href='<?php the_permalink(); ?>'">
 				<svg class="icon" width="24" height="24" viewBox="0 0 24 24">
 					<use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/sprite-icons.svg#arrow-right" />
 				</svg>

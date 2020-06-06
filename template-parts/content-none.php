@@ -9,9 +9,9 @@
 
 ?>
 
-<section class="no-results not-found">
+<section class="no-results not-found container">
 	<header class="page-header">
-		<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'coiiar' ); ?></h1>
+		<h1 class="page-title"><?php esc_html_e( 'Nada encontrado', 'coiiar' ); ?></h1>
 	</header><!-- .page-header -->
 
 	<div class="page-content">
