@@ -1,4 +1,4 @@
-<section id="hero">
+<header id="hero">
     <div class="container">
         <div class="row">
             
@@ -18,7 +18,7 @@
                     ?>
 
                     <div class="divider"></div>
-                    <p><strong><?php echo the_excerpt(); ?></strong></p>
+                    <p><?php echo the_excerpt(); ?></p>
                     <?php 
                         $link_1 = get_field('hero_link_1');
                         $link_2 = get_field('hero_link_2');
@@ -59,5 +59,5 @@
 
         </div><!-- .row -->
     </div><!-- .container -->
-</section>
+</header>
 
