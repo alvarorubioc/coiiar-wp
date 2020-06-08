@@ -32,13 +32,13 @@ if ( post_password_required() ) {
 			if ( '1' === $coiiar_comment_count ) {
 				printf(
 					/* translators: 1: title. */
-					esc_html__( 'One thought on &ldquo;%1$s&rdquo;', 'coiiar' ),
+					esc_html__( 'Un comentario en &ldquo;%1$s&rdquo;', 'coiiar' ),
 					'<span>' . wp_kses_post( get_the_title() ) . '</span>'
 				);
 			} else {
 				printf( 
 					/* translators: 1: comment count number, 2: title. */
-					esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', $coiiar_comment_count, 'comments title', 'coiiar' ) ),
+					esc_html( _nx( '%1$s comentarios en &ldquo;%2$s&rdquo;', '%1$s comentarios en &ldquo;%2$s&rdquo;', $coiiar_comment_count, 'comments title', 'coiiar' ) ),
 					number_format_i18n( $coiiar_comment_count ), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 					'<span>' . wp_kses_post( get_the_title() ) . '</span>'
 				);
@@ -65,13 +65,14 @@ if ( post_password_required() ) {
 		// If comments are closed and there are comments, let's leave a little note, shall we?
 		if ( ! comments_open() ) :
 			?>
-			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'coiiar' ); ?></p>
+			<p class="no-comments"><?php esc_html_e( 'Los comentarios están cerrados.', 'coiiar' ); ?></p>
 			<?php
 		endif;
 
 	endif; // Check for have_comments().
 
-	comment_form();
+	$comments_args = array('class_submit' => 'btn btn--primary btn--md');
+	comment_form($comments_args);
 	?>
 
 </div><!-- #comments -->

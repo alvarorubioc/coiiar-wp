@@ -17,12 +17,60 @@ get_header();
 
 	<main id="primary" class="site-main">
 
+		<header id="hero">
+			<div class="container">
+				<div class="row middle-xs">
+
+					<div class="col-xs-12 col-md-7">
+						<div class="entry-title">
+							<span class="text-h6"><?php esc_html_e( 'Noticias', 'coiiar' ); ?></span>
+							<h1><?php the_field('hero_title', 7);?></h1>
+							<div class="divider"></div>
+							<p><?php echo the_excerpt(); ?></p>
+
+							<?php 
+								$link_1 = get_field('hero_link_1', 7);
+								$link_2 = get_field('hero_link_2', 7);
+								$link_3 = get_field('hero_link_3', 7);
+								if( $link_1 ): 
+									$link_url = $link_1['url'];
+									$link_title = $link_1['title'];
+									$link_target = $link_1['target'] ? $link['target'] : '_self';
+									?>
+									<a class="hero-link" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+								<?php endif;
+
+								if( $link_2 ): 
+									$link_url = $link_2['url'];
+									$link_title = $link_2['title'];
+									$link_target = $link_2['target'] ? $link['target'] : '_self';
+									?>
+									<a class="hero-link" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+								<?php endif;
+
+								if( $link_3 ): 
+									$link_url = $link_3['url'];
+									$link_title = $link_3['title'];
+									$link_target = $link_3['target'] ? $link['target'] : '_self';    
+									?>    
+									<a class="hero-link" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+							<?php endif; ?>   
+						</div><!-- .entry-title -->
+					</div>
+
+					<div class="col-xs-12 col-md-5 end-sm">                
+						<?php if(is_home()) {
+							$page_for_posts = get_option( 'page_for_posts' );
+							echo get_the_post_thumbnail($page_for_posts, 'large');
+						} ?>                 
+					</div>
+
+				</div><!-- .row -->
+			</div><!-- .container -->
+		</header>
+
 		<?php
 		if ( have_posts() ) :
-
-			if ( is_home() && ! is_front_page() ) :
-				get_template_part( 'template-parts/hero' );
-			endif;
 
 			get_template_part( 'template-parts/filters' );
 
