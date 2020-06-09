@@ -35,3 +35,4 @@ function coiiar_pingback_header() {
 	}
 }
 add_action( 'wp_head', 'coiiar_pingback_header' );
+

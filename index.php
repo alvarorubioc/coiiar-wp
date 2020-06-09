@@ -100,5 +100,7 @@ get_header();
 
 	</main><!-- #main -->
 
+	<?php get_template_part( 'template-parts/section', 'colegiarse' ); ?>
+
 <?php
 get_footer();

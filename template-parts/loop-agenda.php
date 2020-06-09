@@ -45,7 +45,7 @@
 					<svg class="icon" width="24" height="24" viewBox="0 0 24 24">
 						<use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/sprite-icons.svg#calendar" />
 					</svg>
-					<span>Aquí la fecha</span>
+					<span><?php the_field('event_start_date');?></span>
 				</div>
 			</div>		
 		</div><!-- end card -->
