@@ -13,7 +13,7 @@
         <?php
             $args = array(
                 'post_type' => 'post',
-                'posts_per_page' => 4,
+                'posts_per_page' => 6,
 				'orderby' => 'date',
                 'order'   => 'DESC',
                 'category__not_in' => 4,

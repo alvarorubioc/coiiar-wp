@@ -17,7 +17,7 @@
 				<span class="card-img__tag bagde"><?php the_field('event_tag');?></span>
 			</div>	
 			<div class="card-content">
-				<?php $terms = get_the_terms( $post->ID , 'events-category' ); 
+				<?php $terms = get_the_terms( $post->ID , 'category-events' ); 
 					if  ($terms) {
 						foreach ( $terms as $term ) {
 						echo '<div class="text-caption">' . $term->name . '</div>';
