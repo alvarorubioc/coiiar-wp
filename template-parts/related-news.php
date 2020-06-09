@@ -9,8 +9,9 @@ if( $cat_related || $tax_related ): ?>
         <div class="row mb-2 center-xs">
             <div class="col-xs-12 col-md-7">
                 <div class="divider aligncenter"></div>
-                <h2>Actualidad y noticias del Colegio Industrial de Ingenieros</h2>
-                <p>Todo lo que necesitas saber para estar al día en Ingeniería e Industria 4.0.</p>
+                <h2><?php esc_html_e( 'Noticias relacionadas de', 'coiiar' ); ?> <?php the_title(); ?></h2>
+                <?php the_field('related_post_category', $cat_related); ?>
+                <p><?php esc_html_e( 'Todo lo que necesitas saber para estar al día en Ingeniería e Industria 4.0.', 'coiiar' ); ?></p>
             </div>
         </div>
 
@@ -45,12 +46,6 @@ if( $cat_related || $tax_related ): ?>
                         }
                     /* Restore original Post Data */
                     wp_reset_postdata(); } ?>
-        </div>
-
-        <div class="row mt-3 center-xs">
-            <a class="btn btn--secondary btn--lg"><?php esc_html_e( 'Ver todas las noticias', 'coiiar' ); ?></a>
-            <a
-                href="<?php echo esc_url( get_term_link( $cat_related ) ); ?>"><?php esc_html_e( 'Ver todas las noticias', 'coiiar' ); ?>'<?php echo esc_html( $cat_related->name ); ?>'</a>
         </div>
     </div>
 </section>

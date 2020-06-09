@@ -4,8 +4,8 @@
         <div class="row mb-2 center-xs">
             <div class="col-xs-12 col-md-7">
                 <div class="divider aligncenter"></div>
-                <h2>Actualidad y noticias del Colegio Industrial de Ingenieros</h2>
-                <p>Todo lo que necesitas saber para estar al día en Ingeniería e Industria 4.0.</p>
+                <h2><?php esc_html_e( 'Actualidad y noticias del Colegio Industrial de Ingenieros', 'coiiar' ); ?></h2>
+                <p><?php esc_html_e( 'Todo lo que necesitas saber para estar al día en Ingeniería e Industria 4.0.', 'coiiar' ); ?></p>
             </div>
         </div>
         
