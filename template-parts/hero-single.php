@@ -15,7 +15,10 @@
                         echo the_title( '<h1>', '</h1>' );
                     ?>
                     <div class="divider aligncenter"></div>
-                    <p><?php echo the_excerpt(); ?></p>
+                    
+                    <p><strong><?php echo the_excerpt(); ?></strong></p>
+                    
+                    
                     <div class="entry-meta center-xs">
                         <?php
                             coiiar_posted_category();

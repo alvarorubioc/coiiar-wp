@@ -18,7 +18,7 @@
                     ?>
 
                     <div class="divider"></div>
-                    <p><?php echo the_excerpt(); ?></p>
+                    <p><strong><?php echo the_excerpt(); ?></strong></p>
                     <?php 
                         $link_1 = get_field('hero_link_1');
                         $link_2 = get_field('hero_link_2');

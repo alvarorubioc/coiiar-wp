@@ -43,7 +43,7 @@ function custom_post_agenda() {
 add_action( 'init', 'custom_post_agenda');
 
 // now let's add custom Product categories 
-register_taxonomy( 'events-category', 
+register_taxonomy( 'category-events', 
 array('agenda'), /* if you change the name of register_post_type( 'custom_type', then you have to change this */
 array('hierarchical' => true,     /* if this is true, it acts like categories */             
     'labels' => array(
@@ -62,7 +62,7 @@ array('hierarchical' => true,     /* if this is true, it acts like categories */
     'show_in_rest' => true,
     'show_ui' => true,
     'query_var' => true,
-    'rewrite'   => array( 'slug' => 'product-category', 'coiiar' , 'with_front' => true ), /* you can specify its url slug */
+    'rewrite'   => array( 'slug' => 'category-events', 'coiiar' , 'with_front' => false ), /* you can specify its url slug */
     'has_archive' => true, /* you can rename the slug here */
     )
 );

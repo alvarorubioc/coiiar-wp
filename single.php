@@ -15,8 +15,13 @@ get_header();
 		<?php
 		while ( have_posts() ) :
 			the_post();
-
-			get_template_part( 'template-parts/hero', 'single' );
+			
+			if ($post->post_type == "agenda") {
+				get_template_part( 'template-parts/hero', 'single-agenda' );
+			}
+			else
+				get_template_part( 'template-parts/hero', 'single' );
+			
 			get_template_part( 'template-parts/content', get_post_format() );
 
 			echo'<div class="container">';

@@ -16,6 +16,8 @@ get_header();
                 
 			get_template_part( 'template-parts/hero' );
 
+			get_template_part( 'template-parts/filters-agenda' );
+
 			echo '<div class="container"><div class="row mt-5">';
 				
 			/* Start the Loop */

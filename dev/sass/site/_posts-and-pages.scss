@@ -25,8 +25,19 @@
 		svg {
 			margin-right: $space-xxs;
 		}
+	}	
+}
+.single-agenda .entry-meta {
+
+	> div {
+		padding: $space__unit $space-sm 0 0;
+
+		svg {
+			margin-right: $space-xxs;
+			fill: $color__primary;
+		}
 	}
-	
+
 }
 
 
