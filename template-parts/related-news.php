@@ -9,7 +9,7 @@ if( $cat_related || $tax_related ): ?>
         <div class="row mb-2 center-xs">
             <div class="col-xs-12 col-md-7">
                 <div class="divider aligncenter"></div>
-                <h2><?php esc_html_e( 'Noticias relacionadas de', 'coiiar' ); ?> <?php the_title(); ?></h2>
+                <p class="text-h2"><?php esc_html_e( 'Noticias relacionadas', 'coiiar' ); ?></p>
                 <?php the_field('related_post_category', $cat_related); ?>
                 <p><?php esc_html_e( 'Todo lo que necesitas saber para estar al día en Ingeniería e Industria 4.0.', 'coiiar' ); ?></p>
             </div>
@@ -19,7 +19,7 @@ if( $cat_related || $tax_related ): ?>
             <?php
                     $args = array(
                         'post_type' => 'post',
-                        'posts_per_page' => 3,
+                        'posts_per_page' => 6,
                         'orderby' => 'date',
                         'order'   => 'DESC',
                         'tax_query' => array(
@@ -49,7 +49,5 @@ if( $cat_related || $tax_related ): ?>
         </div>
     </div>
 </section>
-
-
 
 <?php endif; ?>

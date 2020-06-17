@@ -23,7 +23,7 @@ get_header();
 		while ( have_posts() ) :
 			the_post();
 
-			get_template_part( 'template-parts/hero' );
+			get_template_part( 'template-parts/hero/hero' );
 
 		endwhile; // End of the loop.
 		?>

@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying archive agenda
+ * The template for displaying taxonomies agenda
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -14,7 +14,7 @@ get_header();
 
 		<?php if ( have_posts() ) :
                 
-			get_template_part( 'template-parts/hero/hero', 'agenda' );
+			get_template_part( 'template-parts/hero', 'agenda' );
 
 			get_template_part( 'template-parts/filters-agenda' );
 

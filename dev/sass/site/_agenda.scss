@@ -1,0 +1,28 @@
+.post-type-archive-agenda, .tax-category-events {
+	#section-filters .filters-wrapper{
+		.categories{
+			display: block;
+		}   
+	}
+} 
+
+.box-month {
+	background-color: $color__primary-20;
+	padding: $space-xxs $space-xs;
+	
+	&:hover {
+		cursor: pointer;
+		background-color: $color__primary-40;
+	}
+	
+	p.text-h2 {font-weight: lighter;}
+
+	&.no-events {
+		background-color: $color__ligth;
+		
+	}
+
+	&.this-month {
+		background-color: $color__primary-40;
+	}
+}

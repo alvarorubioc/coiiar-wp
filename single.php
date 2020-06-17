@@ -17,10 +17,10 @@ get_header();
 			the_post();
 			
 			if ($post->post_type == "agenda") {
-				get_template_part( 'template-parts/hero', 'single-agenda' );
+				get_template_part( 'template-parts/hero/hero', 'single-agenda' );
 			}
 			else
-				get_template_part( 'template-parts/hero', 'single' );
+				get_template_part( 'template-parts/hero/hero', 'single' );
 			
 			get_template_part( 'template-parts/content', get_post_format() );
 

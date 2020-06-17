@@ -16,7 +16,7 @@ get_header();
 
 			<header class="page-header">
 				<?php
-					get_template_part( 'template-parts/hero-archive' );
+					get_template_part( 'template-parts/hero/hero-archive' );
 				?>
 			</header><!-- .page-header -->
 

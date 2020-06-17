@@ -12,7 +12,7 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class('col-xs-12 col-sm-6 col-md-4'); ?>>
 	<div class="card--blog">  
 		<div class="card-img">
-			<?php coiiar_post_thumbnail(); ?> 
+			<?php coiiar_post_thumbnail('img-card'); ?> 
 		</div>
 		<div class="card-content middle-xs between-xs">
 			<a id="id-<?php the_id(); ?>" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">

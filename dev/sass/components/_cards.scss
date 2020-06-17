@@ -81,7 +81,14 @@
     
     .card-img {
         flex-basis: 25%;
+        position: relative;
         a {display: flex;}
+
+        .card-img__tag {
+            position: absolute;
+            left: $space-xxs;
+            top: $space-xxs;
+        }
     }
     
     img {
@@ -94,6 +101,11 @@
         .text-caption {
             margin-bottom: $space-xxs;
         }
+    }
+
+    .card-footer {
+        border-left: 1px solid $color__ligth;
+        padding: $space-xs;
     }
 }
 

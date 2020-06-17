@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying default posts loop
+ * Template part for displaying video posts loop
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
