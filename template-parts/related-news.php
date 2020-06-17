@@ -10,7 +10,6 @@ if( $cat_related || $tax_related ): ?>
             <div class="col-xs-12 col-md-7">
                 <div class="divider aligncenter"></div>
                 <p class="text-h2"><?php esc_html_e( 'Noticias relacionadas', 'coiiar' ); ?></p>
-                <?php the_field('related_post_category', $cat_related); ?>
                 <p><?php esc_html_e( 'Todo lo que necesitas saber para estar al día en Ingeniería e Industria 4.0.', 'coiiar' ); ?></p>
             </div>
         </div>

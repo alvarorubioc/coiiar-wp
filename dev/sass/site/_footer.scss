@@ -33,18 +33,24 @@ ul.social {
     padding: 0;
     margin: 0;
     
-    li a{
-        background-color: $color__gray-dark;
-        width: 3rem;
-        height: 3rem;
-        align-items: center;
-        justify-content: center;
-        display: flex;
+    li {
         margin-right: $space-xs;
-        &:hover {
-            background-color: $color__primary;
-            color: $color__white;
+        &:last-child {
+            margin-right: 0;
         }
+        a {
+            background-color: $color__gray-dark;
+            width: 3rem;
+            height: 3rem;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            
+            &:hover {
+                background-color: $color__primary;
+                color: $color__white;
+            }
+        }    
     }
 }
 

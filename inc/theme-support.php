@@ -37,7 +37,7 @@ if ( ! function_exists( 'coiiar_setup' ) ) :
         add_theme_support( 'post-thumbnails' );
         
         // Default thumbnail size
-		add_image_size( 'img-card', 360, 180, true );
+		add_image_size( 'img-card', 360, 360, );
 
 
 		// This theme uses wp_nav_menu() in two location.

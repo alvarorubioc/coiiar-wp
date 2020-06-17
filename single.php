@@ -22,15 +22,17 @@ get_header();
 			else
 				get_template_part( 'template-parts/hero/hero', 'single' );
 			
-			get_template_part( 'template-parts/content', get_post_format() );
+			// Main content	
+			get_template_part( 'template-parts/content', get_post_type() );
 
 			echo'<div class="container">';
-			the_post_navigation(
-				array(
-					'prev_text' => '<span class="nav-subtitle">' . esc_html__( 'Anterior:', 'coiiar' ) . '</span> <span class="nav-title">%title</span>',
-					'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Próxima:', 'coiiar' ) . '</span> <span class="nav-title">%title</span>',
-				)
-			);
+
+			//the_post_navigation(
+			//	array(
+			//		'prev_text' => '<span class="nav-subtitle">' . esc_html__( 'Anterior:', 'coiiar' ) . '</span> <span class="nav-title">%title</span>',
+			//		'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Próxima:', 'coiiar' ) . '</span> <span class="nav-title">%title</span>',
+			//	)
+			// );
 			echo '</div>';
 
 			// If comments are open or we have at least one comment, load up the comment template.

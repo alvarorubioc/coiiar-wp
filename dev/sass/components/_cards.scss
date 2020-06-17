@@ -43,7 +43,10 @@
 
     .card-img { 
         position: relative;
-        a {display: flex;}
+        span {
+            display: flex;
+            &:hover {cursor: pointer;}
+        }
         img {
             border-radius: $border__radius $border__radius 0 0;
             width: 100%;
@@ -71,6 +74,10 @@
     @include card;
     flex-direction: row;
     display: flex;
+    @include breakpoint(mobile) {
+        flex-direction: column;
+    } 
+   
 
     .card-icon {
         flex-basis: 25%;
@@ -80,7 +87,7 @@
     }
     
     .card-img {
-        flex-basis: 25%;
+        flex-basis: 50%;
         position: relative;
         a {display: flex;}
 
@@ -93,6 +100,7 @@
     
     img {
         border-radius: $border__radius 0 0 $border__radius;
+        width: 100%;
     }
 
     .card-content {
@@ -106,6 +114,7 @@
     .card-footer {
         border-left: 1px solid $color__ligth;
         padding: $space-xs;
+        
     }
 }
 
@@ -115,7 +124,10 @@
     display: flex;
     
     .card-img {
-        a {display: flex;}
+        span {
+            display: flex;
+            &:hover {cursor: pointer;}
+        }
     }
     
     img {
