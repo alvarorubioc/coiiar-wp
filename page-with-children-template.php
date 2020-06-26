@@ -1,8 +1,8 @@
 <?php
 /**
- * The template for displaying all services
+ * The template for displaying parent page with children
  * 
- * Template name: Servicios
+ * Template name: Página con hijas
  *
  * This is the template that displays all pages by default.
  * Please note that this is the WordPress construct of pages
@@ -23,9 +23,9 @@ get_header();
 		while ( have_posts() ) :
 			the_post();
 
-            get_template_part( 'template-parts/hero' ); ?>
+            get_template_part( 'template-parts/hero/hero' ); ?>
 
-            <section class="pt-4 pb-5 bg-primary-light">	
+            <section class="pt-4 pb-3 bg-primary-light">	
                 <div class="container">
                     
                     <div class="row">

@@ -13,7 +13,13 @@
 	
 		<div class="card--horizontal"> 
 			<div class="card-icon">
-                <div><?php the_field('card_icon');?></div>
+                <div>
+					<?php 
+					$image = get_field('card_icon');
+					if( !empty( $image ) ): ?>
+						<img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+					<?php endif; ?>
+				</div>
 			</div>	
 			<div class="card-content">
 				<a id="id-<?php the_id(); ?>" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">

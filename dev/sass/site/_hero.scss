@@ -36,3 +36,14 @@
     margin-top: $space-sm;
 
 }
+
+.page-template-promo-landing #hero {
+    background-color: $color__primary;
+    color: $color__white;
+
+    .divider {
+        background-color: $color__white;
+    }
+
+    a:hover { color: $color__white; }
+}

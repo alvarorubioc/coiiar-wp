@@ -5,8 +5,10 @@
     a {color: $color__white;}
 }
 
-.bg-primary-light {
-    background-color: $color__ligth;
+.bg-primary-dark {
+    background-color: $color__primary-dark;
+    color: $color__white;
+    a {color: $color__white;}
 }
 
 .bg-secondary {

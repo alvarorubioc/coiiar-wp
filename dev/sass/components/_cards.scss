@@ -84,6 +84,7 @@
         padding: $space-xs;
         border-left: 8px solid $color__primary;
         border-radius: $border__radius 0 0 $border__radius;
+        display: flex;
     }
     
     .card-img {

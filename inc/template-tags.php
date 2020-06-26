@@ -146,7 +146,7 @@ if ( ! function_exists( 'coiiar_post_thumbnail' ) ) :
 						)
 					);
 				?>
-			</a>
+			</span>
 
 			<?php
 	}

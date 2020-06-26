@@ -20,24 +20,7 @@
 
 			}
 		?> 
-
-		<?php if ( has_post_format('gallery') ) {
-
-			// Load value (array of ids).
-			$image_ids = get_field('post_gallery');
-			if( $image_ids ) {
-
-				// Generate string of ids ("123,456,789").
-				$images_string = implode( ',', $image_ids );
-
-				// Generate and do shortcode.
-				$shortcode = sprintf( '', $images_string );
-				echo do_shortcode( $shortcode );
-			}
-				
-			}
-		?>
-
+		
 		<?php
 		echo '<div class="row"><div class="col-xs-12 col-md-8 col-md-offset-2">';
 		the_content(
@@ -71,9 +54,9 @@
 		<!-- related post by category -->
 		
 		<?php
-		$related = get_posts( array( 'category__in' => wp_get_post_categories($post->ID), 'numberposts' => 3, 'post__not_in' => array($post->ID) ) ); 
+		$related = get_posts( array( 'category__in' => wp_get_post_categories($post->ID), 'numberposts' => 3, 'post__not_in' => array($post->ID) ) ); ?>
 		
-		if( $related ): ?>
+		<?php if( $related ): ?>
 			
 			<div class="row mb-2 mt-4 center-xs">
 				<div class="col-xs-12 col-md-7">

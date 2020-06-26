@@ -10,7 +10,7 @@
  */
 
 // Create id attribute allowing for custom "anchor" value.
-$id = 'card-' . $block['id'];
+$id = 'cta__card-' . $block['id'];
 if( !empty($block['anchor']) ) {
     $id = $block['anchor'];
 }

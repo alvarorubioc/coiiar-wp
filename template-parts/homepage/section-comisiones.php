@@ -15,14 +15,15 @@
                 'order'   => 'DESC',
             );
             // The Query
-            $the_query = new WP_Query( $args );
+            $the_query = new WP_Query( $args ); ?>
             
-            // The Loop
-            if ( $the_query->have_posts() ) {
+            <div class="col-xs-12 col-md-6 col-md-offset-1">
+
+            <?php // The Loop
+             if ( $the_query->have_posts() ) {
                 while ( $the_query->have_posts() ) {
                     $the_query->the_post();
                     ?>
-                    <div class="col-xs-12 col-md-6 col-md-offset-1">
                         <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
                             <div class="card--horizontal">  
                                 <div class="card-img">
@@ -44,10 +45,10 @@
                                 </div> 
                             </div>
                         </article>
-                    </div>
                 <?php }
             /* Restore original Post Data */
             wp_reset_postdata(); } ?>
+            </div>
         </div>
     </div>
 </section>    

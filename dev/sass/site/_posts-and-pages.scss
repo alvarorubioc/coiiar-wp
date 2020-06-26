@@ -62,6 +62,24 @@
 		
 	}
 
+	@include breakpoint(tablet) {
+        .container.dflex {
+			flex-direction: column;
+		}
+
+		.alvaro {
+			transform: translateX(-380px);
+			position: fixed;
+			transition: all .3s ease;
+			flex-direction: column;
+			display: flex;
+		}
+
+		button {
+			justify-content: space-between;
+		}
+    }
+
 	.filter-by {
 		padding: $space__unit $space-sm $space__unit 0;
 		border-right: 1px solid $color__gray;
@@ -77,6 +95,14 @@
 		border-radius: 0;
 		background-color: $color__white;
 		transition: all 0.3s ease;
+		
+		
+		@include breakpoint(tablet) {
+			border-left: 1px solid $color__gray;
+			border-bottom: 0;
+			border-top: 1px solid $color__gray;
+			padding: $space__unit $space-xxs $space__unit $space__unit;
+		}
 
 		&:hover, &.active {
 			background-color: $color__ligth;
@@ -104,6 +130,7 @@
 		}
 		
 	}
+	
 } 
 
 

@@ -20,7 +20,7 @@ if ( post_password_required() ) {
 }
 ?>
 
-<div id="comments" class="comments-area container">
+<div id="comments" class="comments-area container mt-4 mb-4">
 
 	<div class="row">
 		<div class="col-xs-12 col-md-8 col-md-offset-2">

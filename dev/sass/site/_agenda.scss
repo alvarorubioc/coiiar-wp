@@ -4,7 +4,8 @@
 			display: block;
 		}   
 	}
-} 
+}
+
 
 .box-month {
 	background-color: $color__primary-20;
@@ -19,6 +20,9 @@
 
 	&.no-events {
 		background-color: $color__ligth;
+		&:hover {
+			cursor: not-allowed;
+		}
 		
 	}
 

@@ -49,12 +49,28 @@
 	width: 100%;
 	border-top: 1px solid $color__gray;
 	margin-top: $space-xxs;
+	
+
+	&.toggled ul {
+
+		transform: translateX(0);
+		transition: 0.2s all linear;
+	}
+
+	.menu-toggle {
+		padding: $space-sm;
+	}
 
 	ul {
-		display: none;
+		display: flex;
 		list-style: none;
 		margin: 0;
 		padding-left: 0;
+		@include breakpoint(mobile) {
+			display: block;
+			
+
+		}
 
 		ul {
 			box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
@@ -152,9 +168,7 @@
 		display: none;
 	}
 
-	.main-navigation ul {
-		display: flex;
-	}
+	
 }
 
 .comment-navigation,
