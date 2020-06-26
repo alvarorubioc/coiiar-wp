@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row middle-xs">
             
-            <div class="col-xs-12 col-md-7">
+            <div class="col-xs-12 col-sm-7">
                 
                 <?php if(is_post_type_archive('agenda')) : ?>
                     <div class="entry-title">
@@ -23,7 +23,7 @@
 
             </div>
 
-            <div class="col-xs-12 col-md-5 end-sm">                
+            <div class="col-xs-12 col-sm-5 end-sm">                
                 <?php
                     if (get_field('archive_image') ) {
                         $tax = get_queried_object();

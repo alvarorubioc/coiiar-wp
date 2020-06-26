@@ -10,6 +10,7 @@
 .box-month {
 	background-color: $color__primary-20;
 	padding: $space-xxs $space-xs;
+	margin: $space-xxs;
 	
 	&:hover {
 		cursor: pointer;

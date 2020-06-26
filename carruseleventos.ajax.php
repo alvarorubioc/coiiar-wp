@@ -62,7 +62,7 @@ if ( $the_query->have_posts() )
       $fecha = get_metadata( "post", get_the_ID(), 'event_start_date',true);
       $mes = substr($fecha, 0, 6);
       $ancla = "";
-      if (!array_key_exists($mes, $meses)) $ancla = '<a name="'.$mes.'" id="'.$mes.'"></a><div class="separadorMesesExt"> <div class="separadorMeses" >'.$mesesN[substr($fecha, 4, 2)+0].' '.substr($fecha, 0, 4).'</div></div>';
+      if (!array_key_exists($mes, $meses)) $ancla = '<a name="'.$mes.'" id="'.$mes.'"></a><div class="separadorMesesExt col-xs-12 mt-3 mb-1"> <strong class="separadorMeses" >'.$mesesN[substr($fecha, 4, 2)+0].' '.substr($fecha, 0, 4).'</strong></div>';
       $meses [$mes] = true;
     $html_content .= $ancla.'
 

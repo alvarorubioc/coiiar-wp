@@ -1,5 +1,6 @@
 <?php /* Template Name: Carrusel eventos*/
 get_header(); ?>
+
 <div id="primary" class="content-area">
 <main id="main" class="site-main" role="main">
 
@@ -75,14 +76,14 @@ else {
 $lugaresk = array_keys ( $lugares );
 sort($lugaresk);
 ?>
-NOTA ETIQUETAS LUGAR -> Es un css cualquiera de ejemplo...  No hacen nada, ver correo.
+
 <div id="botonesLugar">
 <?php
 $lugaresk = array_keys ( $lugares );
 sort($lugaresk);
 foreach ($lugaresk as $sitio)
 {
-  echo "<div class=\"lugarEvento\">$sitio</div>";
+  echo "<a class=\"bagde\">$sitio</a>";
 }
 ?>
 

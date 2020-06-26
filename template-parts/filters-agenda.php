@@ -50,21 +50,25 @@
                     }
                 }
                 ?>
-                
+
                 </div>
             </div>
             
         </div>
         <div class="tags">
-            <div id="botonesLugar">
-            <?php
+             <?php
                 $lugaresk = array_keys ( $lugares );
-                sort($lugaresk);
-                foreach ($lugaresk as $sitio)
-                {
-                echo "<div class=\"lugarEvento\">$sitio</div>";
-                }
-            ?>
+                sort($lugaresk); ?>
+
+            <div id="botonesLugar">
+                <?php
+                    $lugaresk = array_keys ( $lugares );
+                    sort($lugaresk);
+                    foreach ($lugaresk as $sitio)
+                    {
+                    echo "<a class=\"bagde\">$sitio</a>";
+                    }
+                ?>
             </div>
         </div>
     </div>
