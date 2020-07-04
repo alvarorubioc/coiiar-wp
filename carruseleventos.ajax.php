@@ -11,9 +11,9 @@ function sumarMes($meses)
 }
 
 $fechaini = isset($_GET['fi']) ? $_GET['fi'] : '-1';
-if ($fechaini < 201000 ) 
+if ($fechaini < 201000 )
 {
-  $fechaini = date("Ym"); 
+  $fechaini = date("Ym");
 }
 
 $fechafin = sumarMes($fechaini);
@@ -24,25 +24,25 @@ $fechafin = sumarMes($fechafin);
 
 $mesesN = [ "ERROR", "Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
 
-if ( ! defined('ABSPATH') ) 
+if ( ! defined('ABSPATH') )
 {
   // No es lo ideal
   require_once('../../../wp-load.php' );
 }
 
-$the_query = new WP_Query( 
-  array( 
-    'post_type' => 'agenda', 
-    'meta_key' => 'event_start_date', 
+$the_query = new WP_Query(
+  array(
+    'post_type' => 'agenda',
+    'meta_key' => 'event_start_date',
     'orderby'    => 'meta_value_num',
     'order'      => 'ASC',
-    'meta_query'  => 
+    'meta_query'  =>
     array(
       array(
           'key'     => 'event_start_date',
           'value'   => array( $fechaini."00", $fechafin."31" ),
           'type'    => 'numeric',
-          'compare' => 'BETWEEN',      
+          'compare' => 'BETWEEN',
       ),
     )
   )
@@ -51,10 +51,10 @@ $the_query = new WP_Query(
 $html_content = "";
 $contador = 0;
 $meses = [];
-if ( $the_query->have_posts() ) 
+if ( $the_query->have_posts() )
 {
   $html_content .= '';
-  while ( $the_query->have_posts() ) 
+  while ( $the_query->have_posts() )
   {
       //$the_query->the_post();
       //echo '<li>' . get_the_title() . ' -> <pre>'.json_encode($the_query->the_post()).'</pre></li>';
@@ -62,11 +62,11 @@ if ( $the_query->have_posts() )
       $fecha = get_metadata( "post", get_the_ID(), 'event_start_date',true);
       $mes = substr($fecha, 0, 6);
       $ancla = "";
-      if (!array_key_exists($mes, $meses)) $ancla = '<a name="'.$mes.'" id="'.$mes.'"></a><div class="separadorMesesExt col-xs-12 mt-3 mb-1"> <strong class="separadorMeses" >'.$mesesN[substr($fecha, 4, 2)+0].' '.substr($fecha, 0, 4).'</strong></div>';
+      if (!array_key_exists($mes, $meses)) $ancla = '<a id="'.$mes.'"></a><div name="'.$mes.'" class="mes'.$mes.' separadorMesesExt col-xs-12 mt-3 mb-1"> <strong class="separadorMeses" >'.$mesesN[substr($fecha, 4, 2)+0].' '.substr($fecha, 0, 4).'</strong></div>';
       $meses [$mes] = true;
     $html_content .= $ancla.'
 
-<article id="post-'.get_the_ID().'" ';
+<article data-mes="mes'.$mes.'" data-lugarev="ev'.md5(get_metadata( "post", get_the_ID(), 'event_place',true)).'" id="post-'.get_the_ID().'" class="evento "';
 
 ob_start();
 post_class('col-xs-12');
@@ -74,22 +74,22 @@ $html_content .= ob_get_clean();
 
 $html_content .= '>
 
-<div class="card--horizontal"> 
+<div class="card--horizontal">
   <div class="card-img">';
 
   ob_start();
   coiiar_post_thumbnail('full');
   $html_content .= ob_get_clean();
-    
+
     $html_content .= '
         <span class="card-img__tag bagde">'.get_metadata( "post", get_the_ID(), 'event_tag',true).'</span>
-  </div>	
+  </div>
   <div class="card-content">';
 
-  $terms = get_the_terms( $post->ID , 'category-events' ); 
-  if  ($terms) 
+  $terms = get_the_terms( $post->ID , 'category-events' );
+  if  ($terms)
   {
-    foreach ( $terms as $term ) 
+    foreach ( $terms as $term )
     {
       $html_content .= '<div class="text-caption">' . $term->name . '</div>';
     }
@@ -104,7 +104,7 @@ $html_content .= '>
       <use xlink:href="'.get_template_directory_uri().'/assets/icons/sprite-icons.svg#info" />
     </svg>
     <span>'.get_metadata( "post", get_the_ID(), 'event_extra_info',true).'</span>
-  </div>	
+  </div>
 </div>
 <div class="card-footer aligncenter">
           <div class="center-xs">
@@ -121,8 +121,8 @@ $html_content .= '>
                   <span>'.get_metadata( "post", get_the_ID(), 'event_place',true).'</span>
               </div>
           <div>';
-  $html_content .= '    
-  </div>		
+  $html_content .= '
+  </div>
 </div><!-- end card -->
 
 </article><!-- #post-'.get_the_ID().' -->

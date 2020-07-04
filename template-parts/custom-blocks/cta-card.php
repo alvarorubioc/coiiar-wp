@@ -28,7 +28,7 @@ if( !empty($block['align']) ) {
 
 $title = get_field('block_ctacard_title') ?: 'Título card';
 $text = get_field('block_ctacard_text') ?: 'Aquí el texto';
-$image = get_field('block_ctacard_image') ?: 295;
+$image = get_field('block_ctacard_image');
 
 $button = get_field('block_ctacard_button');
 if( $button ): 

@@ -14,39 +14,39 @@ get_header();
 
 <main id="primary" class="site-main">
 
-	<?php get_template_part( 'template-parts/hero/hero', 'agenda' );
+    <?php get_template_part( 'template-parts/hero/hero', 'agenda' );
 
-	$mesestxt["01"] = "Ene";
-	$mesestxt["02"] = "Feb";
-	$mesestxt["03"] = "Mar";
-	$mesestxt["04"] = "Abr";
-	$mesestxt["05"] = "May";
-	$mesestxt["06"] = "Jun";
-	$mesestxt["07"] = "Jul";
-	$mesestxt["08"] = "Ago";
-	$mesestxt["09"] = "Sep";
-	$mesestxt["10"] = "Oct";
-	$mesestxt["11"] = "Nov";
-	$mesestxt["12"] = "Dic";
+	$mesestxt["01"] = "ENE";
+	$mesestxt["02"] = "FEB";
+	$mesestxt["03"] = "MAR";
+	$mesestxt["04"] = "ABR";
+	$mesestxt["05"] = "MAY";
+	$mesestxt["06"] = "JUN";
+	$mesestxt["07"] = "JUL";
+	$mesestxt["08"] = "AGO";
+	$mesestxt["09"] = "SEP";
+	$mesestxt["10"] = "OCT";
+	$mesestxt["11"] = "NOV";
+	$mesestxt["12"] = "DIC";
 
 
 	$the_query = new WP_Query( 
-	array( 
-		'posts_per_page' => '-1', 
-		'post_type' => 'agenda', 
-		'meta_key' => 'event_start_date', 
-		'orderby'    => 'meta_value_num',
-		'order'      => 'ASC',
-		'meta_query'  => 
-		array(
-		array(
-			'key'     => 'event_start_date',
-			'value'   => date("Ymd"),
-			'type'    => 'numeric',
-			'compare' => '>',      
-		),
+		array( 
+			'posts_per_page' => '-1', 
+			'post_type' => 'agenda', 
+			'meta_key' => 'event_start_date', 
+			'orderby'    => 'meta_value_num',
+			'order'      => 'ASC',
+			'meta_query'  => 
+			array(
+				array(
+					'key'     => 'event_start_date',
+					'value'   => date("Ym")."01",
+					'type'    => 'numeric',
+					'compare' => '>',      
+				),
+			)
 		)
-	)
 	);
 
 	$fechamenor = 999999;
@@ -61,23 +61,23 @@ get_header();
 
 	if ( $the_query->have_posts() ) 
 	{
-		while ( $the_query->have_posts() ) 
-			{
-				$the_query->the_post();
-				$fecha = get_metadata( "post", get_the_ID(), 'event_start_date',true);
-				$lugar = get_metadata( "post", get_the_ID(), 'event_place',true);
-				$mes = substr($fecha, 0, 6);
-				if ($fechamenor>$mes) $fechamenor=$mes;
-				if ($fechamayor<$mes) $fechamayor=$mes;
-				$lugares[$lugar]=true;
-				$meses [$mes] = true;
-				$contador++;
-			}
+	while ( $the_query->have_posts() ) 
+		{
+			$the_query->the_post();
+			$fecha = get_metadata( "post", get_the_ID(), 'event_start_date',true);
+			$lugar = get_metadata( "post", get_the_ID(), 'event_place',true);
+			$mes = substr($fecha, 0, 6);
+			if ($fechamenor>$mes) $fechamenor=$mes;
+			if ($fechamayor<$mes) $fechamayor=$mes;
+			$lugares[$lugar]=true;
+			$meses [$mes] = true;
+			$contador++;
+		}
 	}
 	else {
-		$html_content .= "No post found";
+	$html_content .= "No post found ";
 	}
-	?>
+?>
 
 	<div id="section-filters">
 		<div class="filters-bar">
@@ -107,29 +107,29 @@ get_header();
 
 		<div class="filters-wrapper mt-2 mb-2">   
 			<div class="categories">
-				<div class='container'>
-					<div class='single-item' id="carruselmeses">
+				<div class="container">
+					<div class="single-item" id="carruselmeses">
 					
 					<?php
-					$mesactual = $fechamenor;
-					while ($mesactual<=$fechamayor)
-					{
-						$salta = "";
-						if (array_key_exists($mesactual, $meses)) 
-						{
-						$clases = "entradaSlider has-events";
-						$salta = 'onclick="scrollToAnchor(\''.$mesactual.'\')"';
-						} else
-						{
-						$clases = "no-events";
+						$mesactual = $fechamenor;
+						while ($mesactual<=$fechamayor)
+							{
+							$salta = "";
+							if (array_key_exists($mesactual, $meses)) 
+							{
+								$clases = "entradaSlider has-events";
+								$salta = 'onclick="scrollToAnchor(\''.$mesactual.'\')"';
+							} else
+							{
+								$clases = "no-events";
+							}
+							echo "<div ".$salta." class=\" ".$clases."\" id=\"mes".substr($mesactual, 0,4).substr($mesactual, -2,2)."\" data-y=\"".substr($mesactual, 0,4)."\" data-m=\"".substr($mesactual, -2,2)."\"><div class=\"box-month center-xs\"><p class=\"text-h2\">".$mesestxt[substr($mesactual, -2,2)]."</p><strong>".substr($mesactual, 0,4)."</strong></div></div>";
+							$mesactual++;
+							if ($mesactual % 100 == 13)
+							{
+								$mesactual = (substr($mesactual, 0,4)+1)*100 + 1;
+							}
 						}
-						echo "<div ".$salta." class=\" ".$clases."\" id=\"mes".substr($mesactual, 0,4).substr($mesactual, -2,2)."\" data-y=\"".substr($mesactual, 0,4)."\" data-m=\"".substr($mesactual, -2,2)."\"><div class=\"box-month center-xs\"><p class=\"text-h2\">".$mesestxt[substr($mesactual, -2,2)]."</p><strong>".substr($mesactual, 0,4)."</strong></div></div>";
-						$mesactual++;
-						if ($mesactual % 100 == 13)
-						{
-						$mesactual = (substr($mesactual, 0,4)+1)*100 + 1;
-						}
-					}
 					?>
 
 					</div>
@@ -147,7 +147,7 @@ get_header();
 						sort($lugaresk);
 						foreach ($lugaresk as $sitio)
 						{
-						echo "<a class=\"bagde\">$sitio</a>";
+						echo "<div class=\"lugarEvento bagde\" style=\"display: none\"; id=\"ev".md5($sitio)."\" >$sitio</div>";
 						}
 					?>
 				</div>
@@ -160,48 +160,71 @@ get_header();
 <div class="bg-primary-light pt-3 pb-3">
 	<div class="container">
 		<div class="row">
-			<div id='eventos'></div>
+			<div id="eventos"></div>
 		</div>
 	</div>
 </div>		
 
 <script>
-	function addHTML (objeto, html)
-	{
-		objeto.innerHTML = objeto.innerHTML + html;
-	}
 
-	function lz(num)
-	{
-	return num>9?num:("0"+num);
-	}
+function addHTML (objeto, html)
+{
+	objeto.innerHTML = objeto.innerHTML + html;
+}
 
-	function scrollToAnchor(aid){
-		var aTag = $("a[name='"+ aid +"']");
-		$('html,body').animate({scrollTop: aTag.offset().top},'slow');
-	}
+function lz(num)
+{
+  return num>9?num:("0"+num);
+}
 
-	function recarga(fecha)
-	{
-	fetch('<?php echo get_bloginfo('template_url') ?>/carruseleventos.ajax.php?fi='+	fecha)
-	.then(function(response) {
-		return response.json();
-	})
-	.then(function(json) 
-	{
-		document.querySelector("#eventos").innerHTML = json.html_content;
-	});
-	}
+function scrollToAnchor(aid){
+    var aTag = $("div[name='"+ aid +"']");
+    $('html,body').animate({scrollTop: aTag.offset().top},'slow');
+}
 
-	document.addEventListener("DOMContentLoaded", function(event) 
-	{
-		var d1 = new Date("<?php echo substr($fechamenor, 0,4)."-".substr($fechamenor, -2,2) ?>");
+function recarga(fecha)
+{
+  fetch('<?php echo get_bloginfo('template_url') ?>/carruseleventos.ajax.php?fi='+	fecha)
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(json) 
+  {
+    $(".lugarEvento").hide();
+    document.querySelector("#eventos").innerHTML = json.html_content;
+    document.querySelectorAll('.evento').forEach(function(e) 
+    {
+      $("#"+e.dataset.lugarev).show();
+    });
+  });
+}
 
-	$("#carruselmeses").slick({
-	infinite: false,
-	slidesToShow: 6,
-	slidesToScroll: 1,
-	responsive: [
+  document.addEventListener("DOMContentLoaded", function(event) 
+  {
+    $('.lugarEvento').on('click', function(e)
+    {
+      $(".separadorMesesExt").hide();
+      var lugar = $(this).attr('id');
+      document.querySelectorAll('.evento').forEach(function(e) 
+      {
+        if (e.dataset.lugarev != lugar)
+        {
+          $(e).hide("slow");
+        } else
+        {
+          $("."+e.dataset.mes).show();
+          $(e).show("slow");
+        }
+      });
+    });
+
+    var d1 = new Date("<?php echo substr($fechamenor, 0,4)."-".substr($fechamenor, -2,2) ?>");
+
+$("#carruselmeses").slick({
+  infinite: false,
+  slidesToShow: 6,
+  slidesToScroll: 1
+  responsive: [
 		{
 		breakpoint: 480,
 		settings: {
@@ -212,16 +235,16 @@ get_header();
 		// settings: "unslick"
 		// instead of a settings object
 	]
-	});
+});
 
-	$('#carruselmeses').on('afterChange', function(event, slick, currentSlide, nextSlide)
-	{
-	var f = document.querySelector(".slick-current").dataset;
-		recarga(f.y + "" + f.m);
-	});
+$('#carruselmeses').on('afterChange', function(event, slick, currentSlide, nextSlide)
+{
+  var f = document.querySelector(".slick-current").dataset;
+    recarga(f.y + "" + f.m);
+});
 
-	recarga((d1.getYear() + 1900) + lz(d1.getMonth()+1));
-	});
+  recarga((d1.getYear() + 1900) + lz(d1.getMonth()+1));
+});
 </script>
 
 </main><!-- .site-main -->

@@ -1,13 +1,15 @@
 <?php /* Template Name: Carrusel eventos*/
 get_header(); ?>
-
 <div id="primary" class="content-area">
 <main id="main" class="site-main" role="main">
 
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" type="text/css" href="<?php echo get_bloginfo('template_url') ?>/carruseleventos.css"/>
+</head>
+<body>
 
 <?php
 
@@ -36,7 +38,7 @@ $the_query = new WP_Query(
     array(
       array(
           'key'     => 'event_start_date',
-          'value'   => date("Ymd"),
+          'value'   => date("Ym")."01",
           'type'    => 'numeric',
           'compare' => '>',      
       ),
@@ -83,9 +85,11 @@ $lugaresk = array_keys ( $lugares );
 sort($lugaresk);
 foreach ($lugaresk as $sitio)
 {
-  echo "<a class=\"bagde\">$sitio</a>";
+  echo "<div class=\"lugarEvento\" style=\"display: none\"; id=\"ev".md5($sitio)."\" >$sitio</div>";
 }
 ?>
+
+</div>
 
 </div>
 NOTA SLIDER -> El css no-events no parece estar bien
@@ -134,7 +138,7 @@ function lz(num)
 }
 
 function scrollToAnchor(aid){
-    var aTag = $("a[name='"+ aid +"']");
+    var aTag = $("div[name='"+ aid +"']");
     $('html,body').animate({scrollTop: aTag.offset().top},'slow');
 }
 
@@ -146,12 +150,34 @@ function recarga(fecha)
   })
   .then(function(json) 
   {
+    $(".lugarEvento").hide();
     document.querySelector("#eventos").innerHTML = json.html_content;
+    document.querySelectorAll('.evento').forEach(function(e) 
+    {
+      $("#"+e.dataset.lugarev).show();
+    });
   });
 }
 
   document.addEventListener("DOMContentLoaded", function(event) 
   {
+    $('.lugarEvento').on('click', function(e)
+    {
+      $(".separadorMesesExt").hide();
+      var lugar = $(this).attr('id');
+      document.querySelectorAll('.evento').forEach(function(e) 
+      {
+        if (e.dataset.lugarev != lugar)
+        {
+          $(e).hide("slow");
+        } else
+        {
+          $("."+e.dataset.mes).show();
+          $(e).show("slow");
+        }
+      });
+    });
+
     var d1 = new Date("<?php echo substr($fechamenor, 0,4)."-".substr($fechamenor, -2,2) ?>");
 
 $("#carruselmeses").slick({
@@ -170,9 +196,9 @@ $('#carruselmeses').on('afterChange', function(event, slick, currentSlide, nextS
 });
 </script>
 
-</main><!-- .site-main -->
-                
+                </main><!-- .site-main -->
+                <?php get_sidebar( 'content-bottom' ); ?>
 </div><!-- .content-area -->
-
+<?php get_sidebar(); ?>
 <?php get_footer(); ?>
 
