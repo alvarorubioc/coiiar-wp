@@ -14,8 +14,9 @@ get_header();
 
 <main id="primary" class="site-main">
 
-    <?php get_template_part( 'template-parts/hero/hero', 'agenda' );
+    <?php get_template_part( 'template-parts/hero/hero', 'agenda' ); ?>
 
+	<?php
 	$mesestxt["01"] = "ENE";
 	$mesestxt["02"] = "FEB";
 	$mesestxt["03"] = "MAR";
@@ -32,22 +33,22 @@ get_header();
 
 	$the_query = new WP_Query( 
 		array( 
-			'posts_per_page' => '-1', 
-			'post_type' => 'agenda', 
-			'meta_key' => 'event_start_date', 
-			'orderby'    => 'meta_value_num',
-			'order'      => 'ASC',
-			'meta_query'  => 
+		  'posts_per_page' => '-1', 
+		  'post_type' => 'agenda', 
+		  'meta_key' => 'event_start_date', 
+		  'orderby'    => 'meta_value_num',
+		  'order'      => 'ASC',
+		  'meta_query'  => 
+		  array(
 			array(
-				array(
-					'key'     => 'event_start_date',
-					'value'   => date("Ym")."01",
-					'type'    => 'numeric',
-					'compare' => '>',      
-				),
-			)
+				'key'     => 'event_start_date',
+				'value'   => date("Ym")."01",
+				'type'    => 'numeric',
+				'compare' => '>',      
+			),
+		  )
 		)
-	);
+	  );
 
 	$fechamenor = 999999;
 	$fechamayor = 000000;
@@ -223,7 +224,7 @@ function recarga(fecha)
 $("#carruselmeses").slick({
   infinite: false,
   slidesToShow: 6,
-  slidesToScroll: 1
+  slidesToScroll: 1,
   responsive: [
 		{
 		breakpoint: 480,
