@@ -22,6 +22,17 @@ $fechafin = sumarMes($fechafin);
 $fechafin = sumarMes($fechafin);
 $fechafin = sumarMes($fechafin);
 
+if (isset($_GET['tipo']))
+{
+  if ($_GET['tipo'] == "true")
+  {
+    $fechaini = date("Ymd");
+  } else
+  {
+    $fechaini = $fechaini."00";
+  }
+}
+
 $mesesN = [ "ERROR", "Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
 
 if ( ! defined('ABSPATH') )
@@ -40,7 +51,7 @@ $the_query = new WP_Query(
     array(
       array(
           'key'     => 'event_start_date',
-          'value'   => array( $fechaini."00", $fechafin."31" ),
+          'value'   => array( $fechaini, $fechafin."31" ),
           'type'    => 'numeric',
           'compare' => 'BETWEEN',
       ),
@@ -135,7 +146,7 @@ $html_content .= '>
 }
 
 $json_array=array(
-  'fechaini'=> $fechaini."00",
+  'fechaini'=> $fechaini,
   'fechafin'=> $fechafin."31",
   'meses'=> join(",",$meses),
   'contador'=>$contador,

@@ -42,7 +42,7 @@ get_header();
 		  array(
 			array(
 				'key'     => 'event_start_date',
-				'value'   => date("Ym")."01",
+				'value'   => '20200101',//date("Ymd"),
 				'type'    => 'numeric',
 				'compare' => '>',      
 			),
@@ -113,23 +113,26 @@ get_header();
 					
 					<?php
 						$mesactual = $fechamenor;
+						$pasos = 1;
 						while ($mesactual<=$fechamayor)
+						//while ($pasos < 7)
 							{
 							$salta = "";
 							if (array_key_exists($mesactual, $meses)) 
 							{
-								$clases = "entradaSlider has-events";
+								$clases = " has-events";
 								$salta = 'onclick="scrollToAnchor(\''.$mesactual.'\')"';
 							} else
 							{
-								$clases = "no-events";
+								$clases = " no-events";
 							}
-							echo "<div ".$salta." class=\" ".$clases."\" id=\"mes".substr($mesactual, 0,4).substr($mesactual, -2,2)."\" data-y=\"".substr($mesactual, 0,4)."\" data-m=\"".substr($mesactual, -2,2)."\"><div class=\"box-month center-xs\"><p class=\"text-h2\">".$mesestxt[substr($mesactual, -2,2)]."</p><strong>".substr($mesactual, 0,4)."</strong></div></div>";
+							echo "<div ".$salta." class=\" entradaSlider\" id=\"mes".substr($mesactual, 0,4).substr($mesactual, -2,2)."\" data-y=\"".substr($mesactual, 0,4)."\" data-m=\"".substr($mesactual, -2,2)."\"><div class=\"box-month center-xs ".$clases."\"><p class=\"text-h2\">".$mesestxt[substr($mesactual, -2,2)]."</p><strong>".substr($mesactual, 0,4)."</strong></div></div>";
 							$mesactual++;
 							if ($mesactual % 100 == 13)
 							{
 								$mesactual = (substr($mesactual, 0,4)+1)*100 + 1;
 							}
+							$pasos++;
 						}
 					?>
 
@@ -146,10 +149,15 @@ get_header();
 					<?php
 						$lugaresk = array_keys ( $lugares );
 						sort($lugaresk);
+
 						foreach ($lugaresk as $sitio)
 						{
-						echo "<div class=\"lugarEvento bagde\" style=\"display: none\"; id=\"ev".md5($sitio)."\" >$sitio</div>";
+							if (strlen(trim($sitio))>0) 
+							{
+								echo "<div class=\"lugarEvento bagde\" style=\"display: none;\" id=\"ev".md5($sitio)."\" >$sitio</div>";
+							}	
 						}
+						echo "<div class=\"lugarEvento bagde\" style=\"\" id=\"evTodas\" >Todas</div>";
 					?>
 				</div>
 			</div>
@@ -183,20 +191,29 @@ function scrollToAnchor(aid){
     $('html,body').animate({scrollTop: aTag.offset().top},'slow');
 }
 
-function recarga(fecha)
+function recarga(fecha,tipo)
 {
-  fetch('<?php echo get_bloginfo('template_url') ?>/carruseleventos.ajax.php?fi='+	fecha)
+  fetch('<?php echo get_bloginfo('template_url') ?>/carruseleventos.ajax.php?fi='+	fecha+"&tipo="+tipo)
   .then(function(response) {
     return response.json();
   })
   .then(function(json) 
   {
-    $(".lugarEvento").hide();
+    // if (tipo) $("#carruselmeses").hide();
+	$(".lugarEvento").hide();
+	$("#evTodas").show();
     document.querySelector("#eventos").innerHTML = json.html_content;
     document.querySelectorAll('.evento').forEach(function(e) 
     {
       $("#"+e.dataset.lugarev).show();
     });
+	if (tipo)
+	{
+		var f = document.querySelector("#mes"+fecha).dataset;
+		f.salto = 1;
+		$("#carruselmeses").slick('slickGoTo', parseInt(f.slickIndex));
+		//$("#carruselmeses").show();
+	}
   });
 }
 
@@ -206,25 +223,28 @@ function recarga(fecha)
     {
       $(".separadorMesesExt").hide();
       var lugar = $(this).attr('id');
-      document.querySelectorAll('.evento').forEach(function(e) 
-      {
-        if (e.dataset.lugarev != lugar)
-        {
-          $(e).hide("slow");
-        } else
-        {
-          $("."+e.dataset.mes).show();
-          $(e).show("slow");
-        }
-      });
+		document.querySelectorAll('.evento').forEach(function(e) 
+		{
+			if ((e.dataset.lugarev != lugar) && (lugar != "evTodas"))
+			{
+			$(e).hide("slow");
+			} else
+			{
+			$("."+e.dataset.mes).show();
+			$(e).show("slow");
+			}
+		});
     });
 
-    var d1 = new Date("<?php echo substr($fechamenor, 0,4)."-".substr($fechamenor, -2,2) ?>");
+    var d1 = new Date();
+
 
 $("#carruselmeses").slick({
   infinite: false,
   slidesToShow: 6,
   slidesToScroll: 1,
+  arrows: true,
+  dots: false,
   responsive: [
 		{
 		breakpoint: 480,
@@ -241,10 +261,13 @@ $("#carruselmeses").slick({
 $('#carruselmeses').on('afterChange', function(event, slick, currentSlide, nextSlide)
 {
   var f = document.querySelector(".slick-current").dataset;
-    recarga(f.y + "" + f.m);
+debugger; 
+  if (f.salto != "1")
+    recarga(f.y + "" + f.m,false);
+	f.salto = 0;
 });
 
-  recarga((d1.getYear() + 1900) + lz(d1.getMonth()+1));
+recarga((d1.getYear() + 1900) + lz(d1.getMonth()+1),true);
 });
 </script>
 
