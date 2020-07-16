@@ -47,9 +47,15 @@
 				</div><!-- .site-links -->
 			</div>
 		</div>
-
+		<div class="btn-menu">
+			<button class="open-menu" aria-controls="primary-menu" aria-expanded="false">
+				<svg class="icon" width="24" height="24" viewBox="0 0 24 24">
+					<use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/sprite-icons.svg#menu" />
+				</svg>
+				<span><?php esc_html_e( 'Menu', 'coiiar' ); ?></span>
+			</button>
+		</div>
 		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'coiiar' ); ?></button>
 			<?php
 			wp_nav_menu(
 				array(

@@ -67,14 +67,6 @@
 			flex-direction: column;
 		}
 
-		.alvaro {
-			transform: translateX(-380px);
-			position: fixed;
-			transition: all .3s ease;
-			flex-direction: column;
-			display: flex;
-		}
-
 		button {
 			justify-content: space-between;
 		}
@@ -118,8 +110,8 @@
 		}
 
 		span {
-			//margin-left: $space-sm;
 			transform: rotate(0deg);
+			transition: all 0.3s ease;
 		}
 	}
 

@@ -43,22 +43,54 @@
 	}
 }
 
+.btn-menu {
+	padding: $space__unit;
+	border-top: 1px solid $color__gray;
+
+	button {
+		background-color: white;
+		padding: 0;
+	}
+}
+
+.btn-agenda {
+	margin-left: auto;
+	margin-top: auto;
+	margin-bottom: auto;
+	a {
+		background-color: $color__secondary;
+		color: $color__white !important;
+		height: 40px;
+		line-height: 0.5;
+		border-radius: $border__radius;
+		transition: all 0.3s ease;
+	}
+
+	@include breakpoint(mobile) {
+		margin: auto;
+		a {
+			background-color: $color__white;
+			color: $color__text-main !important;
+			height: auto;
+			line-height: initial;
+		}
+	}
+}
+
 
 .main-navigation {
 	display: block;
 	width: 100%;
 	border-top: 1px solid $color__gray;
 	margin-top: $space-xxs;
-	
 
-	&.toggled ul {
-
-		transform: translateX(0);
-		transition: 0.2s all linear;
-	}
-
-	.menu-toggle {
-		padding: $space-sm;
+	@include breakpoint(mobile) {
+		border-top: none;
+		margin-top: 0;
+		.container {
+			padding-left: 0;
+			padding-right: 0;
+		}
 	}
 
 	ul {
@@ -68,8 +100,6 @@
 		padding-left: 0;
 		@include breakpoint(mobile) {
 			display: block;
-			
-
 		}
 
 		ul {
@@ -80,6 +110,14 @@
 			left: -999em;
 			z-index: 99999;
 			display: block;
+
+			@include breakpoint(mobile) {
+				position: relative;
+				left: 0;
+				display: none;
+				float: none;
+				box-shadow: none;
+			}
 
 			.current_page_item > a,
 			.current-menu-item > a,
@@ -109,10 +147,11 @@
 				width: 300px;
 				background-color: $color__white;
 				transition: 0.1s all linear;
-			}
-
-			:hover > a,
-			.focus > a {
+				@include breakpoint(mobile) {
+					width: 100vw;
+					background-color: $color__ligth;
+					font-weight: normal;
+				}
 			}
 
 			a:hover,
@@ -131,8 +170,12 @@
 	li {
 		position: relative;
 
+		@include breakpoint(mobile) {
+			border-top: 1px solid $color__gray;
+		}
 		&:hover > a,
 		&.focus > a {
+			color: $color__primary;
 		}
 	}
 
@@ -156,20 +199,54 @@
 	}
 }
 
-/* Small menu. */
-.menu-toggle,
-.main-navigation.toggled ul {
-	display: block;
-}
+
 
 @media screen and (min-width: 37.5em) {
 
-	.menu-toggle {
+	.btn-menu {
 		display: none;
 	}
-
 	
 }
+
+// Buttons to mobile actions
+
+.menu-toggle {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 56px;
+    height: 56px;
+    line-height: 68px;
+    border-left: 1px solid $color__gray;
+    text-align: center;
+	cursor: pointer;
+
+	&:after {
+		content: '';
+		display: inline-block;
+		position: relative;
+		width: 1.5rem;
+		height: 1.5rem;
+		mask: url('./assets/img/chevron-bottom.svg') no-repeat 50% 50%;
+		mask-size: cover;
+		background-color: $color__text-main;
+		transition: all 0.3s ease;
+				
+	}
+	
+	&.is-active:after{
+		transform: rotate(180deg);
+		transition: all 0.3s ease;
+	}
+	
+}
+
+.show-on-mobile {
+	display: block;
+}
+
+
 
 .comment-navigation,
 .posts-navigation,
