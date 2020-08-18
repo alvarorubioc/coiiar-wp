@@ -29,8 +29,19 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 
+
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'coiiar' ); ?></a>
+
+	<header id="masthead" class="site-header bg-primary-dark">
+		<div class="container">
+			<div class="row middle-xs">
+				<div class="site-branding col-xs-6 col-md-3">
+					<?php the_custom_logo(); ?>
+				</div><!-- .site-branding -->
+			</div>
+		</div>
+	</header><!-- #masthead -->
 
 	<main id="primary" class="site-main">
 
@@ -53,3 +64,5 @@
 
 <?php
 get_footer();
+
+

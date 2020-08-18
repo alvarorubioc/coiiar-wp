@@ -15,11 +15,11 @@ input[type="datetime-local"],
 input[type="color"],
 textarea {
 	color: $color__text-main;
-	border: solid 1px $color__gray-dark;
 	border-radius: $border__radius;
 	padding: $space-xxs;
 	width: 100%;
-	background-color: $color__white;
+	background-color: $color__gray;
+	border: solid 1px $color__gray;
 
 	&:focus {
 		color: $color__primary-dark;
@@ -33,6 +33,10 @@ textarea {
 
 span.error {
 	color: $color__error;
+}
+
+label {
+	font-size: 80%;
 }
 
 input[type="submit"] {
@@ -61,26 +65,3 @@ input[type="submit"] {
 	
 }
 
-
-// styles for contanct form 7
-
-span.wpcf7-not-valid-tip {
-    color: white;
-    font-size: 1em;
-    font-weight: normal;
-    display: block;
-}
-
-span.wpcf7-list-item {
-    display: inline-block;
-	margin: 0;
-	
-}
-
-.wpcf7-list-item-label {
-	padding-left: .25em;
-}
-div.wpcf7-validation-errors, div.wpcf7-acceptance-missing {
-	border: 2px solid $color__warning;
-	border-radius: $space__unit;
-}

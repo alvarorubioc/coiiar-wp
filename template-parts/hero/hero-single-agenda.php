@@ -44,7 +44,15 @@
                     </div><!-- .entry-meta -->  
                 </div>
             </div>
+            <div class="col-xs-12 col-md-5 img-hero end-sm">                
+                <?php if ( has_post_thumbnail() ) : ?>
+                    <div class="post-thumbnail">
+                        <?php the_post_thumbnail('full'); ?>
+                    </div>
+                <?php endif; ?>    
+            </div>
         </div><!-- .row -->
+        
     </div><!-- .container -->
 </section>
 

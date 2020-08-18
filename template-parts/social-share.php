@@ -1,6 +1,6 @@
 <div id="socialshare" class="row center-xs">
       
-      <div class="col-xs-12 mt-4 mb-1"><p class="text-h4"><?php esc_html_e( 'Compartir esta noticia', 'coiiar' );?></p></div>
+      <div class="col-xs-12 mt-4 mb-1"><p class="text-h4"><?php esc_html_e( 'Compartir', 'coiiar' );?></p></div>
 
       <ul class="social">
             <li>

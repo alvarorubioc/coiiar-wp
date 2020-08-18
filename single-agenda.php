@@ -16,12 +16,7 @@ get_header();
 		while ( have_posts() ) :
 			the_post();
 			
-			if ($post->post_type == "agenda") {
-				get_template_part( 'template-parts/hero/hero', 'single-agenda' );
-			}
-			else
-				get_template_part( 'template-parts/hero/hero', 'single' );
-			
+			get_template_part( 'template-parts/hero/hero', 'single-agenda' );
 			// Main content	
 			get_template_part( 'template-parts/content', get_post_type() );
 
@@ -35,15 +30,14 @@ get_header();
 			 );
 			echo '</div>';
 
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
-
 		endwhile; // End of the loop.
+		
+		related_events();
+		
 		?>
 
 	</main><!-- #main -->
 
 <?php
 get_footer();
+

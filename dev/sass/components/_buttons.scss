@@ -66,8 +66,8 @@ a.btn--white, .btn--white {
 /* feedback */
 .btn[disabled] {
 	cursor: not-allowed;
-	background-color: var(--btn-disabled-bg);
-	color: var(--btn-disabled-label);
+	background-color: $color__gray;
+	color: $color__white;
 	box-shadow: none;
 	opacity: 0.6;
 

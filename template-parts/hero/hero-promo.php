@@ -1,11 +1,4 @@
 <header id="hero">
-    <div class="bg-primary-dark">
-        <div class="container">
-            <div class="site-branding pt-1 pb-1">
-					<?php the_custom_logo(); ?>
-			</div><!-- .site-branding -->
-        </div>
-    </div>
 
     <div class="container">
         <div class="row">
@@ -54,12 +47,21 @@
                 </div>
             </div>
 
-            <div class="col-xs-12 col-md-5 img-hero end-sm">                
+            <div class="col-xs-12 col-md-5 pt-4 img-hero">                
                 <?php if ( has_post_thumbnail() ) : ?>
                     <div class="post-thumbnail">
                         <?php the_post_thumbnail('full'); ?>
                     </div>
-                <?php endif; ?>    
+                <?php endif; ?>
+
+                <div class="card">
+                    <div class="card-content">
+                    <?php
+                        $shortcode = get_field('promo_landing_form');
+                        echo do_shortcode($shortcode);
+                    ?>
+                    </div>
+                </div>
             </div>
 
         </div><!-- .row -->

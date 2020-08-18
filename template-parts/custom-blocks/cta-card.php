@@ -16,7 +16,7 @@ if( !empty($block['anchor']) ) {
 }
 
 // Create class attribute allowing for custom "className" and "align" values.
-$className = 'card';
+$className = 'card sticky';
 if( !empty($block['className']) ) {
     $className .= ' ' . $block['className'];
 }
@@ -29,8 +29,8 @@ if( !empty($block['align']) ) {
 $title = get_field('block_ctacard_title') ?: 'Título card';
 $text = get_field('block_ctacard_text') ?: 'Aquí el texto';
 $image = get_field('block_ctacard_image');
-
 $button = get_field('block_ctacard_button');
+
 if( $button ): 
     $link_url = $button['url'];
     $link_title = $button['title'];

@@ -34,21 +34,20 @@
 					<span><?php the_field('event_extra_info');?></span>
 				</div>	
 			</div>
-			<div class="card-footer aligncenter">
-                <div class="center-xs">
+			<div class="card-footer">
+                <div class="center-xs middle-xs mb-2">
 					<svg class="icon" width="48" height="48" viewBox="0 0 24 24">
 						<use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/sprite-icons.svg#calendar" />
 					</svg>
 					<span><?php the_field('event_start_date');?></span>
 				</div>
-                <div class="mt-2 dflex center-xs">
-                    <div class="dflex middle-xs">
-                        <svg class="icon" width="24" height="24" viewBox="0 0 24 24">
-                            <use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/sprite-icons.svg#map-marker" />
-                        </svg>
-                        <span><?php the_field('event_place');?></span>
-                    </div>
-                <div>
+                
+				<div class="dflex middle-xs">
+					<svg class="icon" width="24" height="24" viewBox="0 0 24 24">
+						<use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/sprite-icons.svg#map-marker" />
+					</svg>
+					<span><?php the_field('event_place');?></span>
+				</div>
 				
 			</div>		
 		</div><!-- end card -->

@@ -168,8 +168,8 @@ get_header();
 
 <div class="bg-primary-light pt-3 pb-3">
 	<div class="container">
-		<div class="row">
-			<div id="eventos"></div>
+		<div>
+			<div id="eventos" class="row"></div>
 		</div>
 	</div>
 </div>		

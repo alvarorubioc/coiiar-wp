@@ -11,7 +11,7 @@
 <div class="col-xs-12 col-md-6">
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	
-		<div class="card--horizontal"> 
+		<div class="card--horizontal card--border"> 
 			<div class="card-icon">
                 <div>
 					<?php 

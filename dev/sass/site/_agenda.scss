@@ -32,3 +32,15 @@
 	}
 }
 
+
+.lugarEvento {
+	margin-right: $space-xxs;
+	margin-bottom: $space-xxs;
+	&:hover {
+		cursor: pointer;
+	}
+	&.bagde:hover{
+		background-color: $color__secondary;
+	}
+}
+

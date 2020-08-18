@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying page content in page.php
+ * Template part for displaying event content in single-agenda.php
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -20,7 +20,11 @@
 				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'coiiar' ),
 				'after'  => '</div>',
 			)
-		);
+        );
+        
+        // Share on social networks 
+        get_template_part( 'template-parts/social-share' );
+        
 		?>
 	</div><!-- .entry-content -->
 
@@ -47,3 +51,5 @@
 		</footer><!-- .entry-footer -->
 	<?php endif; ?>
 </article><!-- #post-<?php the_ID(); ?> -->
+
+

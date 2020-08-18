@@ -28,32 +28,42 @@ if( !empty($block['align']) ) {
 
 $title = get_field('block_card_title') ?: 'Título card';
 $text = get_field('block_card_text') ?: 'Aquí el aviso';
-$image = get_field('block_card_image') ?: 'Imagen de card';
+$imagecard = get_field('block_card_image') ?: 'Imagen de card';
 $price = get_field('block_card_price') ?: 'Precio';
+$button = get_field('block_card_button');
+
+if( $button ): 
+    $link_url = $button['url'];
+    $link_title = $button['title'];
+    $link_target = $button['target'] ? $link['target'] : '_self';
+endif;
+
 ?>
 
 <div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
     <div class="card-img">
-        <?php echo wp_get_attachment_image( $image, 'full' ); ?>
+        <?php echo wp_get_attachment_image( $imagecard, 'img-card' ); ?>
     </div>
     <div class="card-content">
         <h3 class="text-h4"><?php echo $title; ?></h3>
         <div class="card-content__info dflex">
-            <svg class="icon" width="24" height="24" viewBox="0 0 24 24">
-                <use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/sprite-icons.svg#info" />
-            </svg>
             <span><?php echo $text; ?></span>
         </div>	
     </div>
     <div class="card-footer dflex between-xs">
         <div class="dflex middle-xs">
             <svg class="icon" width="24" height="24" viewBox="0 0 24 24">
-                <use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/sprite-icons.svg#map-marker" />
+                <use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/sprite-icons.svg#info" />
             </svg>
             <span><?php echo $price; ?></span>
         </div>
         <div class="dflex middle-xs">
-            <span><?php the_field('event_start_date');?></span>
+        <a class="btn btn--sm btn--secondary" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
         </div>
     </div>
+    <style type="text/css">
+        #<?php echo $id; ?> {
+            background-color: #F7F4F9;
+        }
+    </style>
 </div>

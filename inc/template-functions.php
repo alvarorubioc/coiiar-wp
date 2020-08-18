@@ -36,3 +36,49 @@ function coiiar_pingback_header() {
 }
 add_action( 'wp_head', 'coiiar_pingback_header' );
 
+
+function related_events() {
+    global $post;
+ 
+    $custom_taxterms = wp_get_object_terms( $post->ID, 'category-events', array('fields' => 'ids') );
+ 
+        $args = array(
+            'post_type' => 'agenda',
+            'post_status' => 'publish',
+            'posts_per_page' => 3, // you may edit this number
+            'orderby' => 'rand',
+            'post__not_in' => array ( $post->ID ),
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'category-events',
+                    'field' => 'id',
+                    'terms' => $custom_taxterms
+                )
+            )
+        );
+        $related_items = new WP_Query( $args );
+        // loop over query
+        if ( $related_items->have_posts() ) : ?>
+
+        <section class="pt-4 pb-5 bg-primary-light">
+            <div class="container">
+                <div class="row mb-2 center-xs">
+                    <div class="col-xs-12 col-md-7">
+                        <div class="divider aligncenter"></div>
+                        <p class="text-h2"><?php esc_html_e( 'Eventos relacionados', 'coiiar' ); ?></p>
+                    </div>
+                </div>
+                <div class="row">
+                <?php while ( $related_items->have_posts() ) : $related_items->the_post();
+                    get_template_part( 'template-parts/loop', 'agenda' );
+                endwhile; ?>
+                </div>
+            </div>
+        </section>    
+ 
+        <?php endif;
+        // Reset Post Data
+        wp_reset_postdata();
+ 
+}
+

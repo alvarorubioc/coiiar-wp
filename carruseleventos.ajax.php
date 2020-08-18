@@ -77,7 +77,7 @@ if ( $the_query->have_posts() )
       $meses [$mes] = true;
     $html_content .= $ancla.'
 
-<article data-mes="mes'.$mes.'" data-lugarev="ev'.md5(get_metadata( "post", get_the_ID(), 'event_place',true)).'" id="post-'.get_the_ID().'" class="evento "';
+<article data-mes="mes'.$mes.'" data-lugarev="ev'.md5(get_metadata( "post", get_the_ID(), 'event_place',true)).'" id="post-'.get_the_ID().'" class="evento col-xs-12"';
 
 ob_start();
 post_class('col-xs-12');
@@ -110,29 +110,27 @@ $html_content .= '>
   <a id="id-'.get_the_ID().'" href="'.get_the_permalink().'" title="'.get_the_title().'">
     <h3 class="text-h5">'.get_the_title().'</h3>
   </a>
-  <div class="card-content__info dflex">
-    <svg class="icon" width="24" height="24" viewBox="0 0 24 24">
-      <use xlink:href="'.get_template_directory_uri().'/assets/icons/sprite-icons.svg#info" />
-    </svg>
-    <span>'.get_metadata( "post", get_the_ID(), 'event_extra_info',true).'</span>
+    <div class="card-content__info dflex">
+      <svg class="icon" width="24" height="24" viewBox="0 0 24 24">
+        <use xlink:href="'.get_template_directory_uri().'/assets/icons/sprite-icons.svg#info" />
+      </svg>
+      <span>'.get_metadata( "post", get_the_ID(), 'event_extra_info',true).'</span>
+    </div>
   </div>
-</div>
-<div class="card-footer aligncenter">
-          <div class="center-xs">
-    <svg class="icon" width="48" height="48" viewBox="0 0 24 24">
-      <use xlink:href="'.get_template_directory_uri().'/assets/icons/sprite-icons.svg#calendar" />
-    </svg>
-    <span>'.date("d/m/Y", strtotime(get_metadata( "post", get_the_ID(), 'event_start_date',true))).'</span>
-  </div>
-          <div class="mt-2 dflex center-xs">
-              <div class="dflex middle-xs">
-                  <svg class="icon" width="24" height="24" viewBox="0 0 24 24">
-                      <use xlink:href="'.get_template_directory_uri().'/assets/icons/sprite-icons.svg#map-marker" />
-                  </svg>
-                  <span>'.get_metadata( "post", get_the_ID(), 'event_place',true).'</span>
-              </div>
-          <div>';
-  $html_content .= '
+  <div class="card-footer">
+    <div class="center-xs middle-xs mb-2">
+      <svg class="icon" width="48" height="48" viewBox="0 0 24 24">
+        <use xlink:href="'.get_template_directory_uri().'/assets/icons/sprite-icons.svg#calendar" />
+      </svg>
+      <span>'.date("d/m/Y", strtotime(get_metadata( "post", get_the_ID(), 'event_start_date',true))).'</span>
+    </div>
+    <div class="dflex middle-xs">
+        <svg class="icon" width="24" height="24" viewBox="0 0 24 24">
+            <use xlink:href="'.get_template_directory_uri().'/assets/icons/sprite-icons.svg#map-marker" />
+        </svg>
+        <span>'.get_metadata( "post", get_the_ID(), 'event_place',true).'</span>
+    <div>';
+    $html_content .= '
   </div>
 </div><!-- end card -->
 

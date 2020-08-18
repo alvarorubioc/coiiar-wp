@@ -5,10 +5,29 @@
     box-shadow: 0 16px 24px 0 rgba(50,50,50,0.06);
     position: relative;
 
+    &.card--border {
+        border-left: 8px solid $color__primary;
+    }
+
     &:hover {
         box-shadow: 0 8px 10px 1px rgba(0,0,0,0.10), 0 3px 14px 2px rgba(0,0,0,0.10), 0 5px 5px -3px rgba(0,0,0,0.20);
     }
 
+    .card-img {
+        position: relative;
+        span {
+            display: flex;
+            &:hover {cursor: pointer;}
+        }
+        img {
+            border-radius: $border__radius $border__radius 0 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            max-height: 12.75rem;
+        }
+    }
+    
     .card-content {
         padding: $space-xs;
     }
@@ -41,22 +60,10 @@
 
     }
 
-    .card-img { 
-        position: relative;
-        span {
-            display: flex;
-            &:hover {cursor: pointer;}
-        }
-        img {
-            border-radius: $border__radius $border__radius 0 0;
-            width: 100%;
-        }
-
-        .card-img__tag {
-            position: absolute;
-            right: $space-xs;
-            bottom: -16px;
-        }
+    .card-img__tag {
+        position: absolute;
+        right: $space-xs;
+        bottom: -16px;
     }
 
     .card-footer {
@@ -70,6 +77,7 @@
     }
 }
 
+
 .card--horizontal {
     @include card;
     flex-direction: row;
@@ -78,30 +86,31 @@
         flex-direction: column;
     } 
    
-
     .card-icon {
         flex-basis: 25%;
         padding: $space-xs;
-        border-left: 8px solid $color__primary;
+        //border-left: 8px solid $color__primary;
         border-radius: $border__radius 0 0 $border__radius;
         display: flex;
     }
     
     .card-img {
         flex-basis: 50%;
-        position: relative;
+        
         a {display: flex;}
+
+        img {
+            border-radius: $border__radius 0 0 $border__radius;
+            @include breakpoint(mobile) {
+                border-radius: $border__radius $border__radius 0 0;
+            }
+        }
 
         .card-img__tag {
             position: absolute;
             left: $space-xxs;
             top: $space-xxs;
         }
-    }
-    
-    img {
-        border-radius: $border__radius 0 0 $border__radius;
-        width: 100%;
     }
 
     .card-content {
@@ -115,6 +124,24 @@
     .card-footer {
         border-left: 1px solid $color__ligth;
         padding: $space-xs;
+        @include breakpoint(mobile) {
+            border-left: 0;
+            border-top: 1px solid $color__ligth;
+            justify-content: space-between;
+            display: flex;
+
+            > div {
+                display: flex;
+
+                &:first-child {
+                    margin-bottom: 0;
+                }
+            }
+
+            svg {
+                width: 24px;    
+            }
+        }
         
     }
 }
@@ -124,16 +151,6 @@
     flex-direction: column;
     display: flex;
     
-    .card-img {
-        span {
-            display: flex;
-            &:hover {cursor: pointer;}
-        }
-    }
-    
-    img {
-        border-radius: $border__radius $border__radius 0 0;
-    }
 
     .card-content {
         display: flex;
