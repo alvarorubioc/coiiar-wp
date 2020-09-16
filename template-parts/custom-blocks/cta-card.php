@@ -16,7 +16,7 @@ if( !empty($block['anchor']) ) {
 }
 
 // Create class attribute allowing for custom "className" and "align" values.
-$className = 'card sticky';
+$className = 'card';
 if( !empty($block['className']) ) {
     $className .= ' ' . $block['className'];
 }
@@ -34,7 +34,7 @@ $button = get_field('block_ctacard_button');
 if( $button ): 
     $link_url = $button['url'];
     $link_title = $button['title'];
-    $link_target = $button['target'] ? $link['target'] : '_self';
+    $link_target = $button['target'];
 endif;
 
 if( get_field('block_ctacard_color') == 'primary' ) :
@@ -47,9 +47,13 @@ if( get_field('block_ctacard_color') == 'secondary' ) :
     $btn_color = 'secondary';
 endif;
 
+if( get_field('block_ctacard_sticky') == 'true' ) :
+    $sticky = 'sticky';
+endif;
+
 ?>
 
-<div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
+<div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?> <?php echo esc_attr($sticky); ?>">
     <div>
         <?php echo wp_get_attachment_image( $image, 'full' ); ?>
     </div>

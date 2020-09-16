@@ -7,7 +7,7 @@
                 <p><?php the_field('homepage_description_services');?></p>
             </div>
             <div class="col-xs end-md">
-                <a class="btn btn--primary btn--md"><?php esc_html_e( 'Ir a servicios', 'coiiar' ); ?></a>
+                <a href="/servicios/" class="btn btn--primary btn--md"><?php esc_html_e( 'Ir a servicios', 'coiiar' ); ?></a>
             </div>
         </div>	
         

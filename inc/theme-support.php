@@ -53,6 +53,12 @@ if ( ! function_exists( 'coiiar_setup' ) ) :
 			)
 		);
 
+		register_nav_menus(
+			array(
+				'menu-footer' => esc_html__( 'Footer menu', 'coiiar' ),
+			)
+		);
+
 		
 		// Add icons to topbar menu
 		add_filter('wp_nav_menu_objects', 'my_wp_nav_menu_objects', 10, 2);

@@ -39,7 +39,7 @@
                                 <use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/sprite-icons.svg#calendar" />
                             </svg>
                             <span><?php esc_html_e( 'Del ', 'coiiar' ); ?><?php the_field('event_start_date');?></span>
-                            <span><?php esc_html_e( '&nbsp;al ', 'coiiar' ); ?><?php the_field('event_start_date');?></span>
+                            <span><?php esc_html_e( '&nbsp;al ', 'coiiar' ); ?><?php the_field('event_end_date');?></span>
                         </div>
                     </div><!-- .entry-meta -->  
                 </div>

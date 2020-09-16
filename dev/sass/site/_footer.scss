@@ -61,3 +61,13 @@ ul.social {
 .site-info {
     border-top: 1px solid $color__gray-dark;
 }
+
+#footer-menu {
+    list-style: none;
+    font-size: 80%;
+    display: inline-flex;
+    margin: 0;
+    li {
+        padding-left: $space-xs;
+    }
+}

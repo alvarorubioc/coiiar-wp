@@ -33,7 +33,7 @@
         </div>
 
         <div class="row mt-3 center-xs">
-            <a class="btn btn--secondary btn--lg"><?php esc_html_e( 'Ver todas las noticias', 'coiiar' ); ?></a>
+            <a href="/noticias" class="btn btn--secondary btn--lg"><?php esc_html_e( 'Ver todas las noticias', 'coiiar' ); ?></a>
         </div>
     </div>
 </section>       

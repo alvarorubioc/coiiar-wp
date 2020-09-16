@@ -10,7 +10,7 @@ if( $posts ): ?>
                 <p><?php the_field('homepage_description_events');?></p>
             </div>
             <div class="col-xs end-md">
-                <a class="btn btn--primary btn--md"><?php esc_html_e( 'Ir a formación', 'coiiar' ); ?></a>
+                <a href="/formacion-y-cursos/" class="btn btn--primary btn--md"><?php esc_html_e( 'Ir a formación', 'coiiar' ); ?></a>
             </div>
         </div>	
         
@@ -26,7 +26,7 @@ if( $posts ): ?>
 
         <div class="row center-xs">
             <div class="col-xs-12 mt-3">
-                <a class="btn btn--secondary btn--lg"><?php esc_html_e( 'Ver todo en la agenda', 'coiiar' ); ?></a>
+                <a href="/agenda/" class="btn btn--secondary btn--lg"><?php esc_html_e( 'Ver todo en la agenda', 'coiiar' ); ?></a>
             </div>
         </div>        
 

@@ -7,7 +7,7 @@
                 <?php if(is_post_type_archive('agenda')) : ?>
                     <div class="entry-title">
                         <span class="text-h6"><?php esc_html_e( 'Agenda', 'coiiar' ); ?></span>
-                        <?php the_archive_title( '<h1 class="page-title">', '</h1>' ); ?>
+                        <h1 class="page-title"><?php esc_html_e( 'Agenda formación, jornadas y eventos', 'coiiar' ); ?></h1>
                         <div class="divider"></div>
                         <?php the_archive_description( '<div class="archive-description"><strong>', '</strong></div>' ); ?>
                     </div>   

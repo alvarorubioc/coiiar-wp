@@ -29,13 +29,13 @@ if( !empty($block['align']) ) {
 $title = get_field('block_card_title') ?: 'Título card';
 $text = get_field('block_card_text') ?: 'Aquí el aviso';
 $imagecard = get_field('block_card_image') ?: 'Imagen de card';
-$price = get_field('block_card_price') ?: 'Precio';
+$price = get_field('block_card_price') ;
 $button = get_field('block_card_button');
 
 if( $button ): 
     $link_url = $button['url'];
     $link_title = $button['title'];
-    $link_target = $button['target'] ? $link['target'] : '_self';
+    $link_target = $button['target'];
 endif;
 
 ?>
@@ -58,7 +58,9 @@ endif;
             <span><?php echo $price; ?></span>
         </div>
         <div class="dflex middle-xs">
-        <a class="btn btn--sm btn--secondary" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+        <?php if( $button ): ?>
+            <a class="btn btn--sm btn--secondary" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+        <?php endif; ?>
         </div>
     </div>
     <style type="text/css">
