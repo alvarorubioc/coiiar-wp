@@ -4,7 +4,7 @@
             <div class="col-xs-12 col-md-5 pb-3">
                 <h2><?php esc_html_e( 'Comisiones de trabajo y colaboraciones', 'coiiar' ); ?></h2>
                 <p><?php esc_html_e( 'Desde COIIAR te ayudamos a conectar y crear sinergias que harán crecer tu empresa o negocio.', 'coiiar' ); ?></p>
-                <a class="btn btn--secondary btn--lg"><?php esc_html_e( 'Ver todas las comisiones', 'coiiar' ); ?></a>
+                <a href="/el-colegio/comisiones/" class="btn btn--secondary btn--lg"><?php esc_html_e( 'Ver todas las comisiones', 'coiiar' ); ?></a>
             </div>
 		<?php
             $args = array(

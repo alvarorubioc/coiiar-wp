@@ -10,7 +10,6 @@
 get_header();
 ?>
 
-
 	<main id="primary" class="site-main bg-primary-light">
 
 		<section class="error-404 not-found container">
@@ -31,3 +30,4 @@ get_header();
 
 <?php
 get_footer();
+

@@ -22,10 +22,10 @@ function coiiar_widgets_init() {
 			'name'          => esc_html__( 'Footer Top', 'coiiar' ),
 			'id'            => 'footer-top',
 			'description'   => esc_html__( 'Add widgets here.', 'coiiar' ),
-			'before_widget' => '<div id="%1$s" class="col-xs-12 col-md-4 %2$s">',
+			'before_widget' => '<div id="%1$s" class="col-xs-12 col-sm-6 col-md %2$s">',
 			'after_widget'  => '</div>',
-			'before_title'  => '<span class="widget-title">',
-			'after_title'   => '</span>',
+			'before_title'  => '<p class="widget-title text-h5">',
+			'after_title'   => '</p>',
 		)
     );
     register_sidebar(

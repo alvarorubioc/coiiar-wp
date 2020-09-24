@@ -13,14 +13,6 @@
 
 .footer-top {
     padding-bottom: $space__unit;
-     a {
-        font-weight: bold;
-        color: $color__text-main;
-     
-        &:hover{
-            color: $color__primary;
-        }
-    }
 }
 
 .footer-middle {

@@ -10,7 +10,7 @@
 ?>
 
 <section class="no-results not-found container">
-	<header class="page-header">
+	<header class="page-header mt-4">
 		<h1 class="page-title"><?php esc_html_e( 'Nada encontrado', 'coiiar' ); ?></h1>
 	</header><!-- .page-header -->
 
@@ -41,7 +41,7 @@
 		else :
 			?>
 
-			<p><?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'coiiar' ); ?></p>
+			<p><?php esc_html_e( 'Parece que todavía no hay nada publicado en esta sección. Quizá puedes hacer una nueva búsqueda o ir a la homepage', 'coiiar' ); ?></p>
 			<?php
 			get_search_form();
 
