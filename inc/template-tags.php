@@ -26,7 +26,7 @@ if ( ! function_exists( 'coiiar_posted_on' ) ) :
 			esc_html( get_the_modified_date() )
 		);
 
-		echo '<div class="posted-on dflex center-xs"> ' .$time_icon. ' ' . $time_string . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo '<div class="posted-on dflex"> ' .$time_icon. ' ' . $time_string . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 	}
 endif;

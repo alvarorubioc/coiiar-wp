@@ -16,15 +16,13 @@
                     ?>
                     <div class="divider aligncenter"></div>
                     
-                    <p><strong><?php echo the_excerpt(); ?></strong></p>
-                    
+                    <p><strong><?php echo the_excerpt(); ?></strong></p>                    
                     
                     <div class="entry-meta center-xs">
                         <?php
                             coiiar_posted_category();
                             coiiar_posted_tag();
                             coiiar_posted_on();
-                            coiiar_posted_by();
                         ?>
                     </div><!-- .entry-meta -->  
                 </div>

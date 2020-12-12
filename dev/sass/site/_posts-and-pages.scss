@@ -53,11 +53,6 @@
 }
 
 
-.grid-blog .format-video {
-	//flex-basis: 66.666%;
-	//max-width: 66.666%;
-}
-
 #section-filters{
 	.filters-bar {
 		border-bottom: 1px solid $color__gray;
@@ -118,7 +113,7 @@
 	}
 
 	.filters-wrapper {
-		.categories, .tags{
+		.categories, .tags, .tags-2 {
 			display: none;
 			overflow: hidden;
 		}

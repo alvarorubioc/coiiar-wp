@@ -28,8 +28,8 @@ get_header();
 		endwhile; // End of the loop.
 		?>
 		<?php
-			get_template_part( 'template-parts/homepage/section', 'agenda' ); 
 			get_template_part( 'template-parts/homepage/section', 'actualidad' );
+			get_template_part( 'template-parts/homepage/section', 'agenda' ); 
 			get_template_part( 'template-parts/homepage/section', 'servicios');
 			get_template_part( 'template-parts/section', 'colegiarse' );
 			get_template_part( 'template-parts/homepage/section', 'comisiones' );

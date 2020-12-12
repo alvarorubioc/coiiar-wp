@@ -25,23 +25,30 @@
 					<p class="text-h5"><?php esc_html_e( 'Síguenos en:', 'coiiar' ); ?></p>
 					<ul class="social">
 						<li>
-							<a href="https://twitter.com/COIIAR" title="Twitter COIIAR" rel=”nofollow”>
+							<a href="https://twitter.com/COIIAR" title="Twitter COIIAR" rel=”nofollow” target="_blank">
 								<svg class="icon" width="24" height="24" viewBox="0 0 24 24">
 									<use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/sprite-icons.svg#twitter" />
 								</svg>
 							</a>
 						</li>
 						<li>
-							<a href="https://www.linkedin.com/in/coiiar/" title="Linkedin COIIAR" rel=”nofollow”>
+							<a href="https://www.linkedin.com/in/coiiar/" title="Linkedin COIIAR" rel=”nofollow” target="_blank">
 								<svg class="icon" width="24" height="24" viewBox="0 0 24 24">
 									<use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/sprite-icons.svg#linkedin" />
 								</svg>
 							</a>
 						</li>
 						<li>
-							<a href="https://www.instagram.com/ingenieros_industriales_coiiar/" title="Instagram COIIAR" rel=”nofollow”>
+							<a href="https://www.instagram.com/ingenieros_industriales_coiiar/" title="Instagram COIIAR" rel=”nofollow” target="_blank">
 								<svg class="icon" width="24" height="24" viewBox="0 0 24 24">
 									<use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/sprite-icons.svg#instagram" />
+								</svg>
+							</a>
+						</li>
+						<li>
+							<a href="https://www.youtube.com/channel/UCuUDBiSP18agKh7ovMxjO3g/featured" title="YouTube COIIAR" rel=”nofollow” target="_blank">
+								<svg class="icon" width="24" height="24" viewBox="0 0 24 24">
+									<use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/sprite-icons.svg#youtube" />
 								</svg>
 							</a>
 						</li>

@@ -67,5 +67,9 @@ endif;
         #<?php echo $id; ?> {
             background-color: #F7F4F9;
         }
+        #<?php echo $id; ?> .card-content {
+            flex: none;
+            -ms-flex: none;
+        }
     </style>
 </div>

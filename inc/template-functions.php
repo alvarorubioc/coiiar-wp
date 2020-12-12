@@ -82,3 +82,48 @@ function related_events() {
  
 }
 
+function related_job_offers() {
+    global $post;
+ 
+    $custom_taxterms = wp_get_object_terms( $post->ID, 'category-sectors', array('fields' => 'ids') );
+ 
+        $args = array(
+            'post_type' => 'bolsa-trabajo',
+            'post_status' => 'publish',
+            'posts_per_page' => 3, // you may edit this number
+            'orderby' => 'rand',
+            'post__not_in' => array ( $post->ID ),
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'category-sectors',
+                    'field' => 'id',
+                    'terms' => $custom_taxterms
+                )
+            )
+        );
+        $related_items = new WP_Query( $args );
+        // loop over query
+        if ( $related_items->have_posts() ) : ?>
+
+        <section class="pt-4 pb-5 bg-primary-light">
+            <div class="container">
+                <div class="row mb-2 center-xs">
+                    <div class="col-xs-12 col-md-7">
+                        <div class="divider aligncenter"></div>
+                        <p class="text-h2"><?php esc_html_e( 'Ofertas relacionadas', 'coiiar' ); ?></p>
+                    </div>
+                </div>
+                <div class="row">
+                <?php while ( $related_items->have_posts() ) : $related_items->the_post();
+                    get_template_part( 'template-parts/loop', 'bolsa-trabajo' );
+                endwhile; ?>
+                </div>
+            </div>
+        </section>    
+ 
+        <?php endif;
+        // Reset Post Data
+        wp_reset_postdata();
+ 
+}
+
