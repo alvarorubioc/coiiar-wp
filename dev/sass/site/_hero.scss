@@ -24,6 +24,10 @@
     }
 }
 
+.page-template-page-normativa #hero {
+    background-color: $color__gray !important;
+}
+
 .single #hero, .page-child #hero{
     background-color: $color__ligth;
 

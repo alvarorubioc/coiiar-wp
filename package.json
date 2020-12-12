@@ -38,5 +38,6 @@
     "gulp-uglify": "^3.0.1",
     "gulp-zip": "^5.0.1",
     "jshint": "^2.9.7"
-  }
+  },
+  "dependencies": {}
 }
