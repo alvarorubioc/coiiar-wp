@@ -21,6 +21,7 @@
 
 	&.no-events {
 		background-color: $color__ligth;
+		color: $color__gray-dark;
 		&:hover {
 			cursor: not-allowed;
 		}
@@ -30,6 +31,16 @@
 	&.this-month {
 		background-color: $color__primary-40;
 	}
+}
+
+.slick-slide {
+    height: unset;
+}
+
+.mesactual 
+{
+	background-color: $color__primary-80;
+	color: white;
 }
 
 

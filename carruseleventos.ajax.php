@@ -1,37 +1,23 @@
 <?php
 
-function sumarMes($meses)
-{
-  $meses = $meses + 1;
-  if ($meses % 100 > 12)
-    {
-      $meses = $meses + 100 - 12;
-    }
-    return $meses;
-}
-
 $fechaini = isset($_GET['fi']) ? $_GET['fi'] : '-1';
-if ($fechaini < 201000 )
+if ($fechaini < 20100000 )
 {
-  $fechaini = date("Ym");
+  $fechaini = date("Ymd");
 }
 
-$fechafin = sumarMes($fechaini);
-$fechafin = sumarMes($fechafin);
-$fechafin = sumarMes($fechafin);
-$fechafin = sumarMes($fechafin);
-$fechafin = sumarMes($fechafin);
-
+$meses = 5;
 if (isset($_GET['tipo']))
-{
-  if ($_GET['tipo'] == "true")
-  {
-    $fechaini = date("Ymd");
-  } else
-  {
-    $fechaini = $fechaini."00";
-  }
-}
+  if ($_GET['tipo'] === '1')
+    $meses = 0;
+
+error_log ($fechaini);
+$fechafin = date('Ymd', strtotime('+'.$meses.' month', strtotime($fechaini)));
+error_log ($fechafin);
+$fechafin = date("Ymt", strtotime($fechafin));
+error_log ($fechafin);
+
+$tax = $_GET['tax'] + 0;
 
 $mesesN = [ "ERROR", "Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
 
@@ -41,7 +27,7 @@ if ( ! defined('ABSPATH') )
   require_once('../../../wp-load.php' );
 }
 
-$the_query = new WP_Query(
+$query_en_si = 
   array(
     'post_type' => 'agenda',
     'meta_key' => 'event_start_date',
@@ -51,13 +37,27 @@ $the_query = new WP_Query(
     array(
       array(
           'key'     => 'event_start_date',
-          'value'   => array( $fechaini, $fechafin."31" ),
+          'value'   => array( $fechaini, $fechafin),
           'type'    => 'numeric',
           'compare' => 'BETWEEN',
       ),
     )
-  )
 );
+
+if ($tax > 0)
+{
+  error_log ("TAX = ".$tax);
+  $query_en_si['tax_query'] = 
+    array(
+      array (
+        'taxonomy' => 'category-events',
+      'terms' => "".$tax
+    )
+    );
+}
+
+error_log (json_encode($query_en_si));
+$the_query = new WP_Query($query_en_si);
 
 $html_content = "";
 $contador = 0;
@@ -77,7 +77,7 @@ if ( $the_query->have_posts() )
       $meses [$mes] = true;
     $html_content .= $ancla.'
 
-<article data-mes="mes'.$mes.'" data-lugarev="ev'.md5(get_metadata( "post", get_the_ID(), 'event_place',true)).'" id="post-'.get_the_ID().'" class="evento col-xs-12"';
+<article data-mes="mes'.$mes.'" data-lugarev="ev'.md5(ucwords(strtolower(trim(get_metadata( "post", get_the_ID(), 'event_place',true))))).'" id="post-'.get_the_ID().'" class="evento col-xs-12"';
 
 ob_start();
 post_class('col-xs-12');
@@ -145,7 +145,7 @@ $html_content .= '>
 
 $json_array=array(
   'fechaini'=> $fechaini,
-  'fechafin'=> $fechafin."31",
+  'fechafin'=> $fechafin,
   'meses'=> join(",",$meses),
   'contador'=>$contador,
   'html_content'=>$html_content

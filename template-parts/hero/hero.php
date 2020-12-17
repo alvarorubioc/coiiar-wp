@@ -1,6 +1,6 @@
 <header id="hero">
     <div class="container">
-        <div class="row">
+        <div class="row <?php if( get_field ('hero_video_featured')) { echo "middle-sm"; } ?>">
             
             <div class="col-xs-12 col-md-7">
                 <div class="entry-title">
@@ -50,11 +50,16 @@
             </div>
 
             <div class="col-xs-12 col-md-5 img-hero end-sm">                
-                <?php if ( has_post_thumbnail() ) : ?>
-                    <div class="post-thumbnail">
-                        <?php the_post_thumbnail('full'); ?>
-                    </div>
-                <?php endif; ?>    
+                <?php if ( get_field ('hero_video_featured') ) {
+                    echo'<div class="embed-container">';
+                        the_field('hero_video_featured');
+                    echo'</div>';    
+                    } elseif ( has_post_thumbnail() ) {
+                        echo '<div class="post-thumbnail">';
+                            the_post_thumbnail('full');
+                        echo'</div>';
+                    } 
+                ?>
             </div>
 
         </div><!-- .row -->

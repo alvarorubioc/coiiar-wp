@@ -70,7 +70,7 @@ get_header();
 			$mes = substr($fecha, 0, 6);
 			if ($fechamenor>$mes) $fechamenor=$mes;
 			if ($fechamayor<$mes) $fechamayor=$mes;
-			$lugares[$lugar]=true;
+			$lugares[ucwords(strtolower(trim($lugar)))]=true;
 			$meses [$mes] = true;
 			$contador++;
 		}
@@ -85,7 +85,7 @@ get_header();
 			<div class="container dflex">
 				<div class="filter-by"><?php esc_html_e( 'Filtrar por:', 'coiiar' ); ?></div>
 				
-					<button class="dropdown categories"><?php esc_html_e( 'Mes', 'coiiar' ); ?>
+					<button class="dropdown categories active"><?php esc_html_e( 'Mes', 'coiiar' ); ?>
 						<span>
 							<svg class="icon" width="24" height="24" viewBox="0 0 24 24">
 								<use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/sprite-icons.svg#chevron-bottom" />
@@ -99,9 +99,9 @@ get_header();
 							</svg>
 						</span>
 					</button>
-					<button class="dropdown" onclick="location.href='/formacion/'"><?php esc_html_e( 'Formación', 'coiiar' ); ?></button>
-					<button class="dropdown" onclick="location.href='/jornadas-tecnicas/'"><?php esc_html_e( 'Jornadas', 'coiiar' ); ?></button>
-					<button class="dropdown" onclick="location.href='/eventos/'"><?php esc_html_e( 'Eventos', 'coiiar' ); ?></button>
+					<button class="dropdown" onclick="location.href='/formacion'" ><?php esc_html_e( 'Formación', 'coiiar' ); ?>
+					<button class="dropdown" onclick="location.href='/contacto'"><?php esc_html_e( 'Jornadas', 'coiiar' ); ?>
+					<button class="dropdown" onclick="location.href='/jornadas-tecnicas/'"><?php esc_html_e( 'Eventos', 'coiiar' ); ?>
 				
 			</div>
 		</div> <!-- .filters-bar -->
@@ -114,6 +114,7 @@ get_header();
 					<?php
 						$mesactual = $fechamenor;
 						$pasos = 1;
+						$arrancar = 0;
 						while ($mesactual<=$fechamayor)
 						//while ($pasos < 7)
 							{
@@ -121,10 +122,16 @@ get_header();
 							if (array_key_exists($mesactual, $meses)) 
 							{
 								$clases = " has-events";
-								$salta = 'onclick="scrollToAnchor(\''.$mesactual.'\')"';
+								$salta = 'onclick="recarga(\''.$mesactual.'01\',1)"';
 							} else
 							{
 								$clases = " no-events";
+							}
+							if (date('Ym') == $mesactual)
+							{
+								$arrancar = ($pasos-1);
+								$clases .= " mesactual";
+								//data-paso=\"".($pasos-1)."\" data-tema=\".$tema.\"
 							}
 							echo "<div ".$salta." class=\" entradaSlider\" id=\"mes".substr($mesactual, 0,4).substr($mesactual, -2,2)."\" data-y=\"".substr($mesactual, 0,4)."\" data-m=\"".substr($mesactual, -2,2)."\"><div class=\"box-month center-xs ".$clases."\"><p class=\"text-h2\">".$mesestxt[substr($mesactual, -2,2)]."</p><strong>".substr($mesactual, 0,4)."</strong></div></div>";
 							$mesactual++;
@@ -154,7 +161,7 @@ get_header();
 						{
 							if (strlen(trim($sitio))>0) 
 							{
-								echo "<div class=\"lugarEvento bagde\" style=\"display: none;\" id=\"ev".md5($sitio)."\" >$sitio</div>";
+								echo "<div class=\"lugarEvento bagde\" id=\"ev".md5($sitio)."\" >$sitio</div>"; //style=\"display: none;\"
 							}	
 						}
 						echo "<div class=\"lugarEvento bagde\" style=\"\" id=\"evTodas\" >Todas</div>";
@@ -183,6 +190,7 @@ function addHTML (objeto, html)
 
 function lz(num)
 {
+  num = Number(num).toString();
   return num>9?num:("0"+num);
 }
 
@@ -200,20 +208,20 @@ function recarga(fecha,tipo)
   .then(function(json) 
   {
     // if (tipo) $("#carruselmeses").hide();
-	$(".lugarEvento").hide();
+//	$(".lugarEvento").hide();
 	$("#evTodas").show();
     document.querySelector("#eventos").innerHTML = json.html_content;
     document.querySelectorAll('.evento').forEach(function(e) 
     {
-      $("#"+e.dataset.lugarev).show();
+//      $("#"+e.dataset.lugarev).show();
     });
-	if (tipo)
+/*	if (tipo)
 	{
 		var f = document.querySelector("#mes"+fecha).dataset;
 		f.salto = 1;
 		$("#carruselmeses").slick('slickGoTo', parseInt(f.slickIndex));
 		//$("#carruselmeses").show();
-	}
+	}*/
   });
 }
 
@@ -236,9 +244,6 @@ function recarga(fecha,tipo)
 		});
     });
 
-    var d1 = new Date();
-
-
 $("#carruselmeses").slick({
   infinite: false,
   slidesToShow: 6,
@@ -258,16 +263,32 @@ $("#carruselmeses").slick({
 	]
 });
 
+n = <?php echo $arrancar; ?>;
+do
+{
+	$('#carruselmeses').slick('slickGoTo', n);
+	x = $('#carruselmeses').slick('slickCurrentSlide');
+	n = n - 1;
+}	while (x < n + 1)
+
+//$('#carruselmeses').slick('slickGoTo', <?php echo $arrancar; ?>);
 $('#carruselmeses').on('afterChange', function(event, slick, currentSlide, nextSlide)
 {
-  var f = document.querySelector(".slick-current").dataset;
+/*  var f = document.querySelector(".slick-current").dataset;
 debugger; 
   if (f.salto != "1")
     recarga(f.y + "" + f.m,false);
-	f.salto = 0;
+	f.salto = 0;*/
 });
 
-recarga((d1.getYear() + 1900) + lz(d1.getMonth()+1),true);
+function yyyymmdd() 
+{
+    function twoDigit(n) { return (n < 10 ? '0' : '') + n; }
+    var now = new Date();
+    return '' + now.getFullYear() + twoDigit(now.getMonth() + 1) + twoDigit(now.getDate());
+}
+
+recarga(yyyymmdd(),0);
 });
 </script>
 
