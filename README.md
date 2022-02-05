@@ -15,7 +15,7 @@ Instalación
 `coiiar` solo requiere estas dependencias:
 
 - [Node.js](https://nodejs.org/)
-- [Gulp.js](https://gulpjs.com/)
+- [Composer](https://getcomposer.org/)
 
 ### Cómo empezar
 
@@ -26,20 +26,26 @@ Clona o descarga este repositorio `$ git clone https://github.com/alvarorubioc/c
 Para empezar a usar todas las herramientas necesitas instalar Node.js.
 
 ```sh
+$ composer install
 $ npm install
 ```
 
-### Tareas de Gulp disponibles
+### Comandos CLI disponibles
 
-`coiiar` está preparado para el desarollo de la plantilla para WordPress:
+`coiiar` está preparado para el desarollo de la plantilla para WordPress :
 
-- $ `gulp` : Escucha todos los cambios en la carpeta dev o los archivos php, recarga el navegador cuando haces cambios y compila todo lo necesario.
-- `$ gulp javascript` : compila los js en dev/js a assets/js
-- `$ gulp imagemin` : optimiza las img en dev/img a assets/img
-- `$ gulp sass` : compila los estilos de sass en el root = styles.css y styles.css.map
-- `$ gup icons` : compila los svg a en dev/icons a un sprite en assstes/icons
-- `$ gulp build` : crea un .zip excluyendo la carpeta dev, node_modules, .git, etc, para la distribución de la plantilla
+- `composer lint:wpcs` : comprueba todos los archivos PHP con [PHP Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/php/).
+- `composer lint:php` : comprueba todos los archivos PHP en busca de errores de sintaxis.
+- `npm run compile:css` : compila archivos SASS a css.
+- `npm run compile:editorcss` : compila archivos SASS a css editor-styles.css.
+- `npm run compile:rtl` : genera la hoja de estilo para RTL.
+- `npm run watch` : vigila todos los archivos SASS y los vuelve a compilar en css cuando cambian.
+- `npm run lint:scss` : comprueba todos los archivos SASS con [CSS Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/css/).
+- `npm run lint:js` : comprueba todos los archivos JavaScript con [JavaScript Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/javascript/).
+- `npm run sync` : cada cambio en archivos css o php se muestran en el navegador.
+- `npm run dev` : se ejecuta en paralelo `npm run watch` y `npm run sync`.
+- `npm run bundle` : genera un archivo .zip para su distribución, excluyendo los archivos de desarrollo y del sistema.
 
-Now you're ready to go! The next step is easy to say, but harder to do: make an awesome WordPress theme. :)
+¡Ahora estás listo para empezar! El siguiente paso es fácil de decir, pero más difícil de hacer: crea un tema de WordPress increíble. :)
 
-Good luck!
+¡Buena suerte!
