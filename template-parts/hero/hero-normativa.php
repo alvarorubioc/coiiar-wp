@@ -4,7 +4,13 @@
             <div class="row middle-xs">
                 <div class="col-xs-12 col-sm-7">
                     <div class="entry-title">
-                        <span class="text-h6"><?php esc_html_e( 'Servicios', 'coiiar' ); ?></span>
+                        <div class="breadcrumbs mb-1" typeof="BreadcrumbList" vocab="https://schema.org/">
+                            <?php if(function_exists('bcn_display'))
+                                {
+                                    bcn_display();
+                                }
+                            ?>
+                        </div>
                         <?php the_archive_title( '<h1 class="page-title">', '</h1>' ); ?>
                         <div class="divider"></div>
                         <?php the_archive_description( '<div class="archive-description"><strong>', '</strong></div>' ); ?>
@@ -35,7 +41,13 @@
         <div class="row">
             <div class="col-xs-12 col-md-10 col-md-offset-1 center-xs">
                 <div class="entry-title">
-                    <span class="text-h6"><?php esc_html_e( 'Servicios', 'coiiar' ); ?></span>
+                    <div class="breadcrumbs mb-1" typeof="BreadcrumbList" vocab="https://schema.org/">
+                        <?php if(function_exists('bcn_display'))
+                            {
+                                bcn_display();
+                            }
+                        ?>
+                    </div>
 
                     <?php
                     if (get_field('hero_title') ) {
@@ -45,6 +57,11 @@
                     else
                         echo the_title( '<h1>', '</h1>' );
                     ?>
+                    <div>
+                        <h2 class="text-h3">
+                            <?php echo the_field('subtitulo_h2');?>
+                        </h2>
+					</div>
                     <div class="divider aligncenter"></div>                   
                     
                     <div class="entry-meta center-xs">

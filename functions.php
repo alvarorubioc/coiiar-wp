@@ -50,4 +50,4 @@ require get_template_directory() . '/inc/custom-post-type.php';
 /**
  * Remove Taxonomy "events-category" slug from CTP "agenda"
  */
-require get_template_directory() . '/inc/remove-taxonomy-slug.php';
+//require get_template_directory() . '/inc/remove-taxonomy-slug.php';

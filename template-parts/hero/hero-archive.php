@@ -14,7 +14,13 @@
                 
                 <?php if ( is_archive() ) : ?> 
                     <div class="entry-title">
-                        <span class="text-h6"><?php esc_html_e( 'Noticias', 'coiiar' ); ?></span>
+                        <div class="breadcrumbs mb-1" typeof="BreadcrumbList" vocab="https://schema.org/">
+                            <?php if(function_exists('bcn_display'))
+                                {
+                                    bcn_display();
+                                }
+                            ?>
+                        </div>
                         <?php the_archive_title( '<h1 class="page-title">', '</h1>' ); ?>
                         <div class="divider"></div>
                         <?php the_archive_description( '<div class="archive-description"><strong>', '</strong></div>' ); ?>

@@ -99,9 +99,9 @@ get_header();
 							</svg>
 						</span>
 					</button>
-					<button class="dropdown" onclick="location.href='/formacion'" ><?php esc_html_e( 'Formación', 'coiiar' ); ?>
-					<button class="dropdown" onclick="location.href='/contacto'"><?php esc_html_e( 'Jornadas', 'coiiar' ); ?>
-					<button class="dropdown" onclick="location.href='/jornadas-tecnicas/'"><?php esc_html_e( 'Eventos', 'coiiar' ); ?>
+					<button class="dropdown" onclick="location.href='/formacion/'" ><?php esc_html_e( 'Formación', 'coiiar' ); ?>
+					<button class="dropdown" onclick="location.href='/jornadas-tecnicas/'"><?php esc_html_e( 'Jornadas', 'coiiar' ); ?>
+					<button class="dropdown" onclick="location.href='/eventos/'"><?php esc_html_e( 'Eventos', 'coiiar' ); ?>
 				
 			</div>
 		</div> <!-- .filters-bar -->

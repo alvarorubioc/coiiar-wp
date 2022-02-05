@@ -62,7 +62,7 @@ array('hierarchical' => true,     /* if this is true, it acts like categories */
     'show_in_rest' => true,
     'show_ui' => true,
     'query_var' => true,
-    'rewrite'   => array( 'slug' => 'category-events', 'coiiar' , 'with_front' => false ), /* you can specify its url slug */
+    'rewrite'   => array( 'slug' => 'agenda', 'coiiar' , 'with_front' => false ), /* you can specify its url slug */
     'has_archive' => true, /* you can rename the slug here */
     )
 );

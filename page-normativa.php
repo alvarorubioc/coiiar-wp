@@ -35,7 +35,7 @@ get_header();
                             'post_type' => 'normativas',
                             'posts_per_page' => -1,
                             'orderby' => 'date',
-                            'order'   => 'ASC',
+                            'order'   => 'DESC',
                         );
                         // The Query
                         $the_query = new WP_Query( $args );

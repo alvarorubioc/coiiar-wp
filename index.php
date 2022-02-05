@@ -23,7 +23,13 @@ get_header();
 
 					<div class="col-xs-12 col-md-7">
 						<div class="entry-title">
-							<span class="text-h6"><?php esc_html_e( 'Noticias', 'coiiar' ); ?></span>
+						<div class="breadcrumbs mb-1" typeof="BreadcrumbList" vocab="https://schema.org/">
+								<?php if(function_exists('bcn_display'))
+									{
+										bcn_display();
+									}
+								?>
+							</div>
 							<h1><?php the_field('hero_title', 7);?></h1>
 							<div class="divider"></div>
 							<p><?php echo the_excerpt(); ?></p>

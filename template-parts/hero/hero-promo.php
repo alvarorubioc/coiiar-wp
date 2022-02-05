@@ -24,7 +24,7 @@
                         if( $link_1 ): 
                             $link_url = $link_1['url'];
                             $link_title = $link_1['title'];
-                            $link_target = $link_1['target'] ? $link['target'] : '_self';
+                            $link_target = $link_1['target'] ? $link_1['target'] : '_self';
                             ?>
                             <a class="hero-link" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
                         <?php endif;
@@ -32,7 +32,7 @@
                         if( $link_2 ): 
                             $link_url = $link_2['url'];
                             $link_title = $link_2['title'];
-                            $link_target = $link_2['target'] ? $link['target'] : '_self';
+                            $link_target = $link_2['target'] ? $link_2['target'] : '_self';
                             ?>
                              <a class="hero-link" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
                         <?php endif;
@@ -40,7 +40,7 @@
                         if( $link_3 ): 
                             $link_url = $link_3['url'];
                             $link_title = $link_3['title'];
-                            $link_target = $link_3['target'] ? $link['target'] : '_self';    
+                            $link_target = $link_3['target'] ? $link_3['target'] : '_self';    
                             ?>    
                             <a class="hero-link" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
                     <?php endif; ?>   

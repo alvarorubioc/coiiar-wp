@@ -4,14 +4,20 @@
             <div class="row middle-xs">
                 <div class="col-xs-12 col-sm-7">
                     <div class="entry-title">
-                            <span class="text-h6"><?php esc_html_e( 'Empleo y orientación', 'coiiar' ); ?></span>
-                            <h1 class="page-title"><?php esc_html_e( 'Bolsa de trabajo', 'coiiar' ); ?></h1>
-                            <div class="divider"></div>
-                            <div class="archive-description">
-                                <strong><?php esc_html_e( 'Actualmente disponemos de una oferta de 60 puestos de trabajo', 'coiiar' ); ?></strong>
-                                <h4 class="mt-2"><?php esc_html_e( '¿Eres una empresa y deseas publicar una oferta?', 'coiiar' ); ?></h4>
-                                <a class="hero-link" href="#publicar-oferta" target="_self"><?php esc_html_e( 'Ir a formulario', 'coiiar' ); ?></a>
-                            </div>
+                        <div class="breadcrumbs mb-1" typeof="BreadcrumbList" vocab="https://schema.org/">
+                            <?php if(function_exists('bcn_display'))
+                                {
+                                    bcn_display();
+                                }
+                            ?>
+                        </div>
+                        <h1 class="page-title"><?php esc_html_e( 'Bolsa de trabajo', 'coiiar' ); ?></h1>
+                        <div class="divider"></div>
+                        <div class="archive-description">
+                            <strong><?php esc_html_e( 'Actualmente disponemos de una oferta de 60 puestos de trabajo', 'coiiar' ); ?></strong>
+                            <h4 class="mt-2"><?php esc_html_e( '¿Eres una empresa y deseas publicar una oferta?', 'coiiar' ); ?></h4>
+                            <a class="hero-link" href="#publicar-oferta" target="_self"><?php esc_html_e( 'Ir a formulario', 'coiiar' ); ?></a>
+                        </div>
                     </div>
                 </div>
              
@@ -40,7 +46,13 @@
             <div class="row middle-xs">
                 <div class="col-xs-12 col-sm-7">
                     <div class="entry-title">
-                        <span class="text-h6"><?php esc_html_e( 'Empleo y orientación', 'coiiar' ); ?></span>
+                        <div class="breadcrumbs mb-1" typeof="BreadcrumbList" vocab="https://schema.org/">
+                            <?php if(function_exists('bcn_display'))
+                                {
+                                    bcn_display();
+                                }
+                            ?>
+                        </div>
                         <?php the_archive_title( '<h1 class="page-title">', '</h1>' ); ?>
                         <div class="divider"></div>
                         <?php the_archive_description( '<div class="archive-description"><strong>', '</strong></div>' ); ?>
@@ -71,7 +83,13 @@
             <div class="row">
                 <div class="col-xs-12 col-md-10 col-md-offset-1 center-xs">
                     <div class="entry-title">
-                        <span class="text-h6"><?php esc_html_e( 'Empleo y orientación', 'coiiar' ); ?></span>
+                        <div class="breadcrumbs mb-1" typeof="BreadcrumbList" vocab="https://schema.org/">
+                            <?php if(function_exists('bcn_display'))
+                                {
+                                    bcn_display();
+                                }
+                            ?>
+                        </div>
 
                         <?php
                         if (get_field('hero_title') ) {
@@ -81,7 +99,11 @@
                         else
                             echo the_title( '<h1>', '</h1>' );
                         ?>
-                        <div class="divider aligncenter"></div>                   
+                        <div class="divider aligncenter"></div>
+                        
+                        <?php if ( has_excerpt() ) {
+                        echo '<strong>'; the_excerpt(); echo '</strong>';
+                        } else { echo ''; } ?>  
                         
                         <div class="entry-meta center-xs">
                             <?php $terms = get_the_terms( $post->ID , 'category-sectors' ); 
@@ -113,11 +135,3 @@
         </div><!-- .container -->
     </section>
 <?php endif; ?>
-
-            
-
-            
-
-       
-
-

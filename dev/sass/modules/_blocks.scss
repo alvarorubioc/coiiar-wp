@@ -29,10 +29,19 @@
 	background-color: $color__primary-dark;
 }
 
+.has-light-background-color {
+	background-color: $color__ligth;
+}
+
 
 .wp-block-columns {
     margin-top: $space-xl;
     margin-bottom: $space-xl;
+}
+
+.wp-block-group.alignfull.has-background {
+	padding-top: $space-xl;
+    padding-bottom: $space-xl;
 }
 
 .wp-block-quote {

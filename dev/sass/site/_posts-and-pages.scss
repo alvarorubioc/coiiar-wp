@@ -7,6 +7,10 @@
 	display: none;
 }
 
+.status-publish.sticky {
+	position: inherit;
+}
+
 .page-content,
 .entry-content,
 .entry-summary {
@@ -122,4 +126,11 @@
 	
 } 
 
+#moove_gdpr_cookie_info_bar {
+	min-height: 400px !important;
+}
+
+.moove-gdpr-info-bar-container { 
+	padding: 100px 40px !important;
+}
 

@@ -26,7 +26,7 @@
                 $categories = get_terms(
                     array(
                         'taxonomy'   => 'category',
-                        'hide_empty' => false,
+                        'hide_empty' => true,
                     )
                 );
 
@@ -47,7 +47,7 @@
                 $tags = get_terms(
                     array(
                         'taxonomy'   => 'post_tag',
-                        'hide_empty' => false,
+                        'hide_empty' => true,
                     )
                 );
 

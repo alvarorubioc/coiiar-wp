@@ -30,7 +30,13 @@ add_theme_support( 'editor-color-palette', array(
 		'name'  => __( 'White', 'coiiar' ),
 		'slug'  => 'white',
 		'color' => '#FFFFFF',
-    ),   
+    ), 
+	
+	array(
+		'name'  => __( 'Light', 'coiiar' ),
+		'slug'  => 'light',
+		'color' => '#F7F4F9',
+    ), 
 ) );
 
 // Disables custom colors in block color palette.

@@ -4,9 +4,15 @@
             
             <div class="col-xs-12 col-md-7">
                 <div class="entry-title">
-                    <?php if(!is_front_page() )
-                        echo '<span class="text-h6">'.get_the_title( $post->post_parent ).'</span>';
-                    ?>
+                    <?php if(!is_front_page() ) ?>
+                        <div class="breadcrumbs mb-1" typeof="BreadcrumbList" vocab="https://schema.org/">
+                            <?php if(!is_front_page() && function_exists('bcn_display'))
+                                {
+                                    bcn_display();
+                                }
+                            ?>
+                        </div>
+                    <?php ?>
 
                     <?php
                     if (get_field('hero_title') ) {
@@ -23,10 +29,11 @@
                         $link_1 = get_field('hero_link_1');
                         $link_2 = get_field('hero_link_2');
                         $link_3 = get_field('hero_link_3');
+                        $link_4 = get_field('hero_link_4');
                         if( $link_1 ): 
                             $link_url = $link_1['url'];
                             $link_title = $link_1['title'];
-                            $link_target = $link_1['target'] ? $link['target'] : '_self';
+                            $link_target = $link_1['target'] ? $link_1['target'] : '_self';
                             ?>
                             <a class="hero-link" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
                         <?php endif;
@@ -34,7 +41,7 @@
                         if( $link_2 ): 
                             $link_url = $link_2['url'];
                             $link_title = $link_2['title'];
-                            $link_target = $link_2['target'] ? $link['target'] : '_self';
+                            $link_target = $link_2['target'] ? $link_2['target'] : '_self';
                             ?>
                              <a class="hero-link" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
                         <?php endif;
@@ -42,15 +49,23 @@
                         if( $link_3 ): 
                             $link_url = $link_3['url'];
                             $link_title = $link_3['title'];
-                            $link_target = $link_3['target'] ? $link['target'] : '_self';    
+                            $link_target = $link_3['target'] ? $link_3['target'] : '_self';    
                             ?>    
                             <a class="hero-link" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
-                    <?php endif; ?>   
+                    <?php endif;
+                        
+                        if( $link_4 ): 
+                            $link_url = $link_4['url'];
+                            $link_title = $link_4['title'];
+                            $link_target = $link_4['target'] ? $link_4['target'] : '_self';    
+                            ?>    
+                            <a class="hero-link" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+                    <?php endif; ?>    
                 </div>
             </div>
-
-            <div class="col-xs-12 col-md-5 img-hero end-sm">                
-                <?php if ( get_field ('hero_video_featured') ) {
+            <div class="col-xs-12 col-md-5 img-hero end-sm">
+                <?php if ( ! ( $post->post_password && post_password_required() ) )
+                    if ( get_field ('hero_video_featured') ) {
                     echo'<div class="embed-container">';
                         the_field('hero_video_featured');
                     echo'</div>';    
@@ -58,7 +73,7 @@
                         echo '<div class="post-thumbnail">';
                             the_post_thumbnail('full');
                         echo'</div>';
-                    } 
+                    }   
                 ?>
             </div>
 

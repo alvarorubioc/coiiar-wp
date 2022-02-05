@@ -48,6 +48,12 @@ ul.social {
 
 .footer-bottom {
     padding-top: $space-sm;
+
+    ul {
+        margin: 0;
+        padding: .5em 0;
+        list-style: none;
+    }
 }
 
 .site-info {

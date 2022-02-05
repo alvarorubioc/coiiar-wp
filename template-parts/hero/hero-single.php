@@ -4,7 +4,13 @@
             
             <div class="col-xs-12 col-md-10 col-md-offset-1 center-xs">
                 <div class="entry-title">
-                    <span class="text-h6"><?php esc_html_e( 'Noticias', 'coiiar' ); ?></span>
+                    <div class="breadcrumbs mb-1" typeof="BreadcrumbList" vocab="https://schema.org/">
+                        <?php if(function_exists('bcn_display'))
+                            {
+                                bcn_display();
+                            }
+                        ?>
+                    </div>
 
                     <?php
                     if (get_field('hero_title') ) {
@@ -14,9 +20,17 @@
                     else
                         echo the_title( '<h1>', '</h1>' );
                     ?>
+                    <div>
+                        <h2 class="text-h3">
+                            <?php echo the_field('subtitulo_h2');?>
+                        </h2>
+					</div>
+                    
                     <div class="divider aligncenter"></div>
                     
-                    <p><strong><?php echo the_excerpt(); ?></strong></p>                    
+                    <?php if ( has_excerpt() ) {
+                        echo '<strong>'; the_excerpt(); echo '</strong>';
+                    } else { echo ''; } ?>                 
                     
                     <div class="entry-meta center-xs">
                         <?php

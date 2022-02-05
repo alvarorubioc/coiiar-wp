@@ -38,10 +38,10 @@ object {
   margin-right : -100px;
   max-width    : 100vw;
 }
-.entry-content .alignfull {
-	margin-left  : calc( -100vw / 2 + 100% / 2 );
-	margin-right : calc( -100vw / 2 + 100% / 2 );
-	max-width    : 100vw;
+.entry-content .alignfull {	
+  width: 99vw;
+  position: relative;
+  left: calc(-1 * (99vw - 100%)/ 2);
 }
 .alignfull img {
 	width: 99vw;
