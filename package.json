@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "Wordpress theme for COIIAR, based on starter theme underscores.",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/alvarorubioc/coiiar-wp.git"
@@ -22,22 +19,23 @@
   },
   "homepage": "https://github.com/alvarorubioc/coiiar-wp#readme",
   "devDependencies": {
-    "gulp": "^4.0.2",
-    "browser-sync": "^2.26.7",
-    "gulp-sass": "^4.0.2",
-    "gulp-autoprefixer": "^7.0.0",
-    "gulp-clean-css": "^4.2.0",
-    "gulp-sourcemaps": "^2.6.5",
-    "gulp-cheerio": "^0.6.3",
-    "gulp-svgmin": "^2.1.0",
-    "gulp-svgstore": "^7.0.1",
-    "gulp-concat": "^2.6.1",
-    "gulp-imagemin": "^5.0.3",
-    "gulp-jshint": "^2.1.0",
-    "gulp-plumber": "^1.2.1",
-    "gulp-uglify": "^3.0.1",
-    "gulp-zip": "^5.0.1",
-    "jshint": "^2.9.7"
+    "@wordpress/scripts": "^19.2.2",
+    "dir-archiver": "^1.1.1",
+    "node-sass": "^7.0.1",
+    "rtlcss": "^3.5.0",
+    "browser-sync": "^2.27.7"
   },
-  "dependencies": {}
+  "scripts": {
+    "watch": "node-sass dev/sass/ -o ./ --source-map true --output-style compressed --indent-type tab --indent-width 1 -w",
+    "compile:css": "node-sass dev/sass/ -o ./ && stylelint '*.css' --fix || true && stylelint '*.css' --fix",
+    "lint:scss": "wp-scripts lint-style 'dev/sass/**/*.scss'",
+    "lint:js": "wp-scripts lint-js 'assets/js/*.js'",
+    "bundle": "dir-archiver --src . --dest ../dist/coiiar.zip --exclude .DS_Store .stylelintrc.json .eslintrc .git .gitattributes .github .gitignore README.md composer.json composer.lock node_modules vendor package-lock.json package.json .travis.yml phpcs.xml.dist dev style.css.map yarn.lock",
+    "sync": "browser-sync start --proxy 'http://localhost:8888/coiiar/' --files '*.*'",
+    "dev": "npm run watch & npm run sync"
+  },
+
+  "dependencies": {
+    "browser-sync": "^2.27.7"
+  }
 }
