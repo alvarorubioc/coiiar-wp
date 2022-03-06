@@ -1,0 +1,57 @@
+.accordion-block {
+	
+	.accordion-btn {
+		background-color: $color__gray;
+		cursor: pointer;
+		width: 100%;
+		border: none;
+		border-radius: $border--radius;
+		text-align: left;
+		outline: none;
+		transition: 0.4s;
+		justify-content: start;
+		padding: $space__unit $space-xs;
+		position: relative;
+		margin-bottom: 1px;
+		color: $color__text-main;
+
+		&:hover, .active & {
+			background-color: $color__primary-60;
+			color: $color__white;
+		}
+
+		span {
+			line-height: $space-sm;
+			margin: 0;
+		}
+		
+		& > div {
+			width: 72rem;
+			margin: 0 auto;
+		}
+
+		span:before {
+			content: url('./assets/img/chevron-bottom.svg');
+			width: $space-sm;
+			height: $space-sm;
+			float: right;
+			text-align: center;
+		}
+	}
+
+	.active span:before {
+		content: url('./assets/img/chevron-bottom.svg');
+        transform: rotate(180deg);
+        transition: all 0.3s ease;
+	}
+	
+	.panel {
+		max-height: 0;
+		overflow: hidden;
+		transition: max-height 0.2s ease-out;
+
+		& > div {
+			padding: $space-xs;
+		}
+	}
+}

@@ -14,7 +14,7 @@
                         <h1 class="page-title"><?php esc_html_e( 'Bolsa de trabajo', 'coiiar' ); ?></h1>
                         <div class="divider"></div>
                         <div class="archive-description">
-                            <strong><?php esc_html_e( 'Actualmente disponemos de una oferta de 60 puestos de trabajo', 'coiiar' ); ?></strong>
+                            <strong><?php esc_html_e( 'Actualmente disponemos de una amplia oferta puestos de trabajo', 'coiiar' ); ?></strong>
                             <h4 class="mt-2"><?php esc_html_e( '¿Eres una empresa y deseas publicar una oferta?', 'coiiar' ); ?></h4>
                             <a class="hero-link" href="#publicar-oferta" target="_self"><?php esc_html_e( 'Ir a formulario', 'coiiar' ); ?></a>
                         </div>
@@ -99,6 +99,8 @@
                         else
                             echo the_title( '<h1>', '</h1>' );
                         ?>
+                        <h2 class="text-h3"><?php the_field ('subtitulo_h2');?></h2>
+                        
                         <div class="divider aligncenter"></div>
                         
                         <?php if ( has_excerpt() ) {

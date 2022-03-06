@@ -18,8 +18,8 @@
  }
  
  p {
-     margin-bottom: 1.5em;
-     margin-top: .5em;
+     margin-bottom: 1.5rem;
+     margin-top: .5rem;
  }
  
  dfn, cite, em, i {
@@ -94,7 +94,7 @@ h1, h2, h3, h4, h5, h6,
     line-height: $font__line-height-header;
 }
 
-h1 {
+h1, .text-h1 {
 	font-size: 3em;
 	@include breakpoint(laptop) {
 		font-size: 2.5em;

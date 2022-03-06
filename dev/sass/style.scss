@@ -4,7 +4,7 @@ Theme URI: http://underscores.me/
 Author: Alvaro Rubio Camino
 Author URI: http://www.alvarorubioc.com
 Description: WP theme for COIIAR
-Version: 2.0.0
+Version: 2.0.1
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: coiiar
@@ -39,12 +39,14 @@ Tags: custom-logo, custom-menu, featured-images, threaded-comments, translation-
 @import "components/media";
 @import "components/tables";
 @import "components/cards";
+@import "components/modal";
 
 
 /*--------------------------------------------------------------
 # Modules
 --------------------------------------------------------------*/
 @import "modules/accessibility";
+@import "modules/accordion";
 @import "modules/alignments";
 @import "modules/clearings";
 @import "modules/blocks";

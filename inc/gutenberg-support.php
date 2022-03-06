@@ -1,14 +1,5 @@
 <?php
 
-/**
- * Register support for Gutenberg wide images in your theme
- */
-function aling_wide_img() {
-	add_theme_support( 'align-wide' );
-  }
-  add_action( 'after_setup_theme', 'aling_wide_img' );
-
-
 // Adds support for editor color palette.
 add_theme_support( 'editor-color-palette', array(
 	array(
@@ -41,29 +32,24 @@ add_theme_support( 'editor-color-palette', array(
 
 // Disables custom colors in block color palette.
 add_theme_support( 'disable-custom-colors' );
+add_theme_support( 'disable-custom-gradients' );
 
+// Add support for Block Styles.
+add_theme_support( 'wp-block-styles' );
 
-/**
- * Add inline css editor width
- */
-add_action('admin_head', 'editor_full_width_gutenberg');
+// Add support for full and wide align images.
+add_theme_support( 'align-wide' );
 
-function editor_full_width_gutenberg() {
-  echo '<style>
-    body.gutenberg-editor-page .editor-post-title__block, body.gutenberg-editor-page .editor-default-block-appender, body.gutenberg-editor-page .editor-block-list__block {
-		max-width: none !important;
-	}
-    .block-editor__container .wp-block {
-        max-width: none !important;
-    }
-  </style>';
-}
+// Add support for editor styles.
+add_theme_support( 'editor-styles' );
+
+// Enqueue editor styles.
+add_editor_style( 'style-editor.css' );
+
 
 /**
  * Custom Gutenberg blocks
  */
-
-
 function custom_block_cta_card() {
 	
 	// check function exists
@@ -124,5 +110,60 @@ function block_card_render_callback( $block ) {
 	// include a template part from within the "template-parts/block" folder
 	if( file_exists( get_theme_file_path("/template-parts/custom-blocks/card.php") ) ) {
 		include( get_theme_file_path("/template-parts/custom-blocks/card.php") );
+	}
+}
+
+// Add custom block accordion ACF
+function accordion_acf_init() {
+	if(function_exists('acf_register_block')) {
+		acf_register_block(array(
+			'name' => 'accordion',
+			'title' => __('Accordion'),
+			'description' => __('Desplegables verticales', 'coiiar'),
+			'render_callback' => 'accordion_acf_block_callback',
+			'category' => 'theme',
+			'icon' => 'list-view',
+			'mode' => 'auto',
+			'keywords' => array('accordion', 'tabs', 'faqs', 'coiiar'),
+		));
+	}
+}
+add_action('acf/init', 'accordion_acf_init');
+
+function accordion_acf_block_callback($block) {
+	// convert name ("acf/accordion") into path friendly slug ("accordion")
+	$slug = str_replace('acf/', '', $block['name']);
+
+	// include a template part from within the "template-parts/block" folder
+	if( file_exists(STYLESHEETPATH . "/template-parts/custom-blocks/accordion.php") ) {
+		include( STYLESHEETPATH . "/template-parts/custom-blocks/accordion.php" );
+	}
+}
+
+// Add custom block Team modal
+
+function team_modal_acf_init() {
+	if(function_exists('acf_register_block')) {
+		acf_register_block(array(
+			'name' => 'modal',
+			'title' => __('Profesor', 'coiiar'),
+			'description' => __('Ficha profesor con modal', 'coiiar'),
+			'render_callback' => 'team_modal_acf_block_callback',
+			'category' => 'design',
+			'icon' => 'businesswoman',
+			'mode' => 'auto',
+			'keywords' => array('team', 'modal', 'profesor', 'acf'),
+		));
+	}
+}
+add_action('acf/init', 'team_modal_acf_init');
+
+function team_modal_acf_block_callback($block) {
+	// convert name ("acf/pages") into path friendly slug ("pages")
+	$slug = str_replace('acf/', '', $block['name']);
+
+	// include a template part from within the "template-parts/block" folder
+	if( file_exists(STYLESHEETPATH . "/template-parts/custom-blocks/block-modal.php") ) {
+		include( STYLESHEETPATH . "/template-parts/custom-blocks/block-modal.php" );
 	}
 }

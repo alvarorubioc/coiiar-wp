@@ -1,9 +1,14 @@
 ul, ol {
 	margin: 0 0 $space__unit $space__unit;
+	li {
+		line-height: 1.8;
+	}
 }
 
 ul {
 	list-style: disc;
+
+	
 }
 
 ol {
@@ -22,4 +27,32 @@ dt {
 
 dd {
 	margin: 0 $space__unit $space__unit;
+}
+
+ul.is-style-check-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	@include breakpoint(tablet) {
+        padding: 0;
+    }
+	
+
+	li {
+		display: flex;
+		align-items: center; 
+		padding-top: $space-sm;
+		line-height: 1.4;
+	}
+	li:before{
+		display: inline-flex;
+		content: '';
+		background-image: url('./assets/img/circle-check.svg');
+		background-size: 24px 24px;
+		background-repeat: no-repeat;
+		height: 24px;
+		width: 24px;
+		padding-right: 2.5em;
+	}
 }

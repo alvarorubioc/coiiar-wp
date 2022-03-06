@@ -134,3 +134,10 @@
 	padding: 100px 40px !important;
 }
 
+#formacion-info {
+
+	svg {
+		fill: $color__primary;
+		margin-right: $space-xxs;
+	}
+}

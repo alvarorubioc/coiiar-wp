@@ -62,7 +62,7 @@ array('hierarchical' => true,     /* if this is true, it acts like categories */
     'show_in_rest' => true,
     'show_ui' => true,
     'query_var' => true,
-    'rewrite'   => array( 'slug' => 'agenda', 'coiiar' , 'with_front' => false ), /* you can specify its url slug */
+    'rewrite'   => array( 'slug' => 'categoria-agenda', 'coiiar' , 'with_front' => false ), /* you can specify its url slug */
     'has_archive' => true, /* you can rename the slug here */
     )
 );
@@ -272,6 +272,98 @@ array('hierarchical' => false,     /* if this is true, it acts like categories *
     'show_ui' => true,
     'query_var' => true,
     'rewrite'   => array( 'slug' => 'normativa/etiqueta', 'coiiar' , 'with_front' => false ), /* you can specify its url slug */
+    'has_archive' => true, /* you can rename the slug here */
+    )
+);
+
+// let's create the function for the custom type - Formación
+function custom_post_formacion() { 
+    // creating (registering) the custom type 
+    register_post_type( 'formacion', /* (http://codex.wordpress.org/Function_Reference/register_post_type) */
+        // let's now add all the options for this post type
+        array('labels' => array(
+            'name' => __('Formación', 'coiiar'), /* This is the Title of the Group */
+            'singular_name' => __('Formación', 'coiiar'), /* This is the individual type */
+            'all_items' => __('Todas las formaciones', 'coiiar'), /* the all items menu item */
+            'add_new' => __('Añadir nueva formación', 'coiiar'), /* The add new menu item */
+            'add_new_item' => __('Añadir nueva formación', 'coiiar'), /* Add New Display Title */
+            'edit' => __( 'Editar', 'coiiar' ), /* Edit Dialog */
+            'edit_item' => __('Editar formación', 'coiiar'), /* Edit Display Title */
+            'new_item' => __('Nueva formación', 'coiiar'), /* New Display Title */
+            'view_item' => __('Ver formación', 'coiiar'), /* View Display Title */
+            'search_items' => __('Buscar formación', 'coiiar'), /* Search Custom Type Title */ 
+            'not_found' =>  __('Nada encontrado en base de datos.', 'coiiar'), /* This displays if there are no entries yet */ 
+            'not_found_in_trash' => __('Nada econtrado en papelera', 'coiiar'), /* This displays if there is nothing in the trash */
+            'parent_item_colon' => ''
+            ), /* end of arrays */
+            'public' => true,
+            'show_in_rest' => true,
+            'publicly_queryable' => true,
+            'exclude_from_search' => false,
+            'show_ui' => true,
+            'query_var' => true,
+            'menu_position' => 11, /* this is what order you want it to appear in on the left hand side menu */ 
+            'menu_icon' => 'dashicons-welcome-learn-more', /* the icon for the custom post type menu. uses built-in dashicons (CSS class name) */
+            'rewrite'   => array( 'slug' => 'formacion-ingenieros', 'coiiar' , 'with_front' => false ), /* you can specify its url slug */
+            'has_archive' => false, //__('formacion-ingenieros', 'coiiar'), /* you can rename the slug here */
+            'capability_type' => 'page',
+            'hierarchical' => true,
+            /* the next one is important, it tells what's enabled in the post editor */
+            'supports' => array( 'title', 'editor', 'excerpt', 'thumbnail')
+        ) /* end of options */
+    ); /* end of register post type */
+    
+} 
+
+// adding the function to the Wordpress init
+add_action( 'init', 'custom_post_formacion');
+
+// now let's add custom taxomomy areas formación
+register_taxonomy( 'area-formativa', 
+array('formacion'), /* if you change the name of register_post_type( 'custom_type', then you have to change this */
+array('hierarchical' => true,     /* if this is true, it acts like categories */             
+    'labels' => array(
+        'name' => __( 'Áreas formativas', 'coiiar' ), /* name of the custom taxonomy */
+        'singular_name' => __( 'Área formativa', 'coiiar' ), /* single taxonomy name */
+        'search_items' =>  __( 'Buscar área', 'coiiar' ), /* search title for taxomony */
+        'all_items' => __( 'Todas las áreas', 'coiiar' ), /* all title for taxonomies */
+        'parent_item' => __( 'Área padre', 'coiiar' ), /* parent title for taxonomy */
+        'parent_item_colon' => __( 'Parent category:', 'coiiar' ), /* parent taxonomy title */
+        'edit_item' => __( 'Editar área', 'coiiar' ), /* edit custom taxonomy title */
+        'update_item' => __( 'Actualizar área', 'coiiar' ), /* update title for taxonomy */
+        'add_new_item' => __( 'Añadir nueva área', 'coiiar' ), /* add new title for taxonomy */
+        'new_item_name' => __( 'Nueva área', 'coiiar' ) /* name title for taxonomy */
+    ),
+    'show_admin_column' => true,
+    'show_in_rest' => true,
+    'show_ui' => true,
+    'query_var' => true,
+    'rewrite'   => array( 'slug' => 'area-formativa', 'coiiar' , 'with_front' => false ), /* you can specify its url slug */
+    'has_archive' => false, /* you can rename the slug here */
+    )
+);
+
+// now let's add custom taxomomy tipo formación
+register_taxonomy( 'tipo-formacion', 
+array('formacion'), /* if you change the name of register_post_type( 'custom_type', then you have to change this */
+array('hierarchical' => true,     /* if this is true, it acts like categories */             
+    'labels' => array(
+        'name' => __( 'Tipos', 'coiiar' ), /* name of the custom taxonomy */
+        'singular_name' => __( 'Tipo', 'coiiar' ), /* single taxonomy name */
+        'search_items' =>  __( 'Buscar tipo', 'coiiar' ), /* search title for taxomony */
+        'all_items' => __( 'Todas los tipos', 'coiiar' ), /* all title for taxonomies */
+        'parent_item' => __( 'Tipo padre', 'coiiar' ), /* parent title for taxonomy */
+        'parent_item_colon' => __( 'Parent category:', 'coiiar' ), /* parent taxonomy title */
+        'edit_item' => __( 'Editar tipo', 'coiiar' ), /* edit custom taxonomy title */
+        'update_item' => __( 'Actualizar tipo', 'coiiar' ), /* update title for taxonomy */
+        'add_new_item' => __( 'Añadir nueva tipo', 'coiiar' ), /* add new title for taxonomy */
+        'new_item_name' => __( 'Nueva tipo', 'coiiar' ) /* name title for taxonomy */
+    ),
+    'show_admin_column' => true,
+    'show_in_rest' => true,
+    'show_ui' => true,
+    'query_var' => true,
+    'rewrite'   => array( 'slug' => 'tipo-formacion', 'coiiar' , 'with_front' => false ), /* you can specify its url slug */
     'has_archive' => true, /* you can rename the slug here */
     )
 );

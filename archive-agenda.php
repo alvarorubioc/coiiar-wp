@@ -9,9 +9,9 @@
 
 get_header();
 ?>
+
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-
 <main id="primary" class="site-main">
 
     <?php get_template_part( 'template-parts/hero/hero', 'agenda' ); ?>
@@ -244,24 +244,26 @@ function recarga(fecha,tipo)
 		});
     });
 
+
 $("#carruselmeses").slick({
-  infinite: false,
-  slidesToShow: 6,
-  slidesToScroll: 1,
-  arrows: true,
-  dots: false,
-  responsive: [
-		{
-		breakpoint: 480,
-		settings: {
-			slidesToShow: 2,
-		}
-		}
-		// You can unslick at a given breakpoint now by adding:
-		// settings: "unslick"
-		// instead of a settings object
-	]
+	infinite: false,
+	slidesToShow: 6,
+	slidesToScroll: 1,
+	arrows: true,
+	dots: false,
+	responsive: [
+			{
+			breakpoint: 480,
+			settings: {
+				slidesToShow: 2,
+			}
+			}
+			// You can unslick at a given breakpoint now by adding:
+			// settings: "unslick"
+			// instead of a settings object
+		]
 });
+
 
 n = <?php echo $arrancar; ?>;
 do
