@@ -17,9 +17,7 @@
             <?php if (get_field('formacion_info_bonus')) :?>
             <div class="col-xs-12 col-md">
                 <div class="dflex">
-                    <svg class="icon" width="24" height="24" viewBox="0 0 24 24">
-                        <use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/sprite-icons.svg#plus" />
-                    </svg>
+                    <object data="<?php echo get_template_directory_uri(); ?>/assets/icons/plus.svg" width="24" height="24"> </object>
                     <span class="uppercase">Fecha bonificable</span>
                 </div>
                 <?php the_field('formacion_info_bonus'); ?>

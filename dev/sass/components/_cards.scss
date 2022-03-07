@@ -114,7 +114,7 @@
     }
 
     .card-content {
-        flex-basis: 75%;
+        flex-basis: 70%;
 
         .text-caption {
             margin-bottom: $space-xxs;
@@ -124,6 +124,7 @@
     .card-footer {
         border-left: 1px solid $color__ligth;
         padding: $space-xs;
+        flex-basis: 30%;
         @include breakpoint(mobile) {
             border-left: 0;
             border-top: 1px solid $color__ligth;

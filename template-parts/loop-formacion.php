@@ -42,7 +42,7 @@
                         </svg>
                         <span class="uppercase">Periodo Matrícula</span>
                     </div>
-                    <?php the_field('formacion_info_start'); ?>
+                    <small><?php the_field('formacion_info_start'); ?></small>
                 </div>
             <?php endif ;?>
             <?php if (get_field('formacion_info_bonus')) :?>
@@ -53,7 +53,7 @@
                         </svg>
                         <span class="uppercase">Fecha bonificable</span>
                     </div>
-                    <?php the_field('formacion_info_bonus'); ?>
+                    <small><?php the_field('formacion_info_bonus'); ?></small>
                 </div>
                 <?php endif ;?>
             <?php if (get_field('formacion_info_duration')) :?>
@@ -62,7 +62,7 @@
                         <object data="<?php echo get_template_directory_uri(); ?>/assets/icons/clock.svg" width="24" height="24"> </object>
                         <span class="uppercase">Duración</span>
                     </div>
-                    <?php the_field('formacion_info_duration'); ?>
+                    <small><?php the_field('formacion_info_duration'); ?></small>
                 </div>
             <?php endif ;?>
             
