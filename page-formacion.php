@@ -24,13 +24,13 @@ get_header();
 			the_post();
             get_template_part( 'template-parts/hero/hero' );
             get_template_part( 'template-parts/filters', 'formacion' );
-
             get_template_part( 'template-parts/content', 'page' );
+            get_template_part( 'template-parts/section', 'formacion' ); 
             
         ?>
-            <section class="pt-4 pb-3 bg-primary-light">	
+            <section class="mt-4 pt-4 pb-3 bg-primary-light">	
                 <div class="container">
-                    
+                    <div class="mb-2"><p class="text-h3"><strong><?php esc_html_e( 'Todos los cursos y formaciones', 'coiiar' ); ?></strong></p></div>
                     <div class="row">
                     <?php
                         $args = array(
@@ -47,7 +47,7 @@ get_header();
                             while ( $the_query->have_posts() ) {
                                 $the_query->the_post();
                                 
-                                get_template_part( 'template-parts/loop', 'normativa' );
+                                get_template_part( 'template-parts/loop', 'formacion' );
                             }
                         /* Restore original Post Data */
                         wp_reset_postdata(); } ?>

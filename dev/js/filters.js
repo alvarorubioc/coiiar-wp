@@ -36,4 +36,3 @@ jQuery( document ).ready( function() {
 		$( '.dropdown.tags' ).removeClass( 'active' );
 	} );
 } );
-

@@ -14,39 +14,47 @@
     <div class="container mt-4 mb-4" id="formacion-info">
         <div class="row">
             
+            <?php if (get_field('formacion_info_bonus')) :?>
+            <div class="col-xs-12 col-md">
+                <div class="dflex">
+                    <svg class="icon" width="24" height="24" viewBox="0 0 24 24">
+                        <use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/sprite-icons.svg#plus" />
+                    </svg>
+                    <span class="uppercase">Fecha bonificable</span>
+                </div>
+                <?php the_field('formacion_info_bonus'); ?>
+            </div>
+            <?php endif ;?>
+            
             <?php if (get_field('formacion_info_start')) :?>
             <div class="col-xs-12 col-md">
                 <div class="dflex">
                     <svg class="icon" width="24" height="24" viewBox="0 0 24 24">
                         <use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/sprite-icons.svg#calendar" />
                     </svg>
-                    <span class="uppercase">Comienza</span>
+                    <span class="uppercase">Periodo Matrícula</span>
                 </div>
                 <?php the_field('formacion_info_start'); ?>
             </div>
             <?php endif ;?>
         
-            <?php if (get_field('formacion_info_price')) :?>
-            <div class="col-xs-12 col-md">
-                <div class="dflex">
-                    <svg class="icon" width="24" height="24" viewBox="0 0 24 24">
-                        <use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/euro.svg" />
-                    </svg>
-                    <span class="uppercase">Precio</span>
-                </div>
-                <?php the_field('formacion_info_price'); ?>
-            </div>
-            <?php endif ;?>
-
             <?php if (get_field('formacion_info_duration')) :?>
             <div class="col-xs-12 col-md">
                 <div class="dflex">
-                    <svg class="icon" width="24" height="24" viewBox="0 0 24 24">
-                        <use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/clock.svg" />
-                    </svg>
+                    <object data="<?php echo get_template_directory_uri(); ?>/assets/icons/clock.svg" width="24" height="24"> </object>
                     <span class="uppercase">Duración</span>
                 </div>
                 <?php the_field('formacion_info_duration'); ?>
+            </div>
+            <?php endif ;?>
+            
+            <?php if (get_field('formacion_info_price')) :?>
+            <div class="col-xs-12 col-md">
+                <div class="dflex">
+                    <object data="<?php echo get_template_directory_uri(); ?>/assets/icons/euro.svg" width="24" height="24"> </object>
+                    <span class="uppercase">Precio</span>
+                </div>
+                <?php the_field('formacion_info_price'); ?>
             </div>
             <?php endif ;?>
 

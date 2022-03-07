@@ -194,27 +194,41 @@
     @include card;
     display: flex;
     flex-direction: column;
-    margin-top: 27.5px;
+    margin: 0;
+    height: 100%;
+    justify-content: space-between;
 
     .card-img {
         position: relative;
-        border-radius: $border__radius;
         width: 56px;
         height: 56px;
-        margin-left: $space-xs;
+        margin-left: $space__unit;
         margin-top: -27.5px;
         background: white;
         border: 2px solid white;
-        
+        border-radius: 100%;
+
         img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             max-height: 12.75rem;
+            border-radius: 100%;
         }
     }
 
     .card-content {
+        padding: $space-xxs $space__unit;
+    }
+
+    .card-footer {
         padding: $space-xxs $space__unit $space-xs $space__unit;
     }
+
+
+    @at-root .wp-block-column.with--modal {
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
 }
