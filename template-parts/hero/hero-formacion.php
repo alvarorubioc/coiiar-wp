@@ -79,7 +79,7 @@
                     if ( has_post_thumbnail() ) {
                         echo '<div class="post-thumbnail">';
                             the_post_thumbnail('full');
-                        echo'</div>';
+                        echo'<div class="photo-line"></div></div>';
                     }   
                 ?>
             </div>

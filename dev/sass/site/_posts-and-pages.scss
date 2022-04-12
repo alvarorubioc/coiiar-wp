@@ -145,9 +145,18 @@
 .single-formacion {
 	.post-thumbnail {
 		background-image: linear-gradient(270deg, #663399 0%, #DFD5E6 100%);
+		position: relative;
 		img {
 			width: 100%;
 			mix-blend-mode: hard-light;
+		}
+		.photo-line {
+			background-color: $color__secondary;
+			position: absolute;
+			height: 8px;
+			width: 50%;
+			bottom: 0;
+			left: 0;
 		}
 	}
 }

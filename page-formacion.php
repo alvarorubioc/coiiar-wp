@@ -28,7 +28,7 @@ get_header();
             get_template_part( 'template-parts/section', 'formacion' ); 
             
         ?>
-            <section class="mt-4 pt-4 pb-3 bg-primary-light">	
+            <section class="mt-4 pt-4 pb-3 bg-primary-light" id="formaciones">	
                 <div class="container">
                     <div class="mb-2"><p class="text-h3"><strong><?php esc_html_e( 'Todos los cursos y formaciones', 'coiiar' ); ?></strong></p></div>
                     <div class="row">
@@ -56,8 +56,6 @@ get_header();
             </section> 
 
         <?php    
-            
-            
 
         endwhile; // End of the loop.
 
