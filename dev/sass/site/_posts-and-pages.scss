@@ -141,3 +141,13 @@
 		margin-right: $space-xxs;
 	}
 }
+
+.single-formacion {
+	.post-thumbnail {
+		background-image: linear-gradient(270deg, #663399 0%, #DFD5E6 100%);
+		img {
+			width: 100%;
+			mix-blend-mode: hard-light;
+		}
+	}
+}

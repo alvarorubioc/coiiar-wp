@@ -11,11 +11,7 @@ if ( ! defined( '_S_VERSION' ) ) {
 function coiiar_scripts() {
 	wp_enqueue_style( 'coiiar-style', get_stylesheet_uri(), array(), _S_VERSION );
 
-	if (!is_admin()) { // Works with the latest version of jQuery
-		wp_deregister_script('jquery'); // Deregister WordPress jQuery
-		wp_register_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js', 'jquery', '3.1.1', true); // Load Google CDN jQuery
-		wp_enqueue_script('jquery'); // Enqueue it!
-	}
+	wp_enqueue_script( 'jquery' );
 	
 	wp_enqueue_script( 'coiiar-navigation', get_template_directory_uri() . '/assets/js/coiiar.min.js', array(), _S_VERSION, true );
 

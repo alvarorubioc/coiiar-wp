@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying card agenda
+ * Template part for displaying card formación destacado
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
