@@ -131,11 +131,23 @@
             justify-content: space-between;
             display: flex;
 
+            .formacion & {
+                display: block;
+            }
+
             > div {
                 display: flex;
 
+                .formacion & {
+                    display: block;
+                }
+
                 &:first-child {
                     margin-bottom: 0;
+
+                    .formacion & {
+                        margin-bottom: $space__unit;
+                    }
                 }
             }
 
