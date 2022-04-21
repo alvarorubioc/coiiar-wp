@@ -31,11 +31,13 @@ get_header();
 				 * If you want to override this in a child theme, then include a file
 				 * called loop-___.php (where ___ is the Post Type Format) and that will be used instead.
 				 */
-				get_template_part( 'template-parts/loop', 'formacion' );
+				get_template_part( 'template-parts/loop', 'formacion-vertical' );
 
 			endwhile;
-			echo '</div></div></div>';
-			the_posts_navigation();
+			echo '</div></div>';
+			the_posts_pagination();
+			echo '</div>';
+			
 
 		else :
 

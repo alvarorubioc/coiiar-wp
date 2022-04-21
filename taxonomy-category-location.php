@@ -34,8 +34,9 @@ get_header();
 				get_template_part( 'template-parts/loop', 'bolsa-trabajo' );
 
 			endwhile;
-			echo '</div></div></div>';
-			the_posts_navigation();
+			echo '</div></div>';
+			the_posts_pagination();
+			echo '</div>';
 
 		else :
 

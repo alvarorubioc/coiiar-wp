@@ -36,7 +36,7 @@ get_header();
 			endwhile;
 
 			echo'<div class="col-xs-12">';
-				the_posts_navigation();
+				the_posts_pagination();
 			echo'</div>';
 			
 			echo '</div></div></div>';

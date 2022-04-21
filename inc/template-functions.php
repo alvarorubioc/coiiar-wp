@@ -127,3 +127,7 @@ function related_job_offers() {
  
 }
 
+function ultra_navigation_markup_filter( $template, $class ) {
+	return str_replace( 'h2', 'p', $template );
+}
+add_filter( 'navigation_markup_template', 'ultra_navigation_markup_filter', 10, 2 );

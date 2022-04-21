@@ -4,6 +4,22 @@
     list-style: none;
     margin: 4em 0;
     justify-content: center;
+
+    .page-numbers {
+        background-color: $color__secondary;
+        padding: $space__unit;
+        border-radius: $border__radius;
+        font-weight: 800;
+        color: white;
+
+        &:hover {
+            background-color: $color__primary;
+        }
+    
+        &.current {
+            background-color: $color__gray-dark;
+        }
+    }
 }
 
 .page-item {

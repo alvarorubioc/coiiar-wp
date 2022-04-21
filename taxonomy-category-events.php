@@ -33,7 +33,9 @@ get_header();
 
 			endwhile;
 
-			echo '</div></div></div>';
+			echo '</div></div>';
+			the_posts_pagination();
+			echo '</div>';
 			
 			the_posts_navigation();
 

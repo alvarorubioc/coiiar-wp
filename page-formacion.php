@@ -47,7 +47,7 @@ get_header();
                             while ( $the_query->have_posts() ) {
                                 $the_query->the_post();
                                 
-                                get_template_part( 'template-parts/loop', 'formacion' );
+                                get_template_part( 'template-parts/loop', 'formacion-vertical' );
                             }
                         /* Restore original Post Data */
                         wp_reset_postdata(); } ?>

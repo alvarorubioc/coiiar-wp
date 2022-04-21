@@ -70,9 +70,17 @@
         border-top: 1px solid $color__ligth;
         padding: $space__unit $space-xs;
         font-size: 80%;
+
+        p {
+            margin-top: 0;
+        }
+        
+        .card-footer--item {
+            margin-bottom: .5rem;
+        }
     }
 
-    svg {
+    svg, object {
         margin-right: $space-xxs;
     }
 }

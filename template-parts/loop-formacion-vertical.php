@@ -42,26 +42,34 @@
 					</div>
 				<?php endif ;?>	
 			</div>
-			<div class="card-footer dflex between-xs">
+			<div class="card-footer">
                 <?php if (get_field('formacion_info_start')) :?>
-                <div>
+                <div class="card-footer--item">
                     <div class="dflex">
                         <svg class="icon" width="24" height="24" viewBox="0 0 24 24">
                             <use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/sprite-icons.svg#calendar" />
                         </svg>
-                        <span><?php the_field('formacion_info_start'); ?></span>
+                        <div><?php the_field('formacion_info_start'); ?></div>
                     </div> 
                 </div>
                 <?php endif ;?>
+				<?php if (get_field('formacion_info_bonus')) :?>
+				<div class="card-footer--item">
+					<div class="dflex">
+						<object data="<?php echo get_template_directory_uri(); ?>/assets/icons/plus.svg" width="24" height="24"> </object>
+						<div><?php the_field('formacion_info_bonus'); ?></small></div>
+					</div>
+				</div>	
+				<?php endif ;?>	
                 <?php if (get_field('formacion_info_duration')) :?>
-                <div>
+				<div class="card-footer--item">
                     <div class="dflex">
                         <object data="<?php echo get_template_directory_uri(); ?>/assets/icons/clock.svg" width="24" height="24"> </object>
-                        <span><?php the_field('formacion_info_duration'); ?></span>
+                        <div><?php the_field('formacion_info_duration'); ?></div>
                     </div>
                 </div>
                 <?php endif ;?>
-                </div>		
+            </div>		
 		</div><!-- end card -->
 
 	</article><!-- #post-<?php the_ID(); ?> -->
