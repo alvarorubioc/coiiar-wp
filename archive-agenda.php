@@ -173,9 +173,10 @@ get_header();
 						echo "<div class=\"lugarEvento bagde\" style=\"\" id=\"evTodas\" >Todas</div>";
 					?>
 				</div>
-
-				<div class="tags-2 pt-2 pb-2">
-				<?php
+			</div>
+			<div class="tags-2 pt-2 pb-2">
+				<div class="container">
+					<?php
 						// Get the tags terms
 						$tags = get_terms(
 							array(
