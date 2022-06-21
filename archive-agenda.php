@@ -99,9 +99,15 @@ get_header();
 							</svg>
 						</span>
 					</button>
-					<button class="dropdown" onclick="location.href='/formacion/'" ><?php esc_html_e( 'Formación', 'coiiar' ); ?>
-					<button class="dropdown" onclick="location.href='/jornadas-tecnicas/'"><?php esc_html_e( 'Jornadas', 'coiiar' ); ?>
-					<button class="dropdown" onclick="location.href='/eventos/'"><?php esc_html_e( 'Eventos', 'coiiar' ); ?>
+					<button class="dropdown tags-2"><?php esc_html_e( 'Tipo', 'coiiar' ); ?>
+						<span>
+							<svg class="icon" width="24" height="24" viewBox="0 0 24 24">
+								<use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/sprite-icons.svg#chevron-bottom" />
+							</svg>
+						</span>
+					</button>
+					
+					
 				
 			</div>
 		</div> <!-- .filters-bar -->
@@ -146,7 +152,7 @@ get_header();
 					</div>
 				</div>
 			</div>
-			
+		
 			<div class="tags">
 				<?php
 					$lugaresk = array_keys ( $lugares );
@@ -165,6 +171,28 @@ get_header();
 							}	
 						}
 						echo "<div class=\"lugarEvento bagde\" style=\"\" id=\"evTodas\" >Todas</div>";
+					?>
+				</div>
+
+				<div class="tags-2 pt-2 pb-2">
+				<?php
+						// Get the tags terms
+						$tags = get_terms(
+							array(
+								'taxonomy'   => 'category-events',
+								'hide_empty' => true,
+							)
+						);
+
+						// Check if any term exists
+						if ( ! empty( $tags ) && is_array( $tags ) ) {
+							// Run a loop and print them all
+							foreach ( $tags as $tag ) { ?>
+								<a class="bagde"  href="<?php echo esc_url( get_term_link( $tag ) ) ?>" title="<?php echo $tag->name; ?>">
+									<?php echo $tag->name; ?>
+								</a><?php
+							}
+						} 
 					?>
 				</div>
 			</div>
