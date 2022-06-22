@@ -67,10 +67,12 @@ get_header();
 			$the_query->the_post();
 			$fecha = get_metadata( "post", get_the_ID(), 'event_start_date',true);
 			$lugar = get_metadata( "post", get_the_ID(), 'event_place',true);
+			$etiqueta = get_metadata( "post", get_the_ID(), 'event_tag',true);
 			$mes = substr($fecha, 0, 6);
 			if ($fechamenor>$mes) $fechamenor=$mes;
 			if ($fechamayor<$mes) $fechamayor=$mes;
 			$lugares[ucwords(strtolower(trim($lugar)))]=true;
+			$etiquetas[ucwords(strtolower(trim($etiqueta)))]=true;
 			$meses [$mes] = true;
 			$contador++;
 		}
@@ -100,6 +102,13 @@ get_header();
 						</span>
 					</button>
 					<button class="dropdown tags-2"><?php esc_html_e( 'Tipo', 'coiiar' ); ?>
+						<span>
+							<svg class="icon" width="24" height="24" viewBox="0 0 24 24">
+								<use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/sprite-icons.svg#chevron-bottom" />
+							</svg>
+						</span>
+					</button>
+					<button class="dropdown tags-3"><?php esc_html_e( 'Etiqueta', 'coiiar' ); ?>
 						<span>
 							<svg class="icon" width="24" height="24" viewBox="0 0 24 24">
 								<use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/sprite-icons.svg#chevron-bottom" />
@@ -174,7 +183,8 @@ get_header();
 					?>
 				</div>
 			</div>
-			<div class="tags-2 pt-2 pb-2">
+			
+			<div class="tags-2">
 				<div class="container">
 					<?php
 						// Get the tags terms
@@ -194,6 +204,28 @@ get_header();
 								</a><?php
 							}
 						} 
+					?>
+				</div>
+			</div>
+
+			<div class="tags-3">
+				<?php
+					$etiquetask = array_keys ( $etiquetas );
+					sort($etiquetask); ?>
+
+				<div id="botonesTag" class="container">
+					<?php
+						$etiquetask = array_keys ( $etiquetas );
+						sort($etiquetask);
+
+						foreach ($etiquetask as $eti)
+						{
+							if (strlen(trim($eti))>0) 
+							{
+								echo "<div class=\"tagEvento bagde\" id=\"ev".md5($eti)."\" >$eti</div>"; //style=\"display: none;\"
+							}	
+						}
+						echo "<div class=\"tagEvento bagde\" style=\"\" id=\"evTodas\" >Todas</div>";
 					?>
 				</div>
 			</div>
@@ -272,6 +304,24 @@ function recarga(fecha,tipo)
 			}
 		});
     });
+	
+	$('.tagEvento').on('click', function(e)
+    {
+      $(".separadorMesesExt").hide();
+      var tag = $(this).attr('id');
+		document.querySelectorAll('.evento').forEach(function(e) 
+		{
+			if ((e.dataset.tagev != tag) && (tag != "evTodas"))
+			{
+			$(e).hide("slow");
+			} else
+			{
+			$("."+e.dataset.mes).show();
+			$(e).show("slow");
+			}
+		});
+    });
+	
 
 
 $("#carruselmeses").slick({

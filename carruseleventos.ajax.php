@@ -77,7 +77,7 @@ if ( $the_query->have_posts() )
       $meses [$mes] = true;
     $html_content .= $ancla.'
 
-<article data-mes="mes'.$mes.'" data-lugarev="ev'.md5(ucwords(strtolower(trim(get_metadata( "post", get_the_ID(), 'event_place',true))))).'" id="post-'.get_the_ID().'" class="evento col-xs-12"';
+<article data-mes="mes'.$mes.'" data-tagev="ev'.md5(ucwords(strtolower(trim(get_metadata( "post", get_the_ID(), 'event_tag',true))))).'" data-lugarev="ev'.md5(ucwords(strtolower(trim(get_metadata( "post", get_the_ID(), 'event_place',true))))).'" id="post-'.get_the_ID().'" class="evento col-xs-12"';
 
 ob_start();
 post_class('col-xs-12');
