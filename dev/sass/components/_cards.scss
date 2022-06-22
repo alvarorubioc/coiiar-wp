@@ -4,6 +4,7 @@
     margin-bottom: $space-xs;
     box-shadow: 0 16px 24px 0 rgba(50,50,50,0.06);
     position: relative;
+    width: 100%;
 
     &.card--border {
         border-left: 8px solid $color__primary;
@@ -133,6 +134,7 @@
         border-left: 1px solid $color__ligth;
         padding: $space-xs;
         flex-basis: 30%;
+        
         @include breakpoint(mobile) {
             border-left: 0;
             border-top: 1px solid $color__ligth;
@@ -164,6 +166,14 @@
             }
         }
         
+    }
+    
+    .card-footer--item {
+        margin-bottom: .5rem;
+
+        svg, object {
+            margin-right: $space-xxs;
+        }
     }
 }
 

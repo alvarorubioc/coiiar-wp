@@ -9,7 +9,7 @@
 
 ?>
 
-	<article id="post-<?php the_ID(); ?>" <?php post_class('dflex col-xs-12 col-md-4'); ?>>
+	<article id="post-<?php the_ID(); ?>" <?php post_class('dflex col-xs-12 col-sm-6 col-md-4'); ?>>
 	
 		<div class="card"> 
 			<div class="card-img">

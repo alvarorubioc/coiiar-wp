@@ -58,9 +58,14 @@
 
 
 #section-filters{
+	
+	position: sticky;
+	top: 0;
+	z-index: 9;
+	background-color: #ffffff;
+	
 	.filters-bar {
 		border-bottom: 1px solid $color__gray;
-		
 	}
 
 	@include breakpoint(tablet) {
@@ -159,4 +164,11 @@
 			left: 0;
 		}
 	}
+}
+
+.page-template-page-formacion .page-content, .entry-content {
+	margin-top: 0;
+	margin-bottom: 0;
+	padding-top: 4rem;
+	padding-bottom: 4rem;
 }

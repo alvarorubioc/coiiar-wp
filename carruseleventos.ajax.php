@@ -118,18 +118,22 @@ $html_content .= '>
     </div>
   </div>
   <div class="card-footer">
-    <div class="center-xs middle-xs mb-2">
-      <svg class="icon" width="48" height="48" viewBox="0 0 24 24">
-        <use xlink:href="'.get_template_directory_uri().'/assets/icons/sprite-icons.svg#calendar" />
-      </svg>
-      <span>'.date("d/m/Y", strtotime(get_metadata( "post", get_the_ID(), 'event_start_date',true))).'</span>
+    <div class="card-footer--item">
+      <div class="dflex">
+        <svg class="icon" width="24" height="24" viewBox="0 0 24 24">
+          <use xlink:href="'.get_template_directory_uri().'/assets/icons/sprite-icons.svg#calendar" />
+        </svg>
+        <span>'.date("d/m/Y", strtotime(get_metadata( "post", get_the_ID(), 'event_start_date',true))).'</span>
+      </div>
     </div>
-    <div class="dflex middle-xs">
+    <div class="card-footer--item">
+      <div class="dflex">
         <svg class="icon" width="24" height="24" viewBox="0 0 24 24">
             <use xlink:href="'.get_template_directory_uri().'/assets/icons/sprite-icons.svg#map-marker" />
         </svg>
         <span>'.get_metadata( "post", get_the_ID(), 'event_place',true).'</span>
-    <div>';
+      </div>
+    </div>';
     $html_content .= '
   </div>
 </div><!-- end card -->

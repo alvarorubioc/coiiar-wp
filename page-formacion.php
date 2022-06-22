@@ -24,11 +24,13 @@ get_header();
 			the_post();
             get_template_part( 'template-parts/hero/hero' );
             get_template_part( 'template-parts/filters', 'formacion' );
+            get_template_part( 'template-parts/section', 'formacion' );
+            echo '<section id="section-formacion">';
             get_template_part( 'template-parts/content', 'page' );
-            get_template_part( 'template-parts/section', 'formacion' ); 
+            echo '</section>'
             
         ?>
-            <section class="mt-4 pt-4 pb-3 bg-primary-light" id="formaciones">	
+            <section class="pt-4 pb-3 bg-primary-light" id="formaciones">	
                 <div class="container">
                     <div class="mb-2"><p class="text-h3"><strong><?php esc_html_e( 'Todos los cursos y formaciones', 'coiiar' ); ?></strong></p></div>
                     <div class="row">

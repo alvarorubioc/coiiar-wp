@@ -12,10 +12,12 @@
 	<article id="post-<?php the_ID(); ?>" <?php post_class('col-xs-12'); ?>>
 	
 		<div class="card--horizontal"> 
+			
 			<div class="card-img">
 				<?php coiiar_post_thumbnail('full'); ?>
 				<span class="card-img__tag bagde"><?php the_field('event_tag');?></span>
 			</div>	
+			
 			<div class="card-content">
 				<?php $terms = get_the_terms( $post->ID , 'category-events' ); 
 					if  ($terms) {
@@ -34,19 +36,24 @@
 					<span><?php the_field('event_extra_info');?></span>
 				</div>	
 			</div>
+
 			<div class="card-footer">
-                <div class="center-xs middle-xs mb-2">
-					<svg class="icon" width="48" height="48" viewBox="0 0 24 24">
-						<use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/sprite-icons.svg#calendar" />
-					</svg>
-					<span><?php the_field('event_start_date');?></span>
+                <div class="card-footer--item">
+					<div class="dflex">
+						<svg class="icon" width="24" height="24" viewBox="0 0 24 24">
+							<use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/sprite-icons.svg#calendar" />
+						</svg>
+						<span><?php the_field('event_start_date');?></span>
+					</div>
 				</div>
                 
-				<div class="dflex middle-xs">
-					<svg class="icon" width="24" height="24" viewBox="0 0 24 24">
-						<use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/sprite-icons.svg#map-marker" />
-					</svg>
-					<span><?php the_field('event_place');?></span>
+				<div class="card-footer--item">
+					<div class="dflex">
+						<svg class="icon" width="24" height="24" viewBox="0 0 24 24">
+							<use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/sprite-icons.svg#map-marker" />
+						</svg>
+						<span><?php the_field('event_place');?></span>
+					</div>
 				</div>
 				
 			</div>		
