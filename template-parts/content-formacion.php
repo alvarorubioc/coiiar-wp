@@ -8,6 +8,7 @@
  */
 
 ?>
+<?php get_template_part( 'template-parts/sticky', 'formacion' ); ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 

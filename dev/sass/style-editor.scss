@@ -25,3 +25,55 @@ html:where(.editor-styles-wrapper) {
     margin-left: 1.5rem;
     margin-right: 1.5rem;
 }
+
+
+.read-more-state {
+	display: none;
+}
+  
+.read-more-target {
+	opacity: 1;
+	font-size: inherit;
+	max-height: 999em;
+}
+  
+input.read-more-state:checked ~ .read-more-target {
+	
+
+    opacity: 0;
+	max-height: 0;
+	font-size: 0;
+	transition: .25s ease;
+}
+
+.read-more {
+	position: relative;
+}
+
+.read-more-trigger {
+	width: 100%;
+	font-size: 100%;
+	font-weight: bold;
+
+	&:hover {
+		cursor: pointer;
+	}
+
+	&:before {
+		content: '';
+		position: absolute;
+		top: 55%;
+		right: 32px;
+		border-top: 1px solid $color__gray-dark;
+		width: 88%;
+		transform: translateY(-50%);
+	}
+
+	&:after {
+		content: url('./assets/icons/plus.svg');
+		position: absolute;
+		right: 0;
+		top: 4px;
+	}
+	
+}

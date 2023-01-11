@@ -167,3 +167,35 @@ function team_modal_acf_block_callback($block) {
 		include( STYLESHEETPATH . "/template-parts/custom-blocks/block-modal.php" );
 	}
 }
+
+// Add custom block Read More
+
+function read_more_acf_init() {
+	if(function_exists('acf_register_block')) {
+		acf_register_block(array(
+			'name' => 'read-more',
+			'title' => __('Leer más', 'coiiar'),
+			'description' => __('Botón para mostrar texto oculto', 'coiiar'),
+			'render_callback' => 'read_more_acf_block_callback',
+			'category' => 'design',
+			'icon' => 'text',
+			'mode' => 'preview',
+			'supports'		=> [
+				'customClassName'	=> true,
+				'jsx' 			=> true,
+			],
+			'keywords' => array('Leer', 'más', 'texto', 'acf'),
+		));
+	}
+}
+add_action('acf/init', 'read_more_acf_init');
+
+function read_more_acf_block_callback($block) {
+	// convert name ("acf/pages") into path friendly slug ("pages")
+	$slug = str_replace('acf/', '', $block['name']);
+
+	// include a template part from within the "template-parts/block" folder
+	if( file_exists(STYLESHEETPATH . "/template-parts/custom-blocks/read-more.php") ) {
+		include( STYLESHEETPATH . "/template-parts/custom-blocks/read-more.php" );
+	}
+}

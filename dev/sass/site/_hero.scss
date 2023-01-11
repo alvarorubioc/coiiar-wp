@@ -9,6 +9,11 @@
     .entry-title {
         padding: $space-xl 0;
     }
+    .single-formacion & {
+        .entry-title {
+            padding: 0;
+        }
+    }
     .img-hero {
         position: relative;
 

@@ -39,38 +39,23 @@
 <section id="hero">
     <div class="container">
         <div class="row">
+            <div class="col-xs-12 mt-4">
+                <div class="breadcrumbs mb-1" typeof="BreadcrumbList" vocab="https://schema.org/">
+                    <?php if(function_exists('bcn_display'))
+                        {
+                            bcn_display();
+                        }
+                    ?>
+                </div>
+            </div>
             <div class="col-xs-12 col-md-7">
-                <div class="entry-title">
-                    <div class="breadcrumbs mb-1" typeof="BreadcrumbList" vocab="https://schema.org/">
-                        <?php if(function_exists('bcn_display'))
-                            {
-                                bcn_display();
-                            }
-                        ?>
-                    </div>
+                <div class="entry-title pt-4">
+                    
                     <?php echo the_title( '<h1>', '</h1>' ); ?>
                 
                     <div class="divider"></div>             
                     <div class="mb-3"><strong><?php echo the_excerpt(); ?></strong></div>
 
-                    <?php 
-                        $link_1 = get_field('hero_link_1');
-                        $link_2 = get_field('hero_link_2');
-                        if( $link_1 ): 
-                            $link_url = $link_1['url'];
-                            $link_title = $link_1['title'];
-                            $link_target = $link_1['target'] ? $link_1['target'] : '_self';
-                            ?>
-                            <a class="hero-link btn btn--primary btn--md" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
-                        <?php endif;
-
-                        if( $link_2 ): 
-                            $link_url = $link_2['url'];
-                            $link_title = $link_2['title'];
-                            $link_target = $link_2['target'] ? $link_2['target'] : '_self';
-                            ?>
-                                <a class="hero-link pl-2" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
-                    <?php endif; ?>
                 </div> <!-- .entry-title -->  
             </div>
 
