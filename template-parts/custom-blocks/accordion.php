@@ -31,7 +31,9 @@ if( !empty($block['anchor']) ) {
 <?php endif; ?>
 
 <script>
-var acc = document.getElementsByClassName("accordion-btn");
+
+
+var acc = document.querySelectorAll( "#<?php echo $id; ?> .accordion-btn");
 var i;
 
 for (i = 0; i < acc.length; i++) {
@@ -45,4 +47,5 @@ for (i = 0; i < acc.length; i++) {
     } 
   });
 }
+
 </script>
