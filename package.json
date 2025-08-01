@@ -19,9 +19,9 @@
   },
   "homepage": "https://github.com/alvarorubioc/coiiar-wp#readme",
   "devDependencies": {
-    "@wordpress/scripts": "^19.2.2",
+    "@wordpress/scripts": "^30.19.0",
     "dir-archiver": "^1.1.1",
-    "node-sass": "^7.0.1",
+    "node-sass": "^9.0.0",
     "rtlcss": "^3.5.0",
     "browser-sync": "^2.27.7",
     "uglify-js": "^3.16.1"
